@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/res1">
+        <file>images/zoom_actual_equal.png</file>
+        <file>images/magnifier_zoom_in.png</file>
+        <file>images/magnifier_zoom_out.png</file>
+        <file>images/tick.png</file>
+        <file>images/cross.png</file>
+        <file>images/folder_picture.png</file>
+        <file>images/checkerbg.png</file>
+        <file>images/icon-sml70.png</file>
+        <file>images/icon-full.png</file>
+        <file>images/redcheckerbg.png</file>
+        <file>images/spritebuncher-text.png</file>
+        <file>images/folder_go.png</file>
+        <file>images/folder_explore.png</file>
+        <file>images/up_arrow.png</file>
+        <file>images/black-bg.png</file>
+    </qresource>
+</RCC>
