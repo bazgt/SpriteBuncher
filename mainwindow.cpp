@@ -579,7 +579,7 @@ int MainWindow::pack()
         nfails = Packer::Rows( sheetProp, packedsprites, ui->rotationCheckBox->isChecked(), ui->croppingCheckBox->isChecked() );
     }
     QString validStr;
-    validStr.setNum( packedsprites.size() );
+    validStr.setNum( packedsprites.size() - nfails );
     QString failStr;
     failStr.setNum( nfails );
     if ( nfails == 0 ) {
