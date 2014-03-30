@@ -19,7 +19,7 @@
 #ifndef PACKER_H
 #define PACKER_H
 
-#include <Qlist>
+#include <QList>
 #include <QPixmap>
 #include "packsprite.h"
 #include "./maxrects/MaxRectsBinPack.h"

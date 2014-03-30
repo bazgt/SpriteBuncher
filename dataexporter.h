@@ -1,7 +1,7 @@
 #ifndef EXPORTER_H
 #define EXPORTER_H
 
-#include <Qlist>
+#include <QList>
 #include <QPixmap>
 #include <QFileInfo>
 
