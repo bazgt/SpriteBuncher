@@ -1,0 +1,13 @@
+{
+    "basename": "sheet",
+    "border": 2,
+    "cropping": false,
+    "format": 0,
+    "imgformat": 0,
+    "method": 0,
+    "padding": 2,
+    "rotation": false,
+    "sheeth": 512,
+    "sheetw": 512,
+    "version": "1.0a"
+}
