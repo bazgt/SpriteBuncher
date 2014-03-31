@@ -625,7 +625,7 @@
   </action>
   <action name="actionView_manual">
    <property name="text">
-    <string>View manual</string>
+    <string>View user manual</string>
    </property>
   </action>
  </widget>
