@@ -177,6 +177,21 @@ void MainWindow::on_actionExport_triggered()
     exportFiles();
 }
 
+void MainWindow::on_actionZoom_In_triggered()
+{
+    zoomIn();
+}
+
+void MainWindow::on_actionZoom_Out_triggered()
+{
+    zoomOut();
+}
+
+void MainWindow::on_actionZoom_Reset_triggered()
+{
+    zoomReset();
+}
+
 void MainWindow::sceneSelectionChanged()
 {
     qDebug() << "sceneSelectionChanged slot";

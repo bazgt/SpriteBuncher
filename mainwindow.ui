@@ -607,6 +607,10 @@
      <string>View</string>
     </property>
     <addaction name="action_Reload"/>
+    <addaction name="separator"/>
+    <addaction name="actionZoom_In"/>
+    <addaction name="actionZoom_Out"/>
+    <addaction name="actionZoom_Reset"/>
    </widget>
    <addaction name="menuText"/>
    <addaction name="menuEdit"/>
@@ -665,6 +669,39 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+E</string>
+   </property>
+  </action>
+  <action name="actionZoom_In">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/res1/images/magnifier_zoom_in.png</normaloff>:/res1/images/magnifier_zoom_in.png</iconset>
+   </property>
+   <property name="text">
+    <string>Zoom In</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl++</string>
+   </property>
+  </action>
+  <action name="actionZoom_Out">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/res1/images/magnifier_zoom_out.png</normaloff>:/res1/images/magnifier_zoom_out.png</iconset>
+   </property>
+   <property name="text">
+    <string>Zoom Out</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+-</string>
+   </property>
+  </action>
+  <action name="actionZoom_Reset">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/res1/images/zoom_actual_equal.png</normaloff>:/res1/images/zoom_actual_equal.png</iconset>
+   </property>
+   <property name="text">
+    <string>Zoom Reset</string>
    </property>
   </action>
  </widget>

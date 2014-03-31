@@ -78,6 +78,12 @@ protected slots:
     void on_actionOpen_folder_triggered();
     //! Slot for 'Export' menu item.
     void on_actionExport_triggered();
+    //! Zoom In action menu slot.
+    void on_actionZoom_In_triggered();
+    //! Zoom Out action menu slot.
+    void on_actionZoom_Out_triggered();
+    //! Zoom Reset action menu slot.
+    void on_actionZoom_Reset_triggered();
 
     //! Slot called when selection changes on the graphicsview.
     void sceneSelectionChanged();
