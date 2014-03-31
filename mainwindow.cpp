@@ -462,7 +462,14 @@ void MainWindow::openFolder( const QString &path, bool ignoreIfCurrent )
         return;
     }
     QDir dir( path );
-    if ( dir.exists() && dir.isReadable() && dir.count() > 0 ){
+
+    // Do some sanity checks first. Until we have a better soln, prevent opening of
+    // a 'buncher' folder itself, since its confusing to open the sheet *output*!
+    bool okdir = false;
+    if ( dir.exists() && dir.isReadable() && dir.count() > 0 ) okdir = true;
+    if ( dir.dirName() == "buncher" && dir.exists( "buncher.data" ) ) okdir = false;
+
+    if ( okdir ) {
         qDebug() << "Valid folder in openFolder(): " << path;
         ui->inputPathEdit->setText( path );
         inDirn = path;
