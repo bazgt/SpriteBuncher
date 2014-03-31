@@ -172,6 +172,11 @@ void MainWindow::on_actionOpen_folder_triggered()
     openFileDialog();
 }
 
+void MainWindow::on_actionExport_triggered()
+{
+    exportFiles();
+}
+
 void MainWindow::sceneSelectionChanged()
 {
     qDebug() << "sceneSelectionChanged slot";

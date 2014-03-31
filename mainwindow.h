@@ -76,6 +76,8 @@ protected slots:
     void on_action_Reload_triggered();
     //! Slot for 'open folder' menu item.
     void on_actionOpen_folder_triggered();
+    //! Slot for 'Export' menu item.
+    void on_actionExport_triggered();
 
     //! Slot called when selection changes on the graphicsview.
     void sceneSelectionChanged();
