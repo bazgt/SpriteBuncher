@@ -72,6 +72,8 @@ protected slots:
     void on_actionAbout_triggered();
     //! Slot to open pdf manual (external file).
     void on_actionView_manual_triggered();
+    //! Slot to reload current folder.
+    void on_action_Reload_triggered();
 
     //! Slot called when selection changes on the graphicsview.
     void sceneSelectionChanged();

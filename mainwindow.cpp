@@ -161,6 +161,12 @@ void MainWindow::on_actionView_manual_triggered()
         QMessageBox::warning(this, tr("SpriteBuncher"), QString( "Sorry, could not open manual file in\n" + dir.absoluteFilePath( "guide.pdf" ) ), QMessageBox::Ok );
 }
 
+void MainWindow::on_action_Reload_triggered()
+{
+    zoomReset(); // (zoom seems to mess-up without this?).
+    openFolder( inDirn, false ); // ignoreIfCurrent=false
+}
+
 void MainWindow::sceneSelectionChanged()
 {
     qDebug() << "sceneSelectionChanged slot";

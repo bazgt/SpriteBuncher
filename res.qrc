@@ -15,5 +15,6 @@
         <file>images/folder_explore.png</file>
         <file>images/up_arrow.png</file>
         <file>images/black-bg.png</file>
+        <file>images/arrow_refresh.png</file>
     </qresource>
 </RCC>
