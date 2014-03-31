@@ -87,6 +87,9 @@ bool DataExporter::Export( const SheetProperties &sheetProp, const DataExporter:
         case FORMAT_GIDEROS:
         ok = ExportPlainText( sheetProp, path, filen, packedsprites );
         break;
+        case FORMAT_COCOS2D:
+        ok = ExportPLIST( sheetProp, path, filen, packedsprites, true ); // note cocos2d flag
+        break;
     default:
         qDebug() << "Unsupported format in Expoter::Export";
     }
@@ -179,7 +182,7 @@ bool DataExporter::ExportJSON( const SheetProperties &sheetProp, const QString &
     metaObject.insert( "app", QCoreApplication::applicationName() );
     metaObject.insert( "version", QCoreApplication::applicationVersion() );
     metaObject.insert( "scale", 1.0 );
-    metaObject.insert( "format", QString("RGBA8888") );
+    metaObject.insert( "format", QString("RGBA8888") ); // [TODO - need to set this!]
     QJsonObject mszObject;
     mszObject.insert( "w", sheetProp.width );
     mszObject.insert( "h", sheetProp.height );
@@ -248,6 +251,71 @@ bool DataExporter::ExportGideros( const SheetProperties &sheetProp, const QStrin
     return ok;
 }
 
+bool DataExporter::ExportPLIST( const SheetProperties &sheetProp, const QString &path, const QString &filen, const QList<PackSprite> &packedsprites,
+                                bool cocosStyle )
+{
+    QString str;
+    QTextStream qs(&str);
+    QString keytag = "<key>";
+    QString keytag2 = "</key>";
+    QString dicttag = "<dict>";
+    QString dicttag2 = "</dict>";
+    QString truetag = "<true/>";
+    QString falsetag = "<false/>";
+    QString strtag = "<string>";
+    QString strtag2 = "</string>";
+    QString tab = "    ";
+    QString tab2x = tab + tab;
+    QString tab4x = tab2x + tab2x;
+    if ( !cocosStyle ){
+        // (non-cocos style options could go here)
+    }
+    qs << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+    qs << "<!DOCTYPE plist PUBLIC \"-//Apple Computer//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n";
+    qs << "<plist version=\"1.0\">\n";
+    qs << tab << dicttag << "\n";
+    qs << tab2x << keytag << "frames" << keytag2 << "\n";
+    qs << tab2x << dicttag << "\n";
+
+    for (int i = 0; i < packedsprites.size(); ++i){
+
+        QString posx, posy, szw, szh;
+        posx.setNum( packedsprites[i].packedRect().x + sheetProp.border + sheetProp.padding );
+        posy.setNum( packedsprites[i].packedRect().y + sheetProp.border + sheetProp.padding );
+        szw.setNum( packedsprites[i].packedRect().width - sheetProp.padding );
+        szh.setNum( packedsprites[i].packedRect().height - sheetProp.padding );
+        QString posstr = "{" + posx + "," + posy + "}";
+        QString szstr = "{" + szw + "," + szh + "}";
+
+        qs << tab << tab2x << keytag << packedsprites[i].fileInfo().fileName() << keytag2 << "\n";          qs << tab4x << dicttag << "\n";
+        qs << tab4x << keytag << "frame" << keytag2 << "\n";
+        qs << tab4x << strtag << "{" << posstr << "," << szstr << "}" << strtag2 << "\n";
+        qs << tab4x << keytag << "offset" << keytag2 << "\n";
+        qs << tab4x << strtag << "{" << 0 << "," << 0 << "}" << strtag2 << "\n"; // Todo?
+        qs << tab4x << keytag << "rotated" << keytag2 << "\n";
+        if ( packedsprites[i].isRotated() )
+            qs << tab4x << falsetag << "\n";
+        else
+            qs << tab4x << truetag << "\n";
+
+        qs << tab4x << keytag << "sourceColorRect" << keytag2 << "\n";
+        qs << tab4x << strtag << "{" << "{0,0}" << "," << szstr << "}" << strtag2 << "\n";
+        qs << tab4x << keytag << "sourceSize" << keytag2 << "\n";
+        qs << tab4x << strtag << "{" << szstr << "}" << strtag2 << "\n";
+        qs << tab << tab2x << dicttag2 << "\n";
+    }
+    qs << tab2x << dicttag2 << "\n";
+    qs << tab2x << keytag << "metadata" << keytag2 << "\n";
+    qs << tab2x << dicttag << "\n";
+    qs << tab << tab2x << keytag << "textureFileName" << keytag2 << "\n";
+    qs << tab << tab2x << strtag << filen + ".png" << strtag2 << "\n"; // NB png assumed.
+    qs << tab2x << dicttag2 << "\n";
+    qs << tab << dicttag2 << "\n";
+    qs << "</plist>\n";
+    bool ok = DataExporter::WriteFile( path, filen, ".xml", str );
+    return ok;
+}
+
 bool DataExporter::WriteFile( const QString &path, const QString &filen, const QString &extn, const QString &text )
 {
     bool ok = false;
@@ -263,14 +331,14 @@ bool DataExporter::WriteFile( const QString &path, const QString &filen, const Q
     return ok;
 }
 
-QString DataExporter::quoted( const QString &str, QString quote )
+QString DataExporter::quoted( const QString &str, const QString &quote )
 {
     QString ret = str;
     ret.prepend( quote ).append( quote );
     return ret;
 }
 
-QString DataExporter::quoted( const int val, const QString quote )
+QString DataExporter::quoted( const int val, const QString &quote )
 {
     QString str;
     str.setNum( val );

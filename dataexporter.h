@@ -29,7 +29,7 @@ protected:
 
     //! Exports 'generic' XML file, and any variations, e.g. Sparrow/Starling.
     static bool ExportXML( const SheetProperties &sheetProp, const QString &path, const QString &filen, const QList<PackSprite> &packedsprites,
-                           bool starlingStyle = false ); //, int sheetw = 1024, int sheeth = 1024, int padding = 0, int border = 0 );
+                           bool starlingStyle = false );
 
     //! Exports JSON file, and any variations, e.g. Unity.
     static bool ExportJSON( const SheetProperties &sheetProp, const QString &path, const QString &filen, const QList<PackSprite> &packedsprites,
@@ -46,7 +46,7 @@ protected:
 
     //! Exports a PLIST properties file, and any variations. Exports cocos2d format by default.
     static bool ExportPLIST( const SheetProperties &sheetProp, const QString &path, const QString &filen, const QList<PackSprite> &packedsprites,
-                             bool cocosStyle = true ); //, int sheetw = 1024, int sheeth = 1024, int padding = 0, int border = 0 );
+                             bool cocosStyle = true );
 
     //! Writes text to the required file.
     /*! \param path - folder path to write to.
@@ -57,10 +57,10 @@ protected:
     static bool WriteFile( const QString &path, const QString &filen, const QString &extn, const QString &text );
 
     //! Convenience function, returns a string with added quotes.
-    static QString quoted( const QString &str, const QString quote = "\"" );
+    static QString quoted( const QString &str, const QString &quote = "\"" );
 
     //! Overload. Convenience function, returns a string with added quotes around an integer.
-    static QString quoted( const int val, const QString quote = "\"" );
+    static QString quoted( const int val, const QString &quote = "\"" );
 
     //! Sorts a packsprite list by filename, returns a new list.
     static const QList<PackSprite> sortByFileName( const  QList<PackSprite> input );
