@@ -586,6 +586,8 @@
     <property name="title">
      <string>File</string>
     </property>
+    <addaction name="actionOpen_folder"/>
+    <addaction name="separator"/>
     <addaction name="actionAbout"/>
    </widget>
    <widget class="QMenu" name="menuEdit">
@@ -642,6 +644,18 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+R</string>
+   </property>
+  </action>
+  <action name="actionOpen_folder">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/res1/images/folder_explore.png</normaloff>:/res1/images/folder_explore.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Open Folder...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
    </property>
   </action>
  </widget>

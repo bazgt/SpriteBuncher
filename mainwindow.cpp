@@ -167,6 +167,11 @@ void MainWindow::on_action_Reload_triggered()
     openFolder( inDirn, false ); // ignoreIfCurrent=false
 }
 
+void MainWindow::on_actionOpen_folder_triggered()
+{
+    openFileDialog();
+}
+
 void MainWindow::sceneSelectionChanged()
 {
     qDebug() << "sceneSelectionChanged slot";

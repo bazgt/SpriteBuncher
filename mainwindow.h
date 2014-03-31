@@ -74,6 +74,8 @@ protected slots:
     void on_actionView_manual_triggered();
     //! Slot to reload current folder.
     void on_action_Reload_triggered();
+    //! Slot for 'open folder' menu item.
+    void on_actionOpen_folder_triggered();
 
     //! Slot called when selection changes on the graphicsview.
     void sceneSelectionChanged();
