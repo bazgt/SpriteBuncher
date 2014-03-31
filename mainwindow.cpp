@@ -50,9 +50,6 @@ MainWindow::MainWindow(QWidget *parent) :
     qDebug() << "started";
     ui->setupUi(this);
     setAcceptDrops( true );
-    useCustomStyleSheet = true; // Todo
-    if ( useCustomStyleSheet )
-        setStyleSheet( mainStyleSheet );
     setWindowIcon( QIcon( ":/res1/images/icon-full.png" )); // (see also res.qrc and buncher.icns, set in .pro file).
     setWindowTitle( tr( "SpriteBuncher" ));
 
@@ -109,6 +106,9 @@ void MainWindow::readAppSettings()
     restoreGeometry(settings.value("geometry").toByteArray());
     restoreState(settings.value("windowState").toByteArray());
     useCustomStyleSheet = settings.value("useCustomStyleSheet").toBool();
+    ui->actionUse_Dark_UI_Theme->setChecked( useCustomStyleSheet );
+    if ( useCustomStyleSheet )
+        setStyleSheet( mainStyleSheet );
 }
 
 void MainWindow::on_listWidget_clicked(const QModelIndex &index)
@@ -190,6 +190,16 @@ void MainWindow::on_actionZoom_Out_triggered()
 void MainWindow::on_actionZoom_Reset_triggered()
 {
     zoomReset();
+}
+
+void MainWindow::on_actionUse_Dark_UI_Theme_triggered()
+{
+    useCustomStyleSheet = !useCustomStyleSheet;
+    if ( useCustomStyleSheet )
+         setStyleSheet( mainStyleSheet );
+    else
+        setStyleSheet( qApp->styleSheet() ); // reset to default stylesheet
+    this->update();
 }
 
 void MainWindow::sceneSelectionChanged()

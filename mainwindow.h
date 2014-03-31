@@ -84,6 +84,8 @@ protected slots:
     void on_actionZoom_Out_triggered();
     //! Zoom Reset action menu slot.
     void on_actionZoom_Reset_triggered();
+    //! Menu item slot to toggle dark UI skin.
+    void on_actionUse_Dark_UI_Theme_triggered();
 
     //! Slot called when selection changes on the graphicsview.
     void sceneSelectionChanged();
