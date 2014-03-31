@@ -121,9 +121,9 @@ bool DataExporter::ExportXML( const SheetProperties &sheetProp, const QString &p
     qs << ">\n";
     for (int i = 0; i < packedsprites.size(); ++i){
         qs << "    <" << spriteTag << " " << nameTag << "=" << quoted( packedsprites[i].fileInfo().fileName() )
-           << " x=" << quoted( packedsprites[i].packedRect().x + sheetProp.border + sheetProp.padding ) // note - must add border and padding to all posn
-           << " y=" << quoted (packedsprites[i].packedRect().y + sheetProp.border + sheetProp.padding )
-           << " " << widthTag << "=" << quoted( packedsprites[i].packedRect().width - sheetProp.padding ) // note - must subtr padding to get orig size
+           << " x=" << quoted( packedsprites[i].packedRect().x + sheetProp.border )
+           << " y=" << quoted (packedsprites[i].packedRect().y + sheetProp.border )
+           << " " << widthTag << "=" << quoted( packedsprites[i].packedRect().width - sheetProp.padding )
            << " " << heightTag << "=" << quoted( packedsprites[i].packedRect().height - sheetProp.padding );
         if ( !starlingStyle && packedsprites[i].isRotated() ) qs << " r=\"y\"";
         qs << "/>\n";
@@ -144,8 +144,8 @@ bool DataExporter::ExportJSON( const SheetProperties &sheetProp, const QString &
         if ( !unityStyle )
             spriteObject.insert( "filename", packedsprites[i].fileInfo().fileName() );
         QJsonObject frameObject;
-        frameObject.insert( "x", packedsprites[i].packedRect().x + sheetProp.border + sheetProp.padding  );
-        frameObject.insert( "y", packedsprites[i].packedRect().y + sheetProp.border + sheetProp.padding  );
+        frameObject.insert( "x", packedsprites[i].packedRect().x + sheetProp.border );
+        frameObject.insert( "y", packedsprites[i].packedRect().y + sheetProp.border );
         frameObject.insert( "w", packedsprites[i].packedRect().width - sheetProp.padding );
         frameObject.insert( "h", packedsprites[i].packedRect().height - sheetProp.padding );
         spriteObject.insert( "frame", frameObject );
@@ -154,8 +154,8 @@ bool DataExporter::ExportJSON( const SheetProperties &sheetProp, const QString &
         spriteObject.insert( "trimmed", false ); // (not same as cropped)
 
         QJsonObject srcObject;
-        srcObject.insert( "x", packedsprites[i].packedRect().x + sheetProp.border + sheetProp.padding  );
-        srcObject.insert( "y", packedsprites[i].packedRect().y + sheetProp.border + sheetProp.padding  );
+        srcObject.insert( "x", packedsprites[i].packedRect().x + sheetProp.border );
+        srcObject.insert( "y", packedsprites[i].packedRect().y + sheetProp.border );
         srcObject.insert( "w", packedsprites[i].packedRect().width - sheetProp.padding );
         srcObject.insert( "h", packedsprites[i].packedRect().height - sheetProp.padding );
         spriteObject.insert( "spriteSourceSize", srcObject );
@@ -210,7 +210,7 @@ bool DataExporter::ExportLibGDX( const SheetProperties &sheetProp, const QString
     for (int i = 0; i < packedsprites.size(); ++i){
         qs << ( packedsprites[i].fileInfo().baseName() ) << "\n" // note - name without extn.
            << "  rotate: false\n"
-           << "  xy: " << packedsprites[i].packedRect().x + sheetProp.border + sheetProp.padding << ", " << packedsprites[i].packedRect().y + sheetProp.border + sheetProp.padding << "\n"
+           << "  xy: " << packedsprites[i].packedRect().x + sheetProp.border << ", " << packedsprites[i].packedRect().y + sheetProp.border << "\n"
            << "  size: " << packedsprites[i].packedRect().width - sheetProp.padding << ", " << packedsprites[i].packedRect().height - sheetProp.padding << "\n"
            << "  orig: " << packedsprites[i].packedRect().width - sheetProp.padding << ", " << packedsprites[i].packedRect().height - sheetProp.padding << "\n"
            <<  "  offset: 0, 0\n"
@@ -227,7 +227,7 @@ bool DataExporter::ExportPlainText( const SheetProperties &sheetProp, const QStr
     QTextStream qs(&str);
     for (int i = 0; i < packedsprites.size(); ++i){
         qs << "image=" << quoted( packedsprites[i].fileInfo().fileName() ) << "\t"
-           << " x=" << packedsprites[i].packedRect().x + sheetProp.border + sheetProp.padding << "\t y=" << packedsprites[i].packedRect().y + sheetProp.border + sheetProp.padding
+           << " x=" << packedsprites[i].packedRect().x + sheetProp.border << "\t y=" << packedsprites[i].packedRect().y + sheetProp.border
            << "\t width=" << packedsprites[i].packedRect().width - sheetProp.padding << "\t height=" << packedsprites[i].packedRect().height - sheetProp.padding
            << "\t rotated=" << packedsprites[i].isRotated() << "\n";
     }
@@ -243,7 +243,7 @@ bool DataExporter::ExportGideros( const SheetProperties &sheetProp, const QStrin
     QTextStream qs(&str);
     for (int i = 0; i < packedsprites.size(); ++i){
         qs << packedsprites[i].fileInfo().fileName() << ", "
-           << packedsprites[i].packedRect().x + sheetProp.border + sheetProp.padding << ", " << packedsprites[i].packedRect().y + sheetProp.border + sheetProp.padding << ", "
+           << packedsprites[i].packedRect().x + sheetProp.border << ", " << packedsprites[i].packedRect().y + sheetProp.border << ", "
            << packedsprites[i].packedRect().width - sheetProp.padding << ", " << packedsprites[i].packedRect().height - sheetProp.padding << ", "
            << "0, 0, 0, 0\n";
     }
@@ -280,8 +280,8 @@ bool DataExporter::ExportPLIST( const SheetProperties &sheetProp, const QString 
     for (int i = 0; i < packedsprites.size(); ++i){
 
         QString posx, posy, szw, szh;
-        posx.setNum( packedsprites[i].packedRect().x + sheetProp.border + sheetProp.padding );
-        posy.setNum( packedsprites[i].packedRect().y + sheetProp.border + sheetProp.padding );
+        posx.setNum( packedsprites[i].packedRect().x + sheetProp.border );
+        posy.setNum( packedsprites[i].packedRect().y + sheetProp.border );
         szw.setNum( packedsprites[i].packedRect().width - sheetProp.padding );
         szh.setNum( packedsprites[i].packedRect().height - sheetProp.padding );
         QString posstr = "{" + posx + "," + posy + "}";
