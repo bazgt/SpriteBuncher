@@ -742,11 +742,7 @@ void MainWindow::updateViewWidgets( int nfails )
         rbp::Rect packedRect =  packedsprites[i].packedRect();
         if (packedRect.height > 0) {
             QPixmap pm;
-            if ( packedsprites[i].hasSizeCropped() )
-                pm = packedsprites[i].croppedPixmap();
-            else
                 pm = packedsprites[i].pixmap();
-
             // if rotated, need to display a rotated pixmap on the canvas:
             if ( packedsprites[i].isRotated() ){
                 QTransform trans;
@@ -764,19 +760,22 @@ void MainWindow::updateViewWidgets( int nfails )
             item->setPos( packedRect.x + ui->borderSpinBox->value(), packedRect.y + ui->borderSpinBox->value() );
 
             // make the listwidget item and a useful tooltip:
-            ui->listWidget->addItem(new QListWidgetItem( QIcon( pm ), packedsprites[i].fileInfo().fileName() ) );
+            QPixmap opm = packedsprites[i].originalPixmap(); // we choose to use orig pm, before crop/rot/expand.
+            ui->listWidget->addItem(new QListWidgetItem( QIcon( opm ), packedsprites[i].fileInfo().fileName() ) );
             QString pxstr, pystr, widstr, hgtstr;
             pxstr.setNum( int(item->pos().x() ));
             pystr.setNum( int(item->pos().y() ));
-            widstr.setNum( pm.width() );
+            widstr.setNum( pm.width() ); // use actual current pm for any data!
             hgtstr.setNum( pm.height() );
             QString rotStr;
             if ( packedsprites[i].isRotated() )
                 rotStr = " (rotated)";
-            QString cropStr;
-            if ( packedsprites[i].hasSizeCropped() )
-                cropStr = " (cropped)";
-            item->setToolTip( packedsprites[i].fileInfo().fileName() + "\nPos: " + pxstr + ", " + pystr + rotStr + "\nSize: " + widstr + " x " + hgtstr + cropStr );
+            QString szStr;
+            if ( packedsprites[i].isCropped() )
+                szStr = " (cropped)";
+            else if ( packedsprites[i].isExpanded() ) // (could actually be cropped and then expanded).
+                szStr = " (expanded)";
+            item->setToolTip( packedsprites[i].fileInfo().fileName() + "\nPos: " + pxstr + ", " + pystr + rotStr + "\nSize: " + widstr + " x " + hgtstr + szStr );
         }
     }
 

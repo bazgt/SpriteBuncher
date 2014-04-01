@@ -32,31 +32,46 @@ class PackSprite
 public:
     PackSprite( const QPixmap &pm, const QFileInfo &fi );
 
-     QFileInfo fileInfo() const;
-     QPixmap pixmap() const; // TODO should this ret ref?
+    QFileInfo fileInfo() const;
+    const QPixmap& pixmap() const;
+    const QPixmap& originalPixmap() const;
 
-     //! returns auto-cropped version of pixmap, based on opaque bounding area. pixmap is cached for future use.
-     QPixmap croppedPixmap();
-    //! returns true if cropping has changed the pixmaps original size. returns false if cropping not performed on this pixmap.
-     bool hasSizeCropped() const;
+    void setPixmap ( const QPixmap& pm );
 
-     //! removes knowledge of any cropping that has been applied.
-     void resetCropping();
+    //! Resets the packing rect, rotation flag, cropping, and restores original pixmap (calls restoreOriginalPixmap).
+    /* This is generally used before the item is to be re-packed - ie we dont want previous data in place.
+       */
+    void resetForPacking();
 
-     //! returns the packedrect. will be a zero-sized rect if packing has not run yet, or if it has failed for this item.
-     rbp::Rect packedRect() const;
-     void setPackedRect( rbp::Rect rect );
+    //!  auto-crops the current pixmap based on opaque bounding area. Original can be restored via restoreOriginalPixmap.
+    void cropPixmap();
 
-     bool isRotated() const;
-     void setIsRotated( bool state = true );
+    bool isCropped() const;
+    bool isExpanded() const;
+
+    //! Reverts to the (cached) original pixmap, removing any cropping or extending.
+    void restoreOriginalPixmap();
+
+    //! Expands the current pixmap on each side by the chosen number of pixels.
+    void expandPixmap( int npixels = 0 );
+
+    //! returns the packedrect. will be a zero-sized rect if packing has not run yet, or if it has failed for this item.
+    rbp::Rect packedRect() const;
+    void setPackedRect( rbp::Rect rect );
+
+    bool isRotated() const;
+    void setIsRotated( bool state = true );
 
 protected:
 
     QPixmap m_pm;
-    QPixmap m_pm_cropped;
+    QPixmap m_pm_original; // before any cropping, expanding etc.
+
     QFileInfo m_fi;
     rbp::Rect m_packedRect;
+    bool m_isCropped;
     bool m_rotated;
+    bool m_isExpanded;
 };
 
 #endif // PACKSPRITE_H

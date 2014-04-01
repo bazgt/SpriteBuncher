@@ -17,14 +17,31 @@
 */
 
 #include <QGraphicsPixmapItem>
+#include <QPainter>
 #include <QDebug>
 #include "packsprite.h"
 
 PackSprite::PackSprite( const QPixmap &pm, const QFileInfo &fi )
 {
-    m_pm = pm;
+    setPixmap( pm );
+    m_pm_original = m_pm; // ?.copy();
     m_fi = fi;
-    m_rotated = false; // (currently unused).
+    m_rotated = false;
+    m_isCropped = false;
+    m_isExpanded = false;
+}
+
+void PackSprite::setPixmap ( const QPixmap& pm )
+{
+    m_pm = pm;
+    //qDebug() << "setPixmap.  size is " << pixmap().width() << pixmap().height();
+}
+
+void PackSprite::resetForPacking()
+{
+    setPackedRect( rbp::Rect() );
+    setIsRotated( false );
+    restoreOriginalPixmap();
 }
 
 QFileInfo PackSprite::fileInfo() const
@@ -32,40 +49,61 @@ QFileInfo PackSprite::fileInfo() const
     return m_fi;
 }
 
-QPixmap PackSprite::pixmap() const
+const QPixmap& PackSprite::pixmap() const
 {
     return m_pm;
 }
 
-QPixmap PackSprite::croppedPixmap()
+const QPixmap& PackSprite::originalPixmap() const
 {
-    if ( !m_pm_cropped.isNull() ) return m_pm_cropped; // return cached data
-     if ( m_pm.isNull() ) return m_pm_cropped;
+    return m_pm_original;
+}
 
+void PackSprite::cropPixmap()
+{
+    if ( m_pm.isNull() ) return;
     // [using  QGraphicsPixmapItem is not fast, but its easier than scanning lines ourselves]
+    QPixmap cropped;
     QGraphicsPixmapItem pm( m_pm );
     QRectF opaqueArea = pm.opaqueArea().boundingRect();
     if ( opaqueArea.isValid() && ( opaqueArea.width() < m_pm.width() || opaqueArea.height() < m_pm.height() ) ) {
-        m_pm_cropped = m_pm.copy( opaqueArea.x(), opaqueArea.y(), opaqueArea.width(), opaqueArea.height() ); // (deep copy).
-        qDebug() << "Pixmap was cropped to size " << m_pm_cropped.width() << m_pm_cropped.height();
+        cropped = m_pm.copy( opaqueArea.x(), opaqueArea.y(), opaqueArea.width(), opaqueArea.height() ); // (deep copy).
+        m_isCropped = true;
+        m_pm = cropped;
+        qDebug() << "Pixmap was cropped to size " << m_pm.width() << m_pm.height();
     }
-    else
-        m_pm_cropped = m_pm; // ref back to original pixmap - prevents us trying to crop again.
-
-    return m_pm_cropped;
 }
 
-bool PackSprite::hasSizeCropped() const
+bool PackSprite::isCropped() const
 {
-    if ( !m_pm_cropped.isNull() )
-        return !(m_pm.size() == m_pm_cropped.size() );
-    return false;
+    return m_isCropped;
 }
 
- void PackSprite::resetCropping()
- {
-     m_pm_cropped = QPixmap();
- }
+bool PackSprite::isExpanded() const
+{
+    return m_isExpanded;
+}
+
+void PackSprite::restoreOriginalPixmap()
+{
+    setPixmap( m_pm_original );
+    m_isCropped = false;
+    m_isExpanded = false;
+    //qDebug() << " - new pixmap() size is " << pixmap().width() << " " << pixmap().height();
+}
+
+void PackSprite::expandPixmap( int npixels )
+{
+    if ( npixels <= 0 ) return;
+    QPixmap newpm( pixmap().width() + 2*npixels, pixmap().height() + 2*npixels );
+    newpm.fill(Qt::transparent);
+    QPainter painter( &newpm );
+    painter.drawPixmap( npixels, npixels, pixmap() );
+    qDebug() << "expandPixmap from " << pixmap().width() << " " << pixmap().height();
+    m_isExpanded = true;
+    setPixmap( newpm );
+    qDebug() << "expandPixmap to " << pixmap().width() << " " << pixmap().height();
+}
 
 rbp::Rect PackSprite::packedRect() const
 {

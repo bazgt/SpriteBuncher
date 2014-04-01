@@ -24,10 +24,8 @@ int Packer::MaxRects( const SheetProperties &sheetProp, QList<PackSprite> &packe
                       bool allowRotation, bool allowCrop )
 {
     // Reset previous rect data, incl rotation and cropping.
-    foreach ( PackSprite ps, packedsprites ) {
-        ps.setPackedRect( rbp::Rect() );
-        ps.setIsRotated( false );
-        ps.resetCropping();
+    for (int i = 0; i < packedsprites.size(); ++i) {
+        packedsprites[i].resetForPacking();
     }
 
     int validitems = 0;
@@ -39,9 +37,9 @@ int Packer::MaxRects( const SheetProperties &sheetProp, QList<PackSprite> &packe
         // This is the last chance to modifiy (e.g. crop, extend) pixmaps before they get packed.
         QPixmap px;
         if ( allowCrop )
-            px = packedsprites[i].croppedPixmap();
-        else
-            px = packedsprites[i].pixmap();
+            packedsprites[i].cropPixmap();
+
+        px = packedsprites[i].pixmap();
 
         if ( !px.isNull()  && px.width() > 0 && px.width() > 0 )
         {
@@ -78,10 +76,8 @@ int Packer::Rows( const SheetProperties &sheetProp, QList<PackSprite> &packedspr
     Q_UNUSED( allowRotation ) // rot currently not supported, but we could...
 
     // Reset previous rect data, incl rotation and cropping.
-    foreach ( PackSprite ps, packedsprites ){
-        ps.setPackedRect( rbp::Rect() );
-        ps.setIsRotated( false );
-        ps.resetCropping();
+    for (int i = 0; i < packedsprites.size(); ++i) {
+        packedsprites[i].resetForPacking();
     }
     int validitems = 0;
     int ignoreditems = 0;
@@ -95,9 +91,11 @@ int Packer::Rows( const SheetProperties &sheetProp, QList<PackSprite> &packedspr
     for (int i = 0; i < packedsprites.size(); ++i) {
         QPixmap px;
         if ( allowCrop )
-            px = packedsprites[i].croppedPixmap();
-        else
-            px = packedsprites[i].pixmap();
+            packedsprites[i].cropPixmap();
+
+        // packedsprites[i].expandPixmap( 2 ); // TEST
+        px = packedsprites[i].pixmap();
+
         if ( !px.isNull()  && px.width() > 0 && px.width() > 0 )
         {
             rbp::Rect packedRect;
