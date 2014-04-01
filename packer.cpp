@@ -21,7 +21,7 @@
 
 int Packer::MaxRects( const SheetProperties &sheetProp, QList<PackSprite> &packedsprites,
                       rbp::MaxRectsBinPack::FreeRectChoiceHeuristic heuristic,
-                      bool allowRotation, bool allowCrop )
+                      bool allowRotation, bool allowCrop, int expandSprites )
 {
     // Reset previous rect data, incl rotation and cropping.
     for (int i = 0; i < packedsprites.size(); ++i) {
@@ -38,6 +38,10 @@ int Packer::MaxRects( const SheetProperties &sheetProp, QList<PackSprite> &packe
         QPixmap px;
         if ( allowCrop )
             packedsprites[i].cropPixmap();
+
+        // Expand sprites. Obviously, must be after cropping!
+        if ( expandSprites > 0 )
+            packedsprites[i].expandPixmap( expandSprites );
 
         px = packedsprites[i].pixmap();
 
@@ -71,7 +75,8 @@ int Packer::MaxRects( const SheetProperties &sheetProp, QList<PackSprite> &packe
     return failitems;
 }
 
-int Packer::Rows( const SheetProperties &sheetProp, QList<PackSprite> &packedsprites,  bool allowRotation, bool allowCrop )
+int Packer::Rows( const SheetProperties &sheetProp, QList<PackSprite> &packedsprites,  bool allowRotation,
+                  bool allowCrop, int expandSprites )
 {
     Q_UNUSED( allowRotation ) // rot currently not supported, but we could...
 
@@ -92,8 +97,10 @@ int Packer::Rows( const SheetProperties &sheetProp, QList<PackSprite> &packedspr
         QPixmap px;
         if ( allowCrop )
             packedsprites[i].cropPixmap();
+        // Expand sprites. Obviously, must be after cropping!
+        if ( expandSprites > 0 )
+            packedsprites[i].expandPixmap( expandSprites );
 
-        // packedsprites[i].expandPixmap( 2 ); // TEST
         px = packedsprites[i].pixmap();
 
         if ( !px.isNull()  && px.width() > 0 && px.width() > 0 )

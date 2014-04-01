@@ -38,14 +38,14 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>372</width>
-          <height>538</height>
+          <width>296</width>
+          <height>523</height>
          </rect>
         </property>
         <attribute name="label">
          <string>Settings</string>
         </attribute>
-        <layout class="QVBoxLayout" name="verticalLayout_2">
+        <layout class="QVBoxLayout" name="verticalLayout">
          <item>
           <widget class="QGroupBox" name="groupBox_3">
            <property name="minimumSize">
@@ -303,10 +303,10 @@
          <item>
           <widget class="QGroupBox" name="groupBox">
            <property name="title">
-            <string>Packing Method</string>
+            <string>Packing</string>
            </property>
-           <layout class="QVBoxLayout" name="verticalLayout">
-            <item>
+           <layout class="QGridLayout" name="gridLayout_2">
+            <item row="0" column="0" colspan="2">
              <widget class="QComboBox" name="methodComboBox">
               <item>
                <property name="text">
@@ -355,19 +355,71 @@
               </item>
              </widget>
             </item>
-            <item>
+            <item row="1" column="0">
+             <spacer name="verticalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>5</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="2" column="0">
+             <widget class="QCheckBox" name="croppingCheckBox">
+              <property name="text">
+               <string>Allow cropping</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
              <widget class="QCheckBox" name="rotationCheckBox">
               <property name="text">
                <string>Allow rotation</string>
               </property>
              </widget>
             </item>
-            <item>
-             <widget class="QCheckBox" name="croppingCheckBox">
-              <property name="text">
-               <string>Allow cropping</string>
-              </property>
-             </widget>
+            <item row="3" column="0">
+             <layout class="QHBoxLayout" name="horizontalLayout">
+              <item>
+               <widget class="QLabel" name="label_9">
+                <property name="text">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;Expand&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QSpinBox" name="expandSpinBox">
+                <property name="maximum">
+                 <number>1000</number>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="3" column="1">
+             <layout class="QHBoxLayout" name="horizontalLayout_3">
+              <item>
+               <widget class="QLabel" name="label_10">
+                <property name="text">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;Extrude&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QSpinBox" name="extrudeSpinBox">
+                <property name="maximum">
+                 <number>1000</number>
+                </property>
+               </widget>
+              </item>
+             </layout>
             </item>
            </layout>
           </widget>
@@ -440,6 +492,20 @@
         <bool>true</bool>
        </property>
       </widget>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QPushButton" name="publishButton">
+      <property name="toolTip">
+       <string>Export output files</string>
+      </property>
+      <property name="text">
+       <string>Export</string>
+      </property>
+      <property name="icon">
+       <iconset resource="res.qrc">
+        <normaloff>:/res1/images/folder_go.png</normaloff>:/res1/images/folder_go.png</iconset>
+      </property>
      </widget>
     </item>
     <item row="1" column="1">
@@ -556,20 +622,6 @@
        </widget>
       </item>
      </layout>
-    </item>
-    <item row="1" column="0">
-     <widget class="QPushButton" name="publishButton">
-      <property name="toolTip">
-       <string>Export output files</string>
-      </property>
-      <property name="text">
-       <string>Export</string>
-      </property>
-      <property name="icon">
-       <iconset resource="res.qrc">
-        <normaloff>:/res1/images/folder_go.png</normaloff>:/res1/images/folder_go.png</iconset>
-      </property>
-     </widget>
     </item>
    </layout>
   </widget>
@@ -807,7 +859,7 @@
    <slot>sheetOptionChanged(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>356</x>
+     <x>280</x>
      <y>348</y>
     </hint>
     <hint type="destinationlabel">
@@ -823,7 +875,7 @@
    <slot>sheetOptionChanged(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>356</x>
+     <x>280</x>
      <y>382</y>
     </hint>
     <hint type="destinationlabel">
@@ -839,7 +891,7 @@
    <slot>sheetOptionChanged(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>237</x>
+     <x>161</x>
      <y>348</y>
     </hint>
     <hint type="destinationlabel">
@@ -871,7 +923,7 @@
    <slot>sheetOptionChanged(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>237</x>
+     <x>161</x>
      <y>382</y>
     </hint>
     <hint type="destinationlabel">
@@ -903,8 +955,8 @@
    <slot>packingOptionChanged(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>109</x>
-     <y>469</y>
+     <x>259</x>
+     <y>496</y>
     </hint>
     <hint type="destinationlabel">
      <x>241</x>
@@ -925,6 +977,38 @@
     <hint type="destinationlabel">
      <x>196</x>
      <y>671</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>expandSpinBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>packingOptionChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>125</x>
+     <y>515</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>628</x>
+     <y>647</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>extrudeSpinBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>packingOptionChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>230</x>
+     <y>511</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>575</x>
+     <y>677</y>
     </hint>
    </hints>
   </connection>

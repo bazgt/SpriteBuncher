@@ -34,10 +34,6 @@
 
      int padding;   // added pixel gap around each sprite
      int border;    // border around edges of sheet
-
-     int extend;    // increases sprite size
-     int extrude;   // duplicates edge pixels of sprites
-     qreal scale;   // sprite scaling (doesnt affect sheet size)
      };
 
 namespace Ui {

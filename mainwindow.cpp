@@ -53,6 +53,11 @@ MainWindow::MainWindow(QWidget *parent) :
     setWindowIcon( QIcon( ":/res1/images/icon-full.png" )); // (see also res.qrc and buncher.icns, set in .pro file).
     setWindowTitle( tr( "SpriteBuncher" ));
 
+    sheetProp.padding = 2.0;
+    sheetProp.border = 2.0;
+    sheetProp.height = 512;
+    sheetProp.width = 512;
+
     readAppSettings();
     outFilen =  ui->basenameLineEdit->text();
     inDirn = QString();
@@ -404,10 +409,29 @@ bool MainWindow::loadJsonSettings()
             QJsonValue jsval = obj.value( "border");
             if ( jsval.toDouble() >= 0 ){
                 int val = jsval.toDouble();
-                sheetProp. border = val;
+                sheetProp.border = val;
                 ui->borderSpinBox->blockSignals( true );
                 ui->borderSpinBox->setValue( val );
                 ui->borderSpinBox->blockSignals( false );
+            }
+        }
+         if ( obj.contains( "expand" )){
+            QJsonValue jsval = obj.value( "expand");
+            if ( jsval.toDouble() >= 0 ){
+                int val = jsval.toDouble();
+                //sheetProp.expand = val;
+                ui->expandSpinBox->blockSignals( true );
+                ui->expandSpinBox->setValue( val );
+                ui->expandSpinBox->blockSignals( false );
+            }
+        }
+         if ( obj.contains( "extrude" )){
+            QJsonValue jsval = obj.value( "extrude");
+            if ( jsval.toDouble() >= 0 ){
+                int val = jsval.toDouble();
+                ui->extrudeSpinBox->blockSignals( true );
+                ui->extrudeSpinBox->setValue( val );
+                ui->extrudeSpinBox->blockSignals( false );
             }
         }
         if ( obj.contains( "method" )){
@@ -483,6 +507,8 @@ void MainWindow::saveJsonSettings()
     QJsonObject gameObject;
     gameObject.insert( "sheetw", sheetProp.width );
     gameObject.insert( "sheeth", sheetProp.height );
+    gameObject.insert( "expand", ui->expandSpinBox->value() );
+    gameObject.insert( "extrude", ui->extrudeSpinBox->value() );
     gameObject.insert( "padding", ui->paddingSpinBox->value() );
     gameObject.insert( "border", ui->borderSpinBox->value() );
     gameObject.insert( "method", ui->methodComboBox->currentIndex() );
@@ -621,10 +647,10 @@ int MainWindow::pack()
             heuristic = rbp::MaxRectsBinPack::RectContactPointRule;
             break;
         }
-        nfails = Packer::MaxRects( sheetProp, packedsprites, heuristic, ui->rotationCheckBox->isChecked(), ui->croppingCheckBox->isChecked() );
+        nfails = Packer::MaxRects( sheetProp, packedsprites, heuristic, ui->rotationCheckBox->isChecked(), ui->croppingCheckBox->isChecked(), ui->expandSpinBox->value() );
     }
     else if ( ui->methodComboBox->currentIndex() >= ROWS_BY_NAME ){
-        nfails = Packer::Rows( sheetProp, packedsprites, ui->rotationCheckBox->isChecked(), ui->croppingCheckBox->isChecked() );
+        nfails = Packer::Rows( sheetProp, packedsprites, ui->rotationCheckBox->isChecked(), ui->croppingCheckBox->isChecked(), ui->expandSpinBox->value() );
     }
     QString validStr;
     validStr.setNum( packedsprites.size() - nfails );
@@ -700,6 +726,29 @@ QImage MainWindow::renderSheet()
     // [Dev note - could add some dithering options here?]
     QPainter painter(&image);
     ui->graphicsView->scene()->render(&painter);
+
+    // Paint extrusions on each side of items, if required.
+    // This can paint beyond the edges of the items, hence its only drawn on the final sheet. Moreover, it
+    // doesn't affect packing or item data, since sprite rects remain unchanged.
+    qDebug() << "In renderSheet - sheetProp.extrude =  " << ui->extrudeSpinBox->value();
+    int extrude = ui->extrudeSpinBox->value();
+    if ( extrude > 0 ) {
+        foreach( QGraphicsItem* itm, items ){
+            QGraphicsPixmapItem *pmi = qgraphicsitem_cast<QGraphicsPixmapItem*>( itm );
+            if (pmi && !pmi->data(ObjectName).isNull()) {
+                painter.drawPixmap( QRect( pmi->pos().x(), pmi->pos().y() -extrude, pmi->pixmap().width(), extrude ),
+                                    pmi->pixmap(), QRectF( 0.0, 0.0, pmi->pixmap().width(), 1.0 ) ); // top edge
+
+                painter.drawPixmap( QRectF( pmi->pos().x(), pmi->pos().y() + pmi->pixmap().height(), pmi->pixmap().width(), extrude ),
+                                    pmi->pixmap(), QRectF( 0.0, pmi->pixmap().height()-1, pmi->pixmap().width(), 1.0 ) ); // bot edge
+
+                painter.drawPixmap( QRectF( pmi->pos().x() - extrude, pmi->pos().y(), extrude, pmi->pixmap().height() ),
+                                    pmi->pixmap(), QRectF( 0.0, 0.0, 1.0, pmi->pixmap().height() ) );  // left edge
+                painter.drawPixmap( QRectF( pmi->pos().x() + pmi->pixmap().width(), pmi->pos().y(), extrude, pmi->pixmap().height() ),
+                                    pmi->pixmap(), QRectF( pmi->pixmap().width() -1.0, 0.0, 1.0, pmi->pixmap().height() ) ); // right edge
+            }
+        }
+    }
 
     // restore view settings etc now that we're done:
     ui->graphicsView->scene()->render(&painter);
