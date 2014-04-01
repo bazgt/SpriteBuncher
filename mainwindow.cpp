@@ -247,7 +247,8 @@ void MainWindow::packingOptionChanged( int index )
 
 void MainWindow::sheetOptionChanged( int index )
 {
-    qDebug() << "sheetOptionChanged(int);" << index;
+    Q_UNUSED( index ) // [Dev note - dont use the index, slot is connected to various signals].
+    qDebug() << "sheetOptionChanged(int)";
     // update all our sheet properties:
     sheetProp.width = ui->widthSpinBox->value();
     sheetProp.height = ui->heightSpinBox->value();
@@ -255,6 +256,11 @@ void MainWindow::sheetOptionChanged( int index )
     sheetProp.padding = ui->paddingSpinBox->value();
     repackAll();
 }
+
+ void MainWindow::sheetOptionChanged( double value )
+ {
+    sheetOptionChanged( int(value) );
+ }
 
 void MainWindow::exportFiles()
 {
@@ -647,10 +653,12 @@ int MainWindow::pack()
             heuristic = rbp::MaxRectsBinPack::RectContactPointRule;
             break;
         }
-        nfails = Packer::MaxRects( sheetProp, packedsprites, heuristic, ui->rotationCheckBox->isChecked(), ui->croppingCheckBox->isChecked(), ui->expandSpinBox->value() );
+        nfails = Packer::MaxRects( sheetProp, packedsprites, heuristic, ui->rotationCheckBox->isChecked(), ui->croppingCheckBox->isChecked(),
+                                   ui->expandSpinBox->value(), ui->scalingSpinBox->value() );
     }
     else if ( ui->methodComboBox->currentIndex() >= ROWS_BY_NAME ){
-        nfails = Packer::Rows( sheetProp, packedsprites, ui->rotationCheckBox->isChecked(), ui->croppingCheckBox->isChecked(), ui->expandSpinBox->value() );
+        nfails = Packer::Rows( sheetProp, packedsprites, ui->rotationCheckBox->isChecked(), ui->croppingCheckBox->isChecked(),
+                               ui->expandSpinBox->value(), ui->scalingSpinBox->value() );
     }
     QString validStr;
     validStr.setNum( packedsprites.size() - nfails );

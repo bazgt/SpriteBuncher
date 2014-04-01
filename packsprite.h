@@ -46,6 +46,9 @@ public:
     //!  auto-crops the current pixmap based on opaque bounding area. Original can be restored via restoreOriginalPixmap.
     void cropPixmap();
 
+    //! Scales the current pixmap by the specified amount.
+    void scalePixmap( qreal scalef );
+
     bool isCropped() const;
     bool isExpanded() const;
 
@@ -72,6 +75,7 @@ protected:
     bool m_isCropped;
     bool m_rotated;
     bool m_isExpanded;
+    bool m_isScaled;
 };
 
 #endif // PACKSPRITE_H

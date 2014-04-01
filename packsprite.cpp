@@ -41,6 +41,7 @@ void PackSprite::resetForPacking()
 {
     setPackedRect( rbp::Rect() );
     setIsRotated( false );
+    m_isScaled = false;
     restoreOriginalPixmap();
 }
 
@@ -72,6 +73,24 @@ void PackSprite::cropPixmap()
         m_pm = cropped;
         qDebug() << "Pixmap was cropped to size " << m_pm.width() << m_pm.height();
     }
+}
+
+void  PackSprite::scalePixmap( qreal scalef )
+{
+    qreal fnwid = scalef * pixmap().width();
+    qreal fnhgt = scalef * pixmap().height();
+    int nwid = int(fnwid);
+    int nhgt = int(fnhgt);
+    // usually ints get scaled down, but we prefer to scale up if we have any fractions of pixels.
+    if ( fnwid - nwid > 0.1 )
+        nwid += 1;
+    if ( fnhgt - nhgt > 0.1 )
+        nhgt += 1;
+    if ( nwid == pixmap().width() && nhgt == pixmap().height() )
+        return;
+    QPixmap newpm = pixmap().scaled( nwid, nhgt, Qt::IgnoreAspectRatio, Qt::SmoothTransformation ); // Todo need better option for pixel-art scaling.
+    setPixmap( newpm );
+    m_isScaled = true;
 }
 
 bool PackSprite::isCropped() const

@@ -21,7 +21,7 @@
 
 int Packer::MaxRects( const SheetProperties &sheetProp, QList<PackSprite> &packedsprites,
                       rbp::MaxRectsBinPack::FreeRectChoiceHeuristic heuristic,
-                      bool allowRotation, bool allowCrop, int expandSprites )
+                      bool allowRotation, bool allowCrop, int expandSprites, qreal scaleSprites )
 {
     // Reset previous rect data, incl rotation and cropping.
     for (int i = 0; i < packedsprites.size(); ++i) {
@@ -36,9 +36,12 @@ int Packer::MaxRects( const SheetProperties &sheetProp, QList<PackSprite> &packe
     for (int i = 0; i < packedsprites.size(); ++i) {
         // This is the last chance to modifiy (e.g. crop, extend) pixmaps before they get packed.
         QPixmap px;
+        // Do any scaling first:
+        if ( qAbs(scaleSprites - 1.0 ) > 0.001 )
+            packedsprites[i].scalePixmap( scaleSprites );
+        // Cropping next:
         if ( allowCrop )
             packedsprites[i].cropPixmap();
-
         // Expand sprites. Obviously, must be after cropping!
         if ( expandSprites > 0 )
             packedsprites[i].expandPixmap( expandSprites );
@@ -76,7 +79,7 @@ int Packer::MaxRects( const SheetProperties &sheetProp, QList<PackSprite> &packe
 }
 
 int Packer::Rows( const SheetProperties &sheetProp, QList<PackSprite> &packedsprites,  bool allowRotation,
-                  bool allowCrop, int expandSprites )
+                  bool allowCrop, int expandSprites, qreal scaleSprites )
 {
     Q_UNUSED( allowRotation ) // rot currently not supported, but we could...
 
@@ -95,6 +98,10 @@ int Packer::Rows( const SheetProperties &sheetProp, QList<PackSprite> &packedspr
 
     for (int i = 0; i < packedsprites.size(); ++i) {
         QPixmap px;
+        // Do any scaling first:
+        if ( qAbs(scaleSprites - 1.0 ) > 0.001 )
+            packedsprites[i].scalePixmap( scaleSprites );
+        // Cropping next:
         if ( allowCrop )
             packedsprites[i].cropPixmap();
         // Expand sprites. Obviously, must be after cropping!

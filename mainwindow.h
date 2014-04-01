@@ -98,6 +98,8 @@ protected slots:
     /* See also: packingOptionChanged(int), which will reload all images before packing.
     */
     void sheetOptionChanged(int);
+    //! Alternative overload.
+    void sheetOptionChanged(double);
 
     //! Exports the current sprite sheet and data file.
     void exportFiles();
