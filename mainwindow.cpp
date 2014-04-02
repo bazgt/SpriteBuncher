@@ -37,6 +37,7 @@
 #include <QMimeData>
 #include <QDropEvent>
 #include <QDir>
+#include <QDirIterator>
 #include <QGraphicsView>
 #include <QGraphicsPixmapItem>
 #include <QSpinBox>
@@ -160,7 +161,9 @@ void MainWindow::on_actionView_manual_triggered()
 void MainWindow::on_action_Reload_triggered()
 {
     zoomReset(); // (zoom seems to mess-up without this?).
-    openFolder( inDirn, false ); // ignoreIfCurrent=false
+    // Force reload of current folder, without loading its settings (they'll overwrite changes
+    // user has made since export).
+    openFolder( inDirn, false, false );
 }
 
 void MainWindow::on_actionOpen_folder_triggered()
@@ -500,6 +503,13 @@ bool MainWindow::loadJsonSettings()
                 outFilen =  str;
             }
         }
+         if ( obj.contains( "subfolders" )){
+            QJsonValue jsval = obj.value( "subfolders");
+            bool val = jsval.toBool();
+            ui->subfoldersCheckBox->blockSignals( true );
+            ui->subfoldersCheckBox->setChecked( val );
+            ui->subfoldersCheckBox->blockSignals( false );
+        }
         if ( obj.contains( "version" )) { // (SpriteBuncher app version)
             QJsonValue jsval = obj.value( "version");
             qDebug() << "version string = "  << jsval.toString();
@@ -531,13 +541,14 @@ void MainWindow::saveJsonSettings()
     gameObject.insert( "imgformat", ui->imgFormatComboBox->currentIndex() ); // image export format
     gameObject.insert( "rotation", ui->rotationCheckBox->isChecked() );
     gameObject.insert( "cropping", ui->croppingCheckBox->isChecked() );
+    gameObject.insert( "subfolders", ui->subfoldersCheckBox->isChecked() );
     gameObject.insert( "basename", ui->basenameLineEdit->text() );
     gameObject.insert( "version", QCoreApplication::applicationVersion() );
     QJsonDocument saveDoc(gameObject);
     saveFile.write( saveDoc.toJson() );
 }
 
-void MainWindow::openFolder( const QString &path, bool ignoreIfCurrent )
+void MainWindow::openFolder( const QString &path, bool ignoreIfCurrent, bool loadSettings )
 {
     qDebug() << "openFolder: " << path;
     if ( path == inDirn && ignoreIfCurrent ){
@@ -557,7 +568,7 @@ void MainWindow::openFolder( const QString &path, bool ignoreIfCurrent )
         ui->inputPathEdit->setText( path );
         inDirn = path;
         outDirn = inDirn + "/buncher";
-        loadJsonSettings();
+        if ( loadSettings ) loadJsonSettings();
         reloadAndRepackAll();
         zoomBestFit(); // (probably better than keeping prev zoom level)
     }
@@ -566,7 +577,8 @@ void MainWindow::openFolder( const QString &path, bool ignoreIfCurrent )
 }
 
 void MainWindow::processFolder()
-{   qDebug() << "processFolder";
+{
+    qDebug() << "processFolder";
     QDir dir( inDirn );
     if (!dir.exists() ){
         qWarning( "Could not open the input folder. " );
@@ -574,11 +586,27 @@ void MainWindow::processFolder()
         return;
     }
     QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
-    dir.setFilter(QDir::Files); // ignores subfolders.
-    QFileInfoList fulllist = dir.entryInfoList();
-    for (int i = 0; i < fulllist.size(); ++i) {
-        qDebug() << "Processing...  " << fulllist[i].fileName();
+    QFileInfoList fulllist;
+
+    if ( ui->subfoldersCheckBox->isChecked() ) {
+        QDirIterator it( dir, QDirIterator::Subdirectories ); // (note - ignores sym links by default).
+        while( it.hasNext() ) {
+            it.next();
+            // avoid buncher output files! [path name hardcoded for now]
+            if ( !it.fileInfo().path().endsWith( QString("/buncher") ) ) {
+                qDebug() << "Processing... " << it.fileName();
+                fulllist.append( it.fileInfo() );
+            }
+        }
     }
+    else { // single file scan
+        dir.setFilter(QDir::Files); // ignores subfolders.
+        fulllist = dir.entryInfoList();
+        for (int i = 0; i < fulllist.size(); ++i) {
+            qDebug() << "Processing...  " << fulllist[i].fileName();
+        }
+    }
+
     // Sort the initial list and get the fileinfo for each:
     packedsprites.clear();
     for (int i = 0; i < fulllist.size(); ++i) {

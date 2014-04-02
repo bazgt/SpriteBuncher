@@ -38,8 +38,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>296</width>
-          <height>525</height>
+          <width>362</width>
+          <height>545</height>
          </rect>
         </property>
         <attribute name="label">
@@ -97,6 +97,13 @@
               </property>
               <property name="placeholderText">
                <string>&lt;Input folder&gt;</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0" colspan="2">
+             <widget class="QCheckBox" name="subfoldersCheckBox">
+              <property name="text">
+               <string>Include subfolders</string>
               </property>
              </widget>
             </item>
@@ -722,10 +729,10 @@
      <normaloff>:/res1/images/arrow_refresh.png</normaloff>:/res1/images/arrow_refresh.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Reload Folder Data</string>
+    <string>&amp;Reload Images</string>
    </property>
    <property name="toolTip">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Reloads image and sheet data&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>Reloads all images from current folder</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+R</string>
@@ -885,8 +892,8 @@
    <slot>sheetOptionChanged(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>280</x>
-     <y>348</y>
+     <x>346</x>
+     <y>371</y>
     </hint>
     <hint type="destinationlabel">
      <x>733</x>
@@ -901,8 +908,8 @@
    <slot>sheetOptionChanged(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>280</x>
-     <y>382</y>
+     <x>346</x>
+     <y>405</y>
     </hint>
     <hint type="destinationlabel">
      <x>690</x>
@@ -965,8 +972,8 @@
    <slot>sheetOptionChanged(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>159</x>
-     <y>263</y>
+     <x>275</x>
+     <y>302</y>
     </hint>
     <hint type="destinationlabel">
      <x>224</x>
@@ -981,8 +988,8 @@
    <slot>packingOptionChanged(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>259</x>
-     <y>530</y>
+     <x>355</x>
+     <y>550</y>
     </hint>
     <hint type="destinationlabel">
      <x>241</x>
@@ -997,8 +1004,8 @@
    <slot>packingOptionChanged(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>77</x>
-     <y>524</y>
+     <x>101</x>
+     <y>550</y>
     </hint>
     <hint type="destinationlabel">
      <x>196</x>
@@ -1013,8 +1020,8 @@
    <slot>packingOptionChanged(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>125</x>
-     <y>549</y>
+     <x>185</x>
+     <y>581</y>
     </hint>
     <hint type="destinationlabel">
      <x>628</x>
@@ -1029,8 +1036,8 @@
    <slot>packingOptionChanged(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>230</x>
-     <y>545</y>
+     <x>345</x>
+     <y>581</y>
     </hint>
     <hint type="destinationlabel">
      <x>575</x>
@@ -1045,12 +1052,28 @@
    <slot>sheetOptionChanged(double)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>199</x>
-     <y>402</y>
+     <x>286</x>
+     <y>439</y>
     </hint>
     <hint type="destinationlabel">
      <x>526</x>
      <y>623</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>subfoldersCheckBox</sender>
+   <signal>stateChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>packingOptionChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>135</x>
+     <y>162</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>455</x>
+     <y>664</y>
     </hint>
    </hints>
   </connection>

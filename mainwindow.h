@@ -88,7 +88,7 @@ protected slots:
     //! Calls up a standard file dialog to choose the input folder.
     void openFileDialog();
 
-    //! Slot is called when a packing option is changed. It calls reloadAndRepackAll(), ie triggers reload and repack of all data.
+    //! Slot is called when a main option is changed, ie requires full reload of image data and repacking. It calls reloadAndRepackAll().
     /* See also: sheetOptionChanged(int), which is faster if the image list doesn't need to be re-processed.
      */
     void packingOptionChanged(int);
@@ -136,8 +136,9 @@ protected:
 
     //! Opens the requested image folder.
     /*! Set ignoreIfCurrent to false to force a reloading, else duplicate request is ignored.
+     *  loadSettings can be set to false to retain current settings rather than reload from previous save.
     */
-     void openFolder( const QString &path, bool ignoreIfCurrent = true );
+     void openFolder( const QString &path, bool ignoreIfCurrent = true, bool loadSettings = true );
 
     //! Loads images from the current folder, ready for packing. Files are sorted based on packing method settings.
     void processFolder();
