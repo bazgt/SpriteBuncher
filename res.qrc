@@ -13,10 +13,18 @@
         <file>images/spritebuncher-text.png</file>
         <file>images/folder_go.png</file>
         <file>images/folder_explore.png</file>
-        <file>images/up_arrow.png</file>
         <file>images/black-bg.png</file>
         <file>images/arrow_refresh.png</file>
         <file>images/checkerbg-dark.png</file>
         <file>images/redcheckerbg-dark.png</file>
+    </qresource>
+    <qresource prefix="/style1">
+        <file>images/up_arrow.png</file>
+        <file>images/down_arrow.png</file>
+        <file>images/right_arrow.png</file>
+        <file>images/left_arrow.png</file>
+        <file>images/up_arrow_sml.png</file>
+        <file>images/down_arrow_sml.png</file>
+        <file>images/sizegrip.png</file>
     </qresource>
 </RCC>
