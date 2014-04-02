@@ -33,4 +33,5 @@ Commons Attribution 3.0 License, [view here](http://creativecommons.org/licenses
 Release notes
 -------------
 
+v1.0b -- new features (extrusion, expanding etc), many fixes (2 April 2014).
 v1.0a -- initial release (March 2014).
