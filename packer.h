@@ -37,13 +37,15 @@ public:
     */
     static int MaxRects( const SheetProperties &sheetProp, QList<PackSprite> &packedsprites,
                          rbp::MaxRectsBinPack::FreeRectChoiceHeuristic heuristic = rbp::MaxRectsBinPack::RectBestAreaFit,
-                         bool allowRotation = false, bool allowCrop = false, int expandSprites = 0, qreal scaleSprites = 1.0 );
+                         bool allowRotation = false, bool allowCrop = false, int expandSprites = 0,
+                         int extrude = 0, qreal scaleSprites = 1.0 );
 
     //! Simple packing by equal height rows ('shelves'). List is modified. Items are packed in order.
     /*! Returns: number of valid items that were packed.
     */
     static int Rows( const SheetProperties &sheetProp, QList<PackSprite> &packedsprites,  bool allowRotation = false,
-                     bool allowCrop = false, int expandSprites = 0, qreal scaleSprites = 1.0 );
+                     bool allowCrop = false, int expandSprites = 0,
+                      int extrude = 0, qreal scaleSprites = 1.0 );
 
 };
 

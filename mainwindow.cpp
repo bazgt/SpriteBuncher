@@ -668,11 +668,11 @@ int MainWindow::pack()
             break;
         }
         nfails = Packer::MaxRects( sheetProp, packedsprites, heuristic, ui->rotationCheckBox->isChecked(), ui->croppingCheckBox->isChecked(),
-                                   ui->expandSpinBox->value(), ui->scalingSpinBox->value() );
+                                   ui->expandSpinBox->value(), ui->extrudeSpinBox->value(), ui->scalingSpinBox->value() );
     }
     else if ( ui->methodComboBox->currentIndex() >= ROWS_BY_NAME ){
         nfails = Packer::Rows( sheetProp, packedsprites, ui->rotationCheckBox->isChecked(), ui->croppingCheckBox->isChecked(),
-                               ui->expandSpinBox->value(), ui->scalingSpinBox->value() );
+                               ui->expandSpinBox->value(), ui->extrudeSpinBox->value(), ui->scalingSpinBox->value() );
     }
     QString validStr;
     validStr.setNum( packedsprites.size() - nfails );
@@ -750,9 +750,9 @@ QImage MainWindow::renderSheet()
     QPainter painter(&image);
     ui->graphicsView->scene()->render(&painter);
 
-    // Paint extrusions on each side of items, if required.
-    // This can paint beyond the edges of the items, hence its only drawn on the final sheet. Moreover, it
-    // doesn't affect packing or item data, since sprite rects remain unchanged.
+    // Paint extrusions, if required. This paints beyond the edges of each items.
+    // It affects packing only in the sense that we add on to the user's padding and border
+    // settings so the extruded pixels dont overlap another item).
     qDebug() << "In renderSheet - sheetProp.extrude =  " << ui->extrudeSpinBox->value();
     int extrude = ui->extrudeSpinBox->value();
     if ( extrude > 0 ) {

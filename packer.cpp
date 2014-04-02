@@ -21,18 +21,22 @@
 
 int Packer::MaxRects( const SheetProperties &sheetProp, QList<PackSprite> &packedsprites,
                       rbp::MaxRectsBinPack::FreeRectChoiceHeuristic heuristic,
-                      bool allowRotation, bool allowCrop, int expandSprites, qreal scaleSprites )
+                      bool allowRotation, bool allowCrop, int expandSprites,
+                      int extrude, qreal scaleSprites )
 {
     // Reset previous rect data, incl rotation and cropping.
     for (int i = 0; i < packedsprites.size(); ++i) {
         packedsprites[i].resetForPacking();
     }
-
     int validitems = 0;
     int ignoreditems = 0;
     int failitems = 0;
+    // we add space for extrusion on each side onto the sheet's padding and border settings:
+    int rpad = sheetProp.padding + extrude*2;
+    int rbord = sheetProp.border + extrude;
+
     rbp::MaxRectsBinPack bin;
-    bin.Init( sheetProp.width - 2*sheetProp.border, sheetProp.height - 2*sheetProp.border, allowRotation ); // note - border area is removed for packing.
+    bin.Init( sheetProp.width - 2*rbord, sheetProp.height - 2*rbord, allowRotation ); // note - border area is removed for packing.
     for (int i = 0; i < packedsprites.size(); ++i) {
         // This is the last chance to modifiy (e.g. crop, extend) pixmaps before they get packed.
         QPixmap px;
@@ -51,7 +55,7 @@ int Packer::MaxRects( const SheetProperties &sheetProp, QList<PackSprite> &packe
         if ( !px.isNull()  && px.width() > 0 && px.width() > 0 )
         {
             // MaxRects does the hard work:
-            rbp::Rect packedRect = bin.Insert( px.width() + sheetProp.padding, px.height() + sheetProp.padding, heuristic); // note - packed rects must include the padding
+            rbp::Rect packedRect = bin.Insert( px.width() + rpad, px.height() + rpad, heuristic); // note - packed rects must include the padding
             packedsprites[i].setPackedRect( packedRect ); // will be zero size rect if didnt pack.
 
             // need to check for rotated packed rect and set the pixmap to match.
@@ -79,7 +83,7 @@ int Packer::MaxRects( const SheetProperties &sheetProp, QList<PackSprite> &packe
 }
 
 int Packer::Rows( const SheetProperties &sheetProp, QList<PackSprite> &packedsprites,  bool allowRotation,
-                  bool allowCrop, int expandSprites, qreal scaleSprites )
+                  bool allowCrop, int expandSprites, int extrude, qreal scaleSprites )
 {
     Q_UNUSED( allowRotation ) // rot currently not supported, but we could...
 
@@ -95,6 +99,9 @@ int Packer::Rows( const SheetProperties &sheetProp, QList<PackSprite> &packedspr
     int sheetx = 0;
     int sheety = 0;
     int rowhgt = 1;
+    // we add space for extrusion on each side onto the sheet's padding and border settings:
+    int rpad = sheetProp.padding + extrude*2;
+    int rbord = sheetProp.border + extrude;
 
     for (int i = 0; i < packedsprites.size(); ++i) {
         QPixmap px;
@@ -114,9 +121,9 @@ int Packer::Rows( const SheetProperties &sheetProp, QList<PackSprite> &packedspr
         {
             rbp::Rect packedRect;
             // see if it fits on current row.
-            if ( sheetx + px.width() + sheetProp.padding < sheetProp.width - 2*sheetProp.border ){
+            if ( sheetx + px.width() + rpad < sheetProp.width - 2*rbord ){
                 // ok, it fits in x, now check it doesnt flow beyond y space. If so, invalidate the rect size.
-                if ( sheety + px.height() + sheetProp.padding > sheetProp.height - 2*sheetProp.border ){
+                if ( sheety + px.height() + rpad > sheetProp.height - 2*rbord ){
                     packedRect.height = 0;
                     packedRect.width = 0;
                     qDebug() << "Doesnt fit in y - could not pack this rectangle.\n";
@@ -125,16 +132,16 @@ int Packer::Rows( const SheetProperties &sheetProp, QList<PackSprite> &packedspr
                     // it fits - update the sheet data.
                     packedRect.x = sheetx;
                     packedRect.y = sheety;
-                    packedRect.height = px.height() + sheetProp.padding;
-                    packedRect.width = px.width() + sheetProp.padding;
-                    sheetx += px.width() + sheetProp.padding;
+                    packedRect.height = px.height() + rpad;
+                    packedRect.width = px.width() + rpad;
+                    sheetx += px.width() + rpad;
                     if ( packedRect.height > rowhgt )
                         rowhgt = packedRect.height;
                 }
             }
             else{ // try a new row. first check it would fit in new space. If not, invalidate the rect size.
-                if ( px.height() + sheety + rowhgt + sheetProp.padding > sheetProp.height - 2*sheetProp.border || // ie cant fit in remaining y space
-                     px.width()  + sheetProp.padding > sheetProp.width - 2*sheetProp.border ){ // ie wider than any x space avail
+                if ( px.height() + sheety + rowhgt + rpad > sheetProp.height - 2*rbord || // ie cant fit in remaining y space
+                     px.width()  + rpad > sheetProp.width - 2*rbord ){ // ie wider than any x space avail
                     packedRect.height = 0;
                     packedRect.width = 0;
                     qDebug() << "Tried new row - but could not pack this rectangle.\n";
@@ -145,9 +152,9 @@ int Packer::Rows( const SheetProperties &sheetProp, QList<PackSprite> &packedspr
                     sheety += rowhgt;
                     packedRect.x = sheetx;
                     packedRect.y = sheety;
-                    packedRect.height = px.height() + sheetProp.padding;
-                    packedRect.width = px.width() + sheetProp.padding;
-                    sheetx += px.width() + sheetProp.padding;
+                    packedRect.height = px.height() + rpad;
+                    packedRect.width = px.width() + rpad;
+                    sheetx += px.width() + rpad;
                     rowhgt = packedRect.height;
                 }
             }
