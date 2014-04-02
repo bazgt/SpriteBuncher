@@ -199,6 +199,7 @@ void MainWindow::on_actionUse_Dark_UI_Theme_triggered()
     else
         setStyleSheet( qApp->styleSheet() ); // reset to default stylesheet
     this->update();
+    updateViewWidgets();
 }
 
 void MainWindow::sceneSelectionChanged()
