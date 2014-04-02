@@ -16,5 +16,7 @@
         <file>images/up_arrow.png</file>
         <file>images/black-bg.png</file>
         <file>images/arrow_refresh.png</file>
+        <file>images/checkerbg-dark.png</file>
+        <file>images/redcheckerbg-dark.png</file>
     </qresource>
 </RCC>

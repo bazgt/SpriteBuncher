@@ -820,7 +820,7 @@ void MainWindow::updateViewWidgets( int nfails )
     // always clear the previous data
     ui->listWidget->clear();
     ui->graphicsView->scene()->clear(); // (will also delete the canvasBG and canvasSheet).
-qDebug() << " ui->graphicsView->scene() count = " << ui->graphicsView->scene()->items().count();
+    qDebug() << " ui->graphicsView->scene() count = " << ui->graphicsView->scene()->items().count();
     canvasBG = NULL;
     canvasSheet = NULL;
     ui->graphicsView->scene()->setSceneRect(  QRect( 0,0, sheetProp.width, sheetProp.height ) ); // required, else view retains old rect size to view
@@ -831,10 +831,15 @@ qDebug() << " ui->graphicsView->scene() count = " << ui->graphicsView->scene()->
     ui->graphicsView->setBackgroundBrush( QImage( ":/res1/images/black-bg.png" ));
     ui->graphicsView->setCacheMode( QGraphicsView::CacheNone ); // (Qt docs recommend this when using a tiled background brush).
 
+    QImage chkboard( ":/res1/images/checkerbg.png" );
+    if ( useCustomStyleSheet ) chkboard = QImage( ":/res1/images/checkerbg-dark.png" );
+    QImage redchkboard( ":/res1/images/redcheckerbg.png" );
+    if ( useCustomStyleSheet ) redchkboard = QImage( ":/res1/images/redcheckerbg-dark.png" );
+
     if ( nfails > 0 )
-        canvasBG = ui->graphicsView->scene()->addRect( 0, 0, sheetProp.width, sheetProp.height, Qt::NoPen, QBrush( QImage( ":/res1/images/redcheckerbg.png" ) ) );
+        canvasBG = ui->graphicsView->scene()->addRect( 0, 0, sheetProp.width, sheetProp.height, Qt::NoPen, QBrush( redchkboard ) );
     else
-        canvasBG = ui->graphicsView->scene()->addRect( 0, 0, sheetProp.width, sheetProp.height, Qt::NoPen, QBrush( QImage( ":/res1/images/checkerbg.png" ) ) );
+        canvasBG = ui->graphicsView->scene()->addRect( 0, 0, sheetProp.width, sheetProp.height, Qt::NoPen, QBrush( chkboard ) );
     canvasBG->setFlag( QGraphicsItem::ItemIsSelectable, false );
     canvasBG->setZValue( 0 );
 
