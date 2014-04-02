@@ -772,7 +772,6 @@ QImage MainWindow::renderSheet()
     }
 
     // restore view settings etc now that we're done:
-    ui->graphicsView->scene()->render(&painter);
     ui->graphicsView->scene()->setSceneRect( srect );
     ui->graphicsView->setRenderHints( renderHints );
     if ( canvasBG ) canvasBG->setVisible( true );
