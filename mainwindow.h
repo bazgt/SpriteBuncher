@@ -146,8 +146,8 @@ protected:
      */
     int pack();
 
-    //! Returns the current image format (for sheet output).
-    QImage::Format currentImgFormat() const;
+    //! Returns the current image format as a QImage value (be careful, different enum values).
+    QImage::Format currentQImageFormat() const;
 
     //! Renders the current sheet to an image, based on current format and settings.
     QImage renderSheet();
@@ -161,8 +161,7 @@ protected:
     //! Contains current list of packing sprites. See PackSprite class for more details.
     QList<PackSprite> packedsprites;
 
-    PackMethods packMethod;
-    QImage::Format imgFormat;
+    // Main sheet properties (struct).
     SheetProperties sheetProp;
 
     QString outFilen;

@@ -62,7 +62,6 @@ MainWindow::MainWindow(QWidget *parent) :
     outFilen =  ui->basenameLineEdit->text();
     inDirn = QString();
     outDirn = inDirn + "/buncher"; // (name hardcoded for now).
-    packMethod = MAXRECTS_BESTAREA;
     jsonFilen = "/buncher.data"; // (name hardcoded for now).
 
     // note - graphicsview is set to 'interactive' in ui form, so we can select items.
@@ -71,10 +70,13 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->graphicsView->setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
 
     // populate the data format combo box. Formats are defined in DataExporter.
+     ui->formatComboBox->blockSignals( true ); // (dont want slot calls yet)
     for( int i = 0; i < DataExporter::NumDataFormats; i++ )
         ui->formatComboBox->addItem( DataExporter::displayName( DataExporter::DataFormats(i) ));
+    ui->formatComboBox->blockSignals( false );
 
     // populate the image format combo box - must be in same order as ImageFormats enum [not quite as flexible as data formats].
+    ui->imgFormatComboBox->blockSignals( true ); // (dont want slot calls yet)
     ui->imgFormatComboBox->addItem( "RGBA8888 (Best)" ); // aka 'ARGB32'
     ui->imgFormatComboBox->addItem( "RGBA8888 Premultiplied alpha" );
     ui->imgFormatComboBox->addItem( "RGBA4444 Premultiplied alpha" );
@@ -82,6 +84,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->imgFormatComboBox->addItem( "RGB565 (no alpha)" ); // aka 'RGB16'
     ui->imgFormatComboBox->addItem( "RGB565 Premultiplied alpha" );
     ui->imgFormatComboBox->addItem( "RGB555 (no alpha)" );
+    ui->imgFormatComboBox->blockSignals( false );
 
     // Other signal/slot connections (most are already done via ui file).
     QObject::connect( ui->graphicsView->scene(), SIGNAL(selectionChanged()), this, SLOT( sceneSelectionChanged() ));
@@ -111,9 +114,13 @@ void MainWindow::readAppSettings()
     restoreGeometry(settings.value("geometry").toByteArray());
     restoreState(settings.value("windowState").toByteArray());
     useCustomStyleSheet = settings.value("useCustomStyleSheet").toBool();
+
+    ui->actionUse_Dark_UI_Theme->blockSignals( true ); // dont want to trigger slots from this setup.
     ui->actionUse_Dark_UI_Theme->setChecked( useCustomStyleSheet );
+    ui->actionUse_Dark_UI_Theme->blockSignals( false );
     if ( useCustomStyleSheet )
         setStyleSheet( mainStyleSheet );
+    qDebug() << "readAppSettings finished";
 }
 
 void MainWindow::on_listWidget_clicked(const QModelIndex &index)
@@ -369,6 +376,7 @@ void MainWindow::repackAll()
 bool MainWindow::loadJsonSettings()
 {   // [ Dev notes - we use blockSignals here to prevent getting a signal from each
     // widget, which would trigger a reload for each].
+    qDebug() << "loadJsonSettings";
     bool ok = false;
     QDir odir( outDirn );
     QFile outjsf;
@@ -421,7 +429,7 @@ bool MainWindow::loadJsonSettings()
                 ui->borderSpinBox->blockSignals( false );
             }
         }
-         if ( obj.contains( "expand" )){
+        if ( obj.contains( "expand" )){
             QJsonValue jsval = obj.value( "expand");
             if ( jsval.toDouble() >= 0 ){
                 int val = jsval.toDouble();
@@ -431,7 +439,7 @@ bool MainWindow::loadJsonSettings()
                 ui->expandSpinBox->blockSignals( false );
             }
         }
-         if ( obj.contains( "extrude" )){
+        if ( obj.contains( "extrude" )){
             QJsonValue jsval = obj.value( "extrude");
             if ( jsval.toDouble() >= 0 ){
                 int val = jsval.toDouble();
@@ -444,7 +452,6 @@ bool MainWindow::loadJsonSettings()
             QJsonValue jsval = obj.value( "method");
             if ( jsval.toDouble() >= 0 ){
                 int val = jsval.toDouble();
-                packMethod = PackMethods(val);
                 ui->methodComboBox->blockSignals( true );
                 ui->methodComboBox->setCurrentIndex( val );
                 ui->rotationCheckBox->setHidden( ui->methodComboBox->currentIndex() >= ROWS_BY_NAME );
@@ -503,7 +510,7 @@ bool MainWindow::loadJsonSettings()
 }
 
 void MainWindow::saveJsonSettings()
-{
+{   qDebug() << "saveJsonSettings";
     QDir dir( outDirn );
     QFile saveFile( dir.path() + jsonFilen );
     if (!saveFile.open(QIODevice::WriteOnly)) {
@@ -530,6 +537,7 @@ void MainWindow::saveJsonSettings()
 
 void MainWindow::openFolder( const QString &path, bool ignoreIfCurrent )
 {
+    qDebug() << "openFolder: " << path;
     if ( path == inDirn && ignoreIfCurrent ){
         qDebug() << "(openFolder - same as current folder, returning)";
         return;
@@ -652,6 +660,10 @@ int MainWindow::pack()
         case MAXRECTS_CONTACTPOINT:
             heuristic = rbp::MaxRectsBinPack::RectContactPointRule;
             break;
+        default:
+            qDebug() << "Warning - using default method in pack() - check indexes";
+            heuristic = rbp::MaxRectsBinPack::RectBestAreaFit;
+            break;
         }
         nfails = Packer::MaxRects( sheetProp, packedsprites, heuristic, ui->rotationCheckBox->isChecked(), ui->croppingCheckBox->isChecked(),
                                    ui->expandSpinBox->value(), ui->scalingSpinBox->value() );
@@ -680,28 +692,28 @@ int MainWindow::pack()
     return nfails;
 }
 
-QImage::Format MainWindow::currentImgFormat() const
+QImage::Format MainWindow::currentQImageFormat() const
 {
-    QImage::Format imgFormat = QImage::Format_ARGB32;
+    QImage::Format format = QImage::Format_ARGB32;
     switch ( ui->imgFormatComboBox->currentIndex() ) {
-        case 0: imgFormat = QImage::Format_ARGB32;
+        case 0: format = QImage::Format_ARGB32;
         break;
-        case 1: imgFormat = QImage::Format_ARGB32_Premultiplied;
+        case 1: format = QImage::Format_ARGB32_Premultiplied;
         break;
-        case 2: imgFormat = QImage::Format_ARGB4444_Premultiplied;
+        case 2: format = QImage::Format_ARGB4444_Premultiplied;
         break;
-        case 3: imgFormat = QImage::Format_RGB888;
+        case 3: format = QImage::Format_RGB888;
         break;
-        case 4: imgFormat = QImage::Format_RGB16; // 'RGB565'
+        case 4: format = QImage::Format_RGB16; // 'RGB565'
         break;
-        case 5: imgFormat = QImage::Format_ARGB8565_Premultiplied;
+        case 5: format = QImage::Format_ARGB8565_Premultiplied;
         break;
-        case 6: imgFormat = QImage::Format_RGB555;
+        case 6: format = QImage::Format_RGB555;
         break;
-        default: imgFormat = QImage::Format_ARGB32;
+        default: format = QImage::Format_ARGB32;
         qWarning() << "warning: renderSheet -- using 'default' img format, check combo values";
     }
-    return imgFormat;
+    return format;
 }
 
 // e.g. see http://stackoverflow.com/questions/7451183/how-to-create-image-file-from-qgraphicsscene-qgraphicsview
@@ -710,8 +722,9 @@ QImage MainWindow::renderSheet()
     ui->graphicsView->scene()->clearSelection(); // (else, selection rects will render to the image!)
 
     // Since this fn can be called any time, need to hide the other canvas items:
-    if ( canvasBG) canvasBG->setVisible( false );
+    if ( canvasBG ) canvasBG->setVisible( false );
     if ( canvasSheet ) canvasSheet->setVisible( false );
+    qDebug() << "renderSheet - total canvas item count is " << ui->graphicsView->scene()->items().count();
 
     // make all items fully visible (we used opacity trick to 'hide' them):
     static const int ObjectName = 0;
@@ -723,13 +736,13 @@ QImage MainWindow::renderSheet()
     QRectF srect = ui->graphicsView->scene()->sceneRect();
     QPainter::RenderHints renderHints = ui->graphicsView->renderHints();
 
-    QImage::Format imgFormat = currentImgFormat();
-    qDebug() << "Image format is " << imgFormat << " = " << ui->imgFormatComboBox->currentText();
+   QImage::Format qiformat = currentQImageFormat();
+    qDebug() << "QImage format is " << qiformat << " for our value " << ui->imgFormatComboBox->currentIndex() << " = " << ui->imgFormatComboBox->currentText();
     ui->graphicsView->scene()->setSceneRect(  QRect( 0,0, sheetProp.width, sheetProp.height ) ); // always export exact sheet size
     ui->graphicsView->setRenderHints( QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
 
     // create transparent image with the correct scene rect size and render settings:
-    QImage image(  ui->graphicsView->scene()->sceneRect().size().toSize(), imgFormat );
+    QImage image(  ui->graphicsView->scene()->sceneRect().size().toSize(), qiformat );
     image.fill(Qt::transparent);
     // [Dev note - could add some dithering options here?]
     QPainter painter(&image);
@@ -773,10 +786,12 @@ QImage MainWindow::renderSheet()
 
 void MainWindow::updateViewWidgets( int nfails )
 {
+    qDebug() << "updateViewWidgets";
     QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
     // always clear the previous data
     ui->listWidget->clear();
     ui->graphicsView->scene()->clear(); // (will also delete the canvasBG and canvasSheet).
+qDebug() << " ui->graphicsView->scene() count = " << ui->graphicsView->scene()->items().count();
     canvasBG = NULL;
     canvasSheet = NULL;
     ui->graphicsView->scene()->setSceneRect(  QRect( 0,0, sheetProp.width, sheetProp.height ) ); // required, else view retains old rect size to view
@@ -792,7 +807,7 @@ void MainWindow::updateViewWidgets( int nfails )
     else
         canvasBG = ui->graphicsView->scene()->addRect( 0, 0, sheetProp.width, sheetProp.height, Qt::NoPen, QBrush( QImage( ":/res1/images/checkerbg.png" ) ) );
     canvasBG->setFlag( QGraphicsItem::ItemIsSelectable, false );
-    canvasBG->setZValue( -0 );
+    canvasBG->setZValue( 0 );
 
     // populate canvas and listWidget. Remember, the packedrects dont include the border pixels, but do include their padding.
     for (int i = 0; i < packedsprites.size(); ++i) {
