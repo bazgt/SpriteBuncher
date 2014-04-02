@@ -68,7 +68,7 @@ const QString mainStyleSheet = "QWidget, QWidget *{ background: QLinearGradient(
         "border-radius: 1px;"
         "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1 "
         "stop: 0 #505050, stop: 1 #585858 );"
-        "min-width: 20px;"
+        "min-width: 30px;"
         "}"
         "QPushButton:pressed {"
         "border: 2px solid rgb(60,60,60);"
