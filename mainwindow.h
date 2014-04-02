@@ -50,7 +50,6 @@ public:
     //! Constr.
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    void readAppSettings();
 
     //! Packing Methods. Indexes must match ui packComboBox -- be careful if adding new ones. Index is saved in json settings file.
      enum PackMethods { MAXRECTS_BESTAREA = 0, MAXRECTS_SHORTSIDE, MAXRECTS_LONGSIDE, MAXRECTS_BOTTOMLEFT, MAXRECTS_CONTACTPOINT,
@@ -115,6 +114,9 @@ protected slots:
     void zoomBestFit();
 
 protected:
+
+     //! Reads previous window geometry etc (via QSettings, in standard locations).
+    void readAppSettings();
 
     void dragEnterEvent(QDragEnterEvent *event);
     void dropEvent(QDropEvent *event);

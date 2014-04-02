@@ -107,22 +107,6 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::readAppSettings()
-{
-    qDebug() << "readAppSettings";
-    QSettings settings;
-    restoreGeometry(settings.value("geometry").toByteArray());
-    restoreState(settings.value("windowState").toByteArray());
-    useCustomStyleSheet = settings.value("useCustomStyleSheet").toBool();
-
-    ui->actionUse_Dark_UI_Theme->blockSignals( true ); // dont want to trigger slots from this setup.
-    ui->actionUse_Dark_UI_Theme->setChecked( useCustomStyleSheet );
-    ui->actionUse_Dark_UI_Theme->blockSignals( false );
-    if ( useCustomStyleSheet )
-        setStyleSheet( mainStyleSheet );
-    qDebug() << "readAppSettings finished";
-}
-
 void MainWindow::on_listWidget_clicked(const QModelIndex &index)
 {
     qDebug() << "on_listWidget_clicked " << index.row() ;
@@ -325,6 +309,23 @@ void MainWindow::zoomBestFit()
     ui->graphicsView->scale( scl, scl );
 }
 
+void MainWindow::readAppSettings()
+{
+    qDebug() << "readAppSettings";
+    QSettings settings;
+    restoreGeometry(settings.value("geometry").toByteArray());
+    restoreState(settings.value("windowState").toByteArray());
+    ui->splitter->restoreState(settings.value("splitterState").toByteArray());
+    useCustomStyleSheet = settings.value("useCustomStyleSheet").toBool();
+
+    ui->actionUse_Dark_UI_Theme->blockSignals( true ); // dont want to trigger slots from this setup.
+    ui->actionUse_Dark_UI_Theme->setChecked( useCustomStyleSheet );
+    ui->actionUse_Dark_UI_Theme->blockSignals( false );
+    if ( useCustomStyleSheet )
+        setStyleSheet( mainStyleSheet );
+    qDebug() << "readAppSettings finished";
+}
+
 // (Required for window to accept dnd events)
 void MainWindow::dragEnterEvent(QDragEnterEvent *event)
 {
@@ -355,6 +356,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
     QSettings settings("GoodReactions", "SpriteBuncher");
     settings.setValue("geometry", saveGeometry());
     settings.setValue("windowState", saveState());
+    settings.setValue("splitterState", ui->splitter->saveState());
      settings.setValue("useCustomStyleSheet", useCustomStyleSheet );
     QMainWindow::closeEvent(event);
 }
