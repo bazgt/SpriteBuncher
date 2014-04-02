@@ -142,7 +142,7 @@ void MainWindow::on_actionAbout_triggered()
     QDialog *about = new QDialog();
     Ui::AboutBox uia;
     uia.setupUi(about);
-    about->setStyleSheet( mainStyleSheet );
+    about->setStyleSheet( this->styleSheet() );
     uia.versionLabel->setText( QCoreApplication::applicationVersion() );
     about->exec();
 }
