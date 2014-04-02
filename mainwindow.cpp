@@ -50,6 +50,10 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     qDebug() << "started";
     ui->setupUi(this);
+    // We dont use toolbar but it still takes up space, get rid of it:
+    ui->mainToolBar->setMaximumHeight(0); // (required, else still takes space!).
+    removeToolBar( ui->mainToolBar );
+
     setAcceptDrops( true );
     setWindowIcon( QIcon( ":/res1/images/icon-full.png" )); // (see also res.qrc and buncher.icns, set in .pro file).
     setWindowTitle( tr( "SpriteBuncher" ));
