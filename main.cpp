@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
     QCoreApplication::setOrganizationDomain( "goodreactions.com" );
 
     // Update this when doing a new release:
-    QCoreApplication::setApplicationVersion( "1.0a" );
+    QCoreApplication::setApplicationVersion( "1.0b" );
 
     MainWindow w;
     w.show();
