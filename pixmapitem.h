@@ -26,16 +26,12 @@ class PixmapItem : public QGraphicsPixmapItem
 {
 
 public:
+    //! Constructor.
     explicit PixmapItem(const QPixmap & pixmap, QGraphicsItem * parent = 0);
 
-    //! Reimplemented for custom background paint
+    //! Reimplemented from base class.
     void paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget);
 
-//    void setExtrusion( int pixels = 0 ) { m_extrude = pixels; };
- //   int extrudePixels() { return m_extrude; };
-
-protected:
-//       static int m_extrude;
 };
 
 #endif // PIXMAPITEM_H

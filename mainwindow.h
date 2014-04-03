@@ -94,13 +94,13 @@ protected slots:
 
     //! Slot is called when a main option is changed, ie requires full reload of image data and repacking. It calls reloadAndRepackAll().
     /*! \see sheetOptionChanged(int), which is faster if the image list doesn't need to be re-processed.
-        \param None - don't rely on using the index param, the slot is connected to various signals.
+        Note - don't rely on using the index param, the slot is connected to various signals.
      */
     void packingOptionChanged(int);
 
     //! Slot is called when a sheet option is changed. It calls repackAll(), so does not reload the images.
     /*! See also: packingOptionChanged(int), which will reload all images before packing.
-        \param None - don't rely on using the index param, the slot is connected to various signals.
+        Note - don't rely on using the index param, the slot is connected to various signals.
     */
     void sheetOptionChanged(int);
     //! Alternative overloaded form.

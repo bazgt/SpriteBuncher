@@ -27,8 +27,6 @@ PixmapItem::PixmapItem(const QPixmap & pixmap, QGraphicsItem * parent ) :
 {
 }
 
-// int PixmapItem::m_extrude = 0;
-
 void PixmapItem::paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget)
 {
     if ( isSelected() ){
@@ -41,12 +39,4 @@ void PixmapItem::paint(QPainter * painter, const QStyleOptionGraphicsItem * opti
         painter->setOpacity( opac );
     }
     QGraphicsPixmapItem::paint( painter, option, widget );
-
-/*    // Extrusion. TODO (not here though!)
-    if ( m_extrude > 0 ) {
-        QRectF target(0.0, 0.0, this->pixmap().width(), m_extrude);
-        QRectF source(0.0, m_extrude, this->pixmap().width(), 1.0 );
-        painter->drawPixmap( target, this->pixmap(), source );
-    }
-    */
 }

@@ -88,6 +88,7 @@ void  PackSprite::scalePixmap( qreal scalef )
         nhgt += 1;
     if ( nwid == pixmap().width() && nhgt == pixmap().height() )
         return;
+    // (could do with some smoothing/scaling options here really).
     QPixmap newpm = pixmap().scaled( nwid, nhgt, Qt::IgnoreAspectRatio, Qt::SmoothTransformation ); // Todo need better option for pixel-art scaling.
     setPixmap( newpm );
     m_isScaled = true;

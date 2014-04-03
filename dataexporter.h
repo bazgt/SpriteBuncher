@@ -46,7 +46,6 @@ protected:
     /*! \param sheetProp - sheet properties struct.
      *  \param path - folder path to write to.
      *  \param filen - filename (without extension).
-     *  \param extn - file extension.
      *  \param packedsprites - the list of packed sprites.
      *  \param starlingStyle - set to true for Starling specific version of XML (default false).
      *  \returns true - if the operation was successful.
@@ -58,7 +57,6 @@ protected:
     /*! \param sheetProp - sheet properties struct.
      *  \param path - folder path to write to.
      *  \param filen - filename (without extension).
-     *  \param extn - file extension.
      *  \param packedsprites - the list of packed sprites.
      *  \param unityStyle - set to true for Unity specific version of Json (default false).
      *  \returns true - if the operation was successful.
@@ -70,7 +68,6 @@ protected:
     /*! \param sheetProp - sheet properties struct.
      *  \param path - folder path to write to.
      *  \param filen - filename (without extension).
-     *  \param extn - file extension.
      *  \param packedsprites - the list of packed sprites.
      *  \returns true - if the operation was successful.
      */
@@ -81,7 +78,6 @@ protected:
     /*! \param sheetProp - sheet properties struct.
      *  \param path - folder path to write to.
      *  \param filen - filename (without extension).
-     *  \param extn - file extension.
      *  \param packedsprites - the list of packed sprites.
      *  \returns true - if the operation was successful.
      */
@@ -91,7 +87,6 @@ protected:
     /*! \param sheetProp - sheet properties struct.
      *  \param path - folder path to write to.
      *  \param filen - filename (without extension).
-     *  \param extn - file extension.
      *  \param packedsprites - the list of packed sprites.
      *  \returns true - if the operation was successful.
      */
@@ -101,7 +96,6 @@ protected:
     /*! \param sheetProp - sheet properties struct.
      *  \param path - folder path to write to.
      *  \param filen - filename (without extension).
-     *  \param extn - file extension.
      *  \param packedsprites - the list of packed sprites.
      *  \param cocosStyle - set to true for Cocos2d style PLIST (default true).
      *  \returns true - if the operation was successful.

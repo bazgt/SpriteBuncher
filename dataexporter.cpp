@@ -135,7 +135,9 @@ bool DataExporter::ExportXML( const SheetProperties &sheetProp, const QString &p
 
 bool DataExporter::ExportJSON( const SheetProperties &sheetProp, const QString &path, const QString &filen, const QList<PackSprite> &packedsprites,
                                bool unityStyle )
-{
+{   // Note - Qt's json classes are handy, but the output formatting isnt quite the same as
+    // Unity examples I've seen. Hopefully the extra newlines/whitespace are compatible, else
+    // we'll have to replace this.
     QJsonObject jsMainObject;
     QJsonArray jsFramesArray;
 

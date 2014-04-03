@@ -25,14 +25,23 @@
 #include "./maxrects/MaxRectsBinPack.h"
 #include "mainwindow.h"
 
-//! Performs sprite packing - add new algorithms as required. Mostly static functions.
-// [Dev note - the rbp::Rect data structure is used throughout so all results are compatible with MaxRects].
+//! Methods that performs sprite packing. Add new algorithms as required.
+/*! Mostly static functions. Note, the rbp::Rect data structure is used throughout, so that
+    all results are can be treated the same as the main MaxRects data.
+ */
 class Packer
 {
 public:
 
     //! MaxRect packing on the provided image list. List is modified. Items are packed in order.
-    /*! \param allowrot - rotates sprites to pack better. However, be sure your chosen library/app supports rotation.
+    /*! \param sheetProp - the sheet properties.
+     *  \param packedsprites - the list of packing sprites. Data for the items may be overwritten.
+     *  \param heuristic - MaxRects packing order parameter - see MaxRectsBinPack.h or MaxRects docs for info.
+     *  \param allowRotation - set this to allow rotated sprites for better packing.
+     *  \param allowCrop - set this to crop all sprites based on their opaque bounding rects.
+     *  \param expandSprites - expands sprites on all sides by the chosen number of pixels.
+     *  \param extrude - should equal the extrusion size already applied (so it gets added to the padding).
+        \param scaleSprites - scales sprites by this amount. Default 1.0.
         \returns number of valid items that were packed.
     */
     static int MaxRects( const SheetProperties &sheetProp, QList<PackSprite> &packedsprites,
@@ -40,8 +49,15 @@ public:
                          bool allowRotation = false, bool allowCrop = false, int expandSprites = 0,
                          int extrude = 0, qreal scaleSprites = 1.0 );
 
-    //! Simple packing by equal height rows ('shelves'). List is modified. Items are packed in order.
-    /*! Returns: number of valid items that were packed.
+    //! Simple packing method using equal height rows ('shelves'). List is modified. Items are packed in order.
+    /*! \param sheetProp - the sheet properties.
+     *  \param packedsprites - the list of packing sprites. Data for the items may be overwritten.
+     *  \param allowRotation - *Currently not supported* for this packing method.
+     *  \param allowCrop - set this to crop all sprites based on their opaque bounding rects.
+     *  \param expandSprites - expands sprites on all sides by the chosen number of pixels.
+     *  \param extrude - should equal the extrusion size already applied (so it gets added to the padding).
+        \param scaleSprites - scales sprites by this amount. Default 1.0.
+     * \returns number of valid items that were packed.
     */
     static int Rows( const SheetProperties &sheetProp, QList<PackSprite> &packedsprites,  bool allowRotation = false,
                      bool allowCrop = false, int expandSprites = 0,

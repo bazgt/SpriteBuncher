@@ -24,32 +24,44 @@
 
 #include "./maxrects/MaxRectsBinPack.h"
 
-//! Simple class that groups together a pixmap with its originating fileinfo, and its packed rect on the sheet.
-/*! The packsprite also has knowledge of its original size, versus an adjusted size based on cropping or extending.
+//! Class that defines a 'sprite' on the sprite sheet.
+/*! The class groups together a pixmap with its associated fileinfo, and packed rect data on the sheet.
+ *  The packsprite also has knowledge of its original pixmap, versus an adjusted copy based on cropping or extending.
  */
 class PackSprite
 {
 public:
+    //! Constructor.
+    /*!
+     * \param pm - the QPixmap for the sprite.
+     * \param fi - the QFileInfo associated with the sprite.
+     */
     PackSprite( const QPixmap &pm, const QFileInfo &fi );
 
+    //! Access to the fileinfo for this sprite.
     QFileInfo fileInfo() const;
+    //! Access to the current pixmap for this sprite (could be cropped, extended etc compared to original).
     const QPixmap& pixmap() const;
+    //! Access to the original pixmap that was used to construct the item (prior to any subsequent cropping etc).
     const QPixmap& originalPixmap() const;
 
+    //! Sets a new pixmap for this sprite (doesn't affect any 'original' pixmap that was set).
     void setPixmap ( const QPixmap& pm );
 
     //! Resets the packing rect, rotation flag, cropping, and restores original pixmap (calls restoreOriginalPixmap).
-    /* This is generally used before the item is to be re-packed - ie we dont want previous data in place.
-       */
+    /*! This is generally used before the item is to be re-packed - ie we dont want previous data in place.
+    */
     void resetForPacking();
 
-    //!  auto-crops the current pixmap based on opaque bounding area. Original can be restored via restoreOriginalPixmap.
+    //!  Auto-crops the current pixmap based on it's opaque bounding area. Original can be restored via restoreOriginalPixmap.
     void cropPixmap();
 
     //! Scales the current pixmap by the specified amount.
     void scalePixmap( qreal scalef );
 
+    //! Returns true if the image has been cropped, and its size reduced.
     bool isCropped() const;
+    //! Returns true if the image has been extended from its original size.
     bool isExpanded() const;
 
     //! Reverts to the (cached) original pixmap, removing any cropping or extending.
@@ -58,23 +70,37 @@ public:
     //! Expands the current pixmap on each side by the chosen number of pixels.
     void expandPixmap( int npixels = 0 );
 
-    //! returns the packedrect. will be a zero-sized rect if packing has not run yet, or if it has failed for this item.
+    //! Returns the packedrect data.
+    /*! Will return a zero-sized rect if packing has not been run, or if packing failed for this item.
+    */
     rbp::Rect packedRect() const;
+
+    //! Sets the packing rect data for this item.
     void setPackedRect( rbp::Rect rect );
 
+    //! Returns true if the item was rotated by a packing algorithm, and hence should be displayed rotated on the sheet.
     bool isRotated() const;
+    //! Sets the rotation status for this item. Packing algorithms use this, so we know the item must be drawn rotated later.
     void setIsRotated( bool state = true );
 
 protected:
 
+    //! Stores current pixmap.
     QPixmap m_pm;
-    QPixmap m_pm_original; // before any cropping, expanding etc.
+     //! Stores original pixmap, before any cropping, expanding etc.
+    QPixmap m_pm_original;
 
+    //! Stores the fileinfo.
     QFileInfo m_fi;
+    //! Stores the packing rect data.
     rbp::Rect m_packedRect;
+    //! Cropping status.
     bool m_isCropped;
+    //! Rotation status.
     bool m_rotated;
+    //! Expanded status.
     bool m_isExpanded;
+    //! Scaled status.
     bool m_isScaled;
 };
 
