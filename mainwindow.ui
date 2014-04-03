@@ -37,7 +37,7 @@
         <property name="geometry">
          <rect>
           <x>0</x>
-          <y>0</y>
+          <y>-7</y>
           <width>362</width>
           <height>545</height>
          </rect>
@@ -102,6 +102,9 @@
             </item>
             <item row="1" column="0" colspan="2">
              <widget class="QCheckBox" name="subfoldersCheckBox">
+              <property name="toolTip">
+               <string>Option to include images in subfolders</string>
+              </property>
               <property name="text">
                <string>Include subfolders</string>
               </property>
@@ -118,6 +121,9 @@
            <layout class="QGridLayout" name="gridLayout_4">
             <item row="0" column="0">
              <widget class="QLabel" name="label_7">
+              <property name="toolTip">
+               <string>Base file name for output files</string>
+              </property>
               <property name="text">
                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;Base name&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
               </property>
@@ -135,6 +141,9 @@
             </item>
             <item row="1" column="0">
              <widget class="QLabel" name="label_6">
+              <property name="toolTip">
+               <string>Data format choices</string>
+              </property>
               <property name="text">
                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;Data format&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
               </property>
@@ -155,6 +164,9 @@
             </item>
             <item row="2" column="0">
              <widget class="QLabel" name="label_8">
+              <property name="toolTip">
+               <string>Image format choices</string>
+              </property>
               <property name="text">
                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;Image format&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
               </property>
@@ -214,7 +226,7 @@
             <item row="0" column="3">
              <widget class="QLabel" name="label_2">
               <property name="toolTip">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Pixel gap between sprites&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               <string>Pixel gap between sprites</string>
               </property>
               <property name="text">
                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;Padding&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -275,7 +287,7 @@
             <item row="1" column="3">
              <widget class="QLabel" name="label_3">
               <property name="toolTip">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Border pixels around main sheet&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               <string>Pixel border around sheet edges</string>
               </property>
               <property name="text">
                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;Border&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -306,6 +318,9 @@
             </item>
             <item row="2" column="0" colspan="2">
              <widget class="QLabel" name="label_5">
+              <property name="toolTip">
+               <string>Scale factor for all sprites</string>
+              </property>
               <property name="text">
                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;Sprite scaling&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
               </property>
@@ -341,6 +356,9 @@
            <layout class="QGridLayout" name="gridLayout_2">
             <item row="0" column="0" colspan="2">
              <widget class="QComboBox" name="methodComboBox">
+              <property name="toolTip">
+               <string>Packing methods</string>
+              </property>
               <item>
                <property name="text">
                 <string>MaxRects (BestArea)</string>
@@ -406,6 +424,9 @@
             </item>
             <item row="2" column="0">
              <widget class="QCheckBox" name="croppingCheckBox">
+              <property name="toolTip">
+               <string>Option to crop transparent borders from sprites</string>
+              </property>
               <property name="text">
                <string>Allow cropping</string>
               </property>
@@ -413,6 +434,9 @@
             </item>
             <item row="2" column="1">
              <widget class="QCheckBox" name="rotationCheckBox">
+              <property name="toolTip">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Will rotate sprites for better packing.&lt;/p&gt;&lt;p&gt;Not all libraries/applications can support this output.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
               <property name="text">
                <string>Allow rotation</string>
               </property>
@@ -422,6 +446,9 @@
              <layout class="QHBoxLayout" name="horizontalLayout">
               <item>
                <widget class="QLabel" name="label_9">
+                <property name="toolTip">
+                 <string>Adds border pixels to all sprites</string>
+                </property>
                 <property name="text">
                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;Expand&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
@@ -440,6 +467,9 @@
              <layout class="QHBoxLayout" name="horizontalLayout_3">
               <item>
                <widget class="QLabel" name="label_10">
+                <property name="toolTip">
+                 <string>Paints beyond the edge pixel to blend edges better</string>
+                </property>
                 <property name="text">
                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;Extrude&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
@@ -570,6 +600,9 @@
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
+        </property>
+        <property name="toolTip">
+         <string>Status messages appear here</string>
         </property>
         <property name="text">
          <string>(no items loaded)</string>
