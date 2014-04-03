@@ -19,7 +19,7 @@
   <td id="projectlogo"><img alt="Logo" src="icon-sml70.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">SpriteBuncher
-   &#160;<span id="projectnumber">1.0a</span>
+   &#160;<span id="projectnumber">1.0b</span>
    </div>
    <div id="projectbrief">A free, open-source texture packing program.</div>
   </td>
@@ -99,18 +99,19 @@ Public Types</h2></td></tr>
 <b>FORMAT_RGB555</b>
 <br/>
  }</td></tr>
-<tr class="memdesc:afda913e25c42ebb817008954a482189d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Image formats for output. <br/></td></tr>
+<tr class="memdesc:afda913e25c42ebb817008954a482189d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Image formats for output. These get converted to matching QImage formats. <br/></td></tr>
 <tr class="separator:afda913e25c42ebb817008954a482189d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a8b244be8b7b7db1b08de2a2acb9409db"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8b244be8b7b7db1b08de2a2acb9409db"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a8b244be8b7b7db1b08de2a2acb9409db">MainWindow</a> (QWidget *parent=0)</td></tr>
-<tr class="memdesc:a8b244be8b7b7db1b08de2a2acb9409db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constr. <br/></td></tr>
+<tr class="memdesc:a8b244be8b7b7db1b08de2a2acb9409db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br/></td></tr>
 <tr class="separator:a8b244be8b7b7db1b08de2a2acb9409db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26a96107073e1cfbcb512f5fd561d436"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a26a96107073e1cfbcb512f5fd561d436"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>readAppSettings</b> ()</td></tr>
-<tr class="separator:a26a96107073e1cfbcb512f5fd561d436"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae98d00a93bc118200eeef9f9bba1dba7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae98d00a93bc118200eeef9f9bba1dba7"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7">~MainWindow</a> ()</td></tr>
+<tr class="memdesc:ae98d00a93bc118200eeef9f9bba1dba7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br/></td></tr>
+<tr class="separator:ae98d00a93bc118200eeef9f9bba1dba7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-slots"></a>
 Protected Slots</h2></td></tr>
@@ -126,6 +127,34 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#af6bb2902c479f9dd718c207bcc737d8d">on_actionView_manual_triggered</a> ()</td></tr>
 <tr class="memdesc:af6bb2902c479f9dd718c207bcc737d8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Slot to open pdf manual (external file). <br/></td></tr>
 <tr class="separator:af6bb2902c479f9dd718c207bcc737d8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93190b7f30b335b122ab676017c8a85c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a93190b7f30b335b122ab676017c8a85c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a93190b7f30b335b122ab676017c8a85c">on_action_Reload_triggered</a> ()</td></tr>
+<tr class="memdesc:a93190b7f30b335b122ab676017c8a85c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Slot to reload current folder. <br/></td></tr>
+<tr class="separator:a93190b7f30b335b122ab676017c8a85c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedc248c61f633532852b97d9bdf7bc64"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aedc248c61f633532852b97d9bdf7bc64"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#aedc248c61f633532852b97d9bdf7bc64">on_actionOpen_folder_triggered</a> ()</td></tr>
+<tr class="memdesc:aedc248c61f633532852b97d9bdf7bc64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Slot for 'open folder' menu item. <br/></td></tr>
+<tr class="separator:aedc248c61f633532852b97d9bdf7bc64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7df050ed9d3ca5f73a3ed852b35fc736"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7df050ed9d3ca5f73a3ed852b35fc736"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a7df050ed9d3ca5f73a3ed852b35fc736">on_actionExport_triggered</a> ()</td></tr>
+<tr class="memdesc:a7df050ed9d3ca5f73a3ed852b35fc736"><td class="mdescLeft">&#160;</td><td class="mdescRight">Slot for 'Export' menu item. <br/></td></tr>
+<tr class="separator:a7df050ed9d3ca5f73a3ed852b35fc736"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7896482282620c09defe1491e69d040a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7896482282620c09defe1491e69d040a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a7896482282620c09defe1491e69d040a">on_actionZoom_In_triggered</a> ()</td></tr>
+<tr class="memdesc:a7896482282620c09defe1491e69d040a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zoom In action menu slot. <br/></td></tr>
+<tr class="separator:a7896482282620c09defe1491e69d040a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1512b66c93874af7397d2edb92f81d4b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1512b66c93874af7397d2edb92f81d4b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a1512b66c93874af7397d2edb92f81d4b">on_actionZoom_Out_triggered</a> ()</td></tr>
+<tr class="memdesc:a1512b66c93874af7397d2edb92f81d4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zoom Out action menu slot. <br/></td></tr>
+<tr class="separator:a1512b66c93874af7397d2edb92f81d4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a565ea5ca3f80e333fdb0f0364d969fcd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a565ea5ca3f80e333fdb0f0364d969fcd"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a565ea5ca3f80e333fdb0f0364d969fcd">on_actionZoom_Reset_triggered</a> ()</td></tr>
+<tr class="memdesc:a565ea5ca3f80e333fdb0f0364d969fcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zoom Reset action menu slot. <br/></td></tr>
+<tr class="separator:a565ea5ca3f80e333fdb0f0364d969fcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f569ad1c96ad158012ed8bd32306af2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8f569ad1c96ad158012ed8bd32306af2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a8f569ad1c96ad158012ed8bd32306af2">on_actionUse_Dark_UI_Theme_triggered</a> ()</td></tr>
+<tr class="memdesc:a8f569ad1c96ad158012ed8bd32306af2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Menu item slot to toggle dark UI skin. <br/></td></tr>
+<tr class="separator:a8f569ad1c96ad158012ed8bd32306af2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abbfdc87e0b019dc182c9a3b5925062d1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abbfdc87e0b019dc182c9a3b5925062d1"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#abbfdc87e0b019dc182c9a3b5925062d1">sceneSelectionChanged</a> ()</td></tr>
 <tr class="memdesc:abbfdc87e0b019dc182c9a3b5925062d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Slot called when selection changes on the graphicsview. <br/></td></tr>
@@ -134,49 +163,58 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#ab40b2145b3523b08f3aa6589065bb4fe">openFileDialog</a> ()</td></tr>
 <tr class="memdesc:ab40b2145b3523b08f3aa6589065bb4fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls up a standard file dialog to choose the input folder. <br/></td></tr>
 <tr class="separator:ab40b2145b3523b08f3aa6589065bb4fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8562f3b838a8041ee981567e9efbe11"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af8562f3b838a8041ee981567e9efbe11"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#af8562f3b838a8041ee981567e9efbe11">packingOptionChanged</a> (int)</td></tr>
-<tr class="memdesc:af8562f3b838a8041ee981567e9efbe11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Slot is called when a packing option is changed. It calls <a class="el" href="class_main_window.html#ac3b311fedc46cfe5f69683456cd79752" title="Calls processFolder(), pack(), and updateViewWidgets(). i.e. reloads all images and re-packs everythi...">reloadAndRepackAll()</a>, ie triggers reload and repack of all data. <br/></td></tr>
+<tr class="memitem:af8562f3b838a8041ee981567e9efbe11"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#af8562f3b838a8041ee981567e9efbe11">packingOptionChanged</a> (int)</td></tr>
+<tr class="memdesc:af8562f3b838a8041ee981567e9efbe11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Slot is called when a main option is changed, ie requires full reload of image data and repacking. It calls <a class="el" href="class_main_window.html#ac3b311fedc46cfe5f69683456cd79752" title="Calls processFolder(), pack(), and updateViewWidgets(). i.e. reloads all images and re-packs everythi...">reloadAndRepackAll()</a>.  <a href="#af8562f3b838a8041ee981567e9efbe11">More...</a><br/></td></tr>
 <tr class="separator:af8562f3b838a8041ee981567e9efbe11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae616e7ced57b73af4f3fd0d998d0f2bc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae616e7ced57b73af4f3fd0d998d0f2bc"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#ae616e7ced57b73af4f3fd0d998d0f2bc">sheetOptionChanged</a> (int)</td></tr>
-<tr class="memdesc:ae616e7ced57b73af4f3fd0d998d0f2bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Slot is called when a sheet option is changed. It calls <a class="el" href="class_main_window.html#a16fd57a34f3e52f8992be8151f1dd31c" title="Calls pack(), and updateViewWidgets(), using the currently loaded image list. Used if the image list ...">repackAll()</a>, so does not reload the images. <br/></td></tr>
+<tr class="memitem:ae616e7ced57b73af4f3fd0d998d0f2bc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#ae616e7ced57b73af4f3fd0d998d0f2bc">sheetOptionChanged</a> (int)</td></tr>
+<tr class="memdesc:ae616e7ced57b73af4f3fd0d998d0f2bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Slot is called when a sheet option is changed. It calls <a class="el" href="class_main_window.html#a16fd57a34f3e52f8992be8151f1dd31c" title="Calls pack(), and updateViewWidgets(), using the currently loaded image list. Used if the image list ...">repackAll()</a>, so does not reload the images.  <a href="#ae616e7ced57b73af4f3fd0d998d0f2bc">More...</a><br/></td></tr>
 <tr class="separator:ae616e7ced57b73af4f3fd0d998d0f2bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78c891dcee08c303362d08022798ae86"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a78c891dcee08c303362d08022798ae86"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a78c891dcee08c303362d08022798ae86">sheetOptionChanged</a> (double)</td></tr>
+<tr class="memdesc:a78c891dcee08c303362d08022798ae86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alternative overloaded form. <br/></td></tr>
+<tr class="separator:a78c891dcee08c303362d08022798ae86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1feb288e54ef18f9b18a8724262e755a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1feb288e54ef18f9b18a8724262e755a"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a1feb288e54ef18f9b18a8724262e755a">exportFiles</a> ()</td></tr>
 <tr class="memdesc:a1feb288e54ef18f9b18a8724262e755a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exports the current sprite sheet and data file. <br/></td></tr>
 <tr class="separator:a1feb288e54ef18f9b18a8724262e755a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa13e39ece777521d3f176155899309a6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa13e39ece777521d3f176155899309a6"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#aa13e39ece777521d3f176155899309a6">zoomIn</a> ()</td></tr>
-<tr class="memdesc:aa13e39ece777521d3f176155899309a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zoom in on the GraphicsView. <br/></td></tr>
+<tr class="memdesc:aa13e39ece777521d3f176155899309a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zoom in on the GraphicsView canvas. <br/></td></tr>
 <tr class="separator:aa13e39ece777521d3f176155899309a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a21d4700dd4bc51216443a4c788b85892"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a21d4700dd4bc51216443a4c788b85892"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a21d4700dd4bc51216443a4c788b85892">zoomOut</a> ()</td></tr>
-<tr class="memdesc:a21d4700dd4bc51216443a4c788b85892"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zoom out on the GraphicsView. <br/></td></tr>
+<tr class="memdesc:a21d4700dd4bc51216443a4c788b85892"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zoom out on the GraphicsView canvas. <br/></td></tr>
 <tr class="separator:a21d4700dd4bc51216443a4c788b85892"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade9689f0bf2a26cc5931c63347c3e06c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ade9689f0bf2a26cc5931c63347c3e06c"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#ade9689f0bf2a26cc5931c63347c3e06c">zoomReset</a> ()</td></tr>
-<tr class="memdesc:ade9689f0bf2a26cc5931c63347c3e06c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets zoom to 1:1 on the GraphicsView. <br/></td></tr>
+<tr class="memdesc:ade9689f0bf2a26cc5931c63347c3e06c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets zoom to 1:1 on the GraphicsView canvas. <br/></td></tr>
 <tr class="separator:ade9689f0bf2a26cc5931c63347c3e06c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7a887930433b39fc7b35c1ce7c281f0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa7a887930433b39fc7b35c1ce7c281f0"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#aa7a887930433b39fc7b35c1ce7c281f0">zoomBestFit</a> ()</td></tr>
-<tr class="memdesc:aa7a887930433b39fc7b35c1ce7c281f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approx best-fit zoom level based on current window size. <br/></td></tr>
+<tr class="memdesc:aa7a887930433b39fc7b35c1ce7c281f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approx best-fit zoom on the GraphicsView canvas, based on current window size. <br/></td></tr>
 <tr class="separator:aa7a887930433b39fc7b35c1ce7c281f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
+<tr class="memitem:a26a96107073e1cfbcb512f5fd561d436"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a26a96107073e1cfbcb512f5fd561d436"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a26a96107073e1cfbcb512f5fd561d436">readAppSettings</a> ()</td></tr>
+<tr class="memdesc:a26a96107073e1cfbcb512f5fd561d436"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads previous window geometry etc (via QSettings, in standard locations). <br/></td></tr>
+<tr class="separator:a26a96107073e1cfbcb512f5fd561d436"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a671bf73078069470c19965a3d948b6fa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a671bf73078069470c19965a3d948b6fa"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>dragEnterEvent</b> (QDragEnterEvent *event)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a671bf73078069470c19965a3d948b6fa">dragEnterEvent</a> (QDragEnterEvent *event)</td></tr>
+<tr class="memdesc:a671bf73078069470c19965a3d948b6fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles standard Qt drag events. <br/></td></tr>
 <tr class="separator:a671bf73078069470c19965a3d948b6fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7b97e68c51358f6f36be3c40b89c01c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae7b97e68c51358f6f36be3c40b89c01c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>dropEvent</b> (QDropEvent *event)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#ae7b97e68c51358f6f36be3c40b89c01c">dropEvent</a> (QDropEvent *event)</td></tr>
+<tr class="memdesc:ae7b97e68c51358f6f36be3c40b89c01c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles standard Qt drop events - we attempt to load a dropped folder. <br/></td></tr>
 <tr class="separator:ae7b97e68c51358f6f36be3c40b89c01c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e20a4a065fbb0e4d3532a45a0a91425"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4e20a4a065fbb0e4d3532a45a0a91425"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>closeEvent</b> (QCloseEvent *event)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a4e20a4a065fbb0e4d3532a45a0a91425">closeEvent</a> (QCloseEvent *event)</td></tr>
+<tr class="memdesc:a4e20a4a065fbb0e4d3532a45a0a91425"><td class="mdescLeft">&#160;</td><td class="mdescRight">Standard event Qt calls when application is closed. We save app QSettings here. <br/></td></tr>
 <tr class="separator:a4e20a4a065fbb0e4d3532a45a0a91425"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3b311fedc46cfe5f69683456cd79752"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac3b311fedc46cfe5f69683456cd79752"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#ac3b311fedc46cfe5f69683456cd79752">reloadAndRepackAll</a> ()</td></tr>
-<tr class="memdesc:ac3b311fedc46cfe5f69683456cd79752"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls <a class="el" href="class_main_window.html#a3edf1d451a663f0cef5cd905312529ac" title="Loads images from the current folder, ready for packing. Files are sorted based on packing method set...">processFolder()</a>, <a class="el" href="class_main_window.html#a46ead250b10d1de7ec4af42b2ae1cde9" title="Starts the packing, based on current method and settings. Previous packing rect data will be lost...">pack()</a>, and <a class="el" href="class_main_window.html#a9725343c0c4efb77f8bf91ca1409d930" title="Repopulates the listWidget and GraphicsView widgets to display the current packing sprites...">updateViewWidgets()</a>. i.e. reloads all images and re-packs everything. <br/></td></tr>
+<tr class="memdesc:ac3b311fedc46cfe5f69683456cd79752"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls <a class="el" href="class_main_window.html#a3edf1d451a663f0cef5cd905312529ac" title="Loads images from the opened folder, ready for packing. Files are sorted based on packing method sett...">processFolder()</a>, <a class="el" href="class_main_window.html#a46ead250b10d1de7ec4af42b2ae1cde9" title="Starts the packing, based on current method and settings. Previous packing rect data will be lost...">pack()</a>, and <a class="el" href="class_main_window.html#a9725343c0c4efb77f8bf91ca1409d930" title="Repopulates the listWidget and GraphicsView widgets to display the current packing sprites...">updateViewWidgets()</a>. i.e. reloads all images and re-packs everything. <br/></td></tr>
 <tr class="separator:ac3b311fedc46cfe5f69683456cd79752"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16fd57a34f3e52f8992be8151f1dd31c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a16fd57a34f3e52f8992be8151f1dd31c"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a16fd57a34f3e52f8992be8151f1dd31c">repackAll</a> ()</td></tr>
@@ -190,23 +228,21 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#ac3bcb52fc6cf72c745713dc3e49ac58f">saveJsonSettings</a> ()</td></tr>
 <tr class="memdesc:ac3bcb52fc6cf72c745713dc3e49ac58f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves buncher json settings file for the current folder. These store the sheet data, current packing method, and so on. <br/></td></tr>
 <tr class="separator:ac3bcb52fc6cf72c745713dc3e49ac58f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5da554b4cc7d5f84837d554514d930dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a5da554b4cc7d5f84837d554514d930dc">openFolder</a> (const QString &amp;path, bool ignoreIfCurrent=true)</td></tr>
-<tr class="memdesc:a5da554b4cc7d5f84837d554514d930dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the requested image folder.  <a href="#a5da554b4cc7d5f84837d554514d930dc">More...</a><br/></td></tr>
-<tr class="separator:a5da554b4cc7d5f84837d554514d930dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3edf1d451a663f0cef5cd905312529ac"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3edf1d451a663f0cef5cd905312529ac"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a3edf1d451a663f0cef5cd905312529ac">processFolder</a> ()</td></tr>
-<tr class="memdesc:a3edf1d451a663f0cef5cd905312529ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads images from the current folder, ready for packing. Files are sorted based on packing method settings. <br/></td></tr>
+<tr class="memitem:aa2ac028997120f575a1e151c831b14f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#aa2ac028997120f575a1e151c831b14f9">openFolder</a> (const QString &amp;path, bool ignoreIfCurrent=true, bool loadSettings=true)</td></tr>
+<tr class="memdesc:aa2ac028997120f575a1e151c831b14f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the requested image folder.  <a href="#aa2ac028997120f575a1e151c831b14f9">More...</a><br/></td></tr>
+<tr class="separator:aa2ac028997120f575a1e151c831b14f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3edf1d451a663f0cef5cd905312529ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a3edf1d451a663f0cef5cd905312529ac">processFolder</a> ()</td></tr>
+<tr class="memdesc:a3edf1d451a663f0cef5cd905312529ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads images from the opened folder, ready for packing. Files are sorted based on packing method settings.  <a href="#a3edf1d451a663f0cef5cd905312529ac">More...</a><br/></td></tr>
 <tr class="separator:a3edf1d451a663f0cef5cd905312529ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46ead250b10d1de7ec4af42b2ae1cde9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a46ead250b10d1de7ec4af42b2ae1cde9">pack</a> ()</td></tr>
 <tr class="memdesc:a46ead250b10d1de7ec4af42b2ae1cde9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the packing, based on current method and settings. Previous packing rect data will be lost.  <a href="#a46ead250b10d1de7ec4af42b2ae1cde9">More...</a><br/></td></tr>
 <tr class="separator:a46ead250b10d1de7ec4af42b2ae1cde9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a9d27d5b92f5a1db23113ab35a43ced"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2a9d27d5b92f5a1db23113ab35a43ced"></a>
-QImage::Format&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a2a9d27d5b92f5a1db23113ab35a43ced">currentImgFormat</a> () const </td></tr>
-<tr class="memdesc:a2a9d27d5b92f5a1db23113ab35a43ced"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current image format (for sheet output). <br/></td></tr>
-<tr class="separator:a2a9d27d5b92f5a1db23113ab35a43ced"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aabfaed20e8558a86511927b6d205c440"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aabfaed20e8558a86511927b6d205c440"></a>
-QImage&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#aabfaed20e8558a86511927b6d205c440">renderSheet</a> ()</td></tr>
-<tr class="memdesc:aabfaed20e8558a86511927b6d205c440"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renders the current sheet to an image, based on current format and settings. <br/></td></tr>
+<tr class="memitem:a6d02b4e6492ae7db97a06a81a248ae12"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6d02b4e6492ae7db97a06a81a248ae12"></a>
+QImage::Format&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a6d02b4e6492ae7db97a06a81a248ae12">currentQImageFormat</a> () const </td></tr>
+<tr class="memdesc:a6d02b4e6492ae7db97a06a81a248ae12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current image format as a QImage format id (be careful, they use different enum values). <br/></td></tr>
+<tr class="separator:a6d02b4e6492ae7db97a06a81a248ae12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabfaed20e8558a86511927b6d205c440"><td class="memItemLeft" align="right" valign="top">QImage&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#aabfaed20e8558a86511927b6d205c440">renderSheet</a> ()</td></tr>
+<tr class="memdesc:aabfaed20e8558a86511927b6d205c440"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renders the current sheet to an image, based on current format and settings.  <a href="#aabfaed20e8558a86511927b6d205c440">More...</a><br/></td></tr>
 <tr class="separator:aabfaed20e8558a86511927b6d205c440"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9725343c0c4efb77f8bf91ca1409d930"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a9725343c0c4efb77f8bf91ca1409d930">updateViewWidgets</a> (int nfails=0)</td></tr>
 <tr class="memdesc:a9725343c0c4efb77f8bf91ca1409d930"><td class="mdescLeft">&#160;</td><td class="mdescRight">Repopulates the listWidget and GraphicsView widgets to display the current packing sprites.  <a href="#a9725343c0c4efb77f8bf91ca1409d930">More...</a><br/></td></tr>
@@ -214,37 +250,32 @@ QImage&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a413dacffd35dc5b0a367071ea9497edb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a413dacffd35dc5b0a367071ea9497edb"></a>
-QList&lt; <a class="el" href="class_pack_sprite.html">PackSprite</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a413dacffd35dc5b0a367071ea9497edb">packedsprites</a></td></tr>
-<tr class="memdesc:a413dacffd35dc5b0a367071ea9497edb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains current list of packing sprites. See <a class="el" href="class_pack_sprite.html" title="Simple class that groups together a pixmap with its originating fileinfo, and its packed rect on the ...">PackSprite</a> class for more details. <br/></td></tr>
+<tr class="memitem:a413dacffd35dc5b0a367071ea9497edb"><td class="memItemLeft" align="right" valign="top">QList&lt; <a class="el" href="class_pack_sprite.html">PackSprite</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a413dacffd35dc5b0a367071ea9497edb">packedsprites</a></td></tr>
+<tr class="memdesc:a413dacffd35dc5b0a367071ea9497edb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains current list of packing sprites. Packing rects will be valid only after <a class="el" href="class_main_window.html#a46ead250b10d1de7ec4af42b2ae1cde9" title="Starts the packing, based on current method and settings. Previous packing rect data will be lost...">pack()</a> is called.  <a href="#a413dacffd35dc5b0a367071ea9497edb">More...</a><br/></td></tr>
 <tr class="separator:a413dacffd35dc5b0a367071ea9497edb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7e80c511bd70bd1d41d3af5d7b2cf0a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac7e80c511bd70bd1d41d3af5d7b2cf0a"></a>
-<a class="el" href="class_main_window.html#ad706b196fce2354418ab6db5a1379b5e">PackMethods</a>&#160;</td><td class="memItemRight" valign="bottom"><b>packMethod</b></td></tr>
-<tr class="separator:ac7e80c511bd70bd1d41d3af5d7b2cf0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78123cdc6e71c0902e1a0f074bc94b53"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a78123cdc6e71c0902e1a0f074bc94b53"></a>
-QImage::Format&#160;</td><td class="memItemRight" valign="bottom"><b>imgFormat</b></td></tr>
-<tr class="separator:a78123cdc6e71c0902e1a0f074bc94b53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3972f2e54f977bcf5425bc5dbd4fd8ea"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3972f2e54f977bcf5425bc5dbd4fd8ea"></a>
-<a class="el" href="struct_sheet_properties.html">SheetProperties</a>&#160;</td><td class="memItemRight" valign="bottom"><b>sheetProp</b></td></tr>
+<a class="el" href="struct_sheet_properties.html">SheetProperties</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a3972f2e54f977bcf5425bc5dbd4fd8ea">sheetProp</a></td></tr>
+<tr class="memdesc:a3972f2e54f977bcf5425bc5dbd4fd8ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores main sheet properties. <br/></td></tr>
 <tr class="separator:a3972f2e54f977bcf5425bc5dbd4fd8ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf8d8030b3201bd2b74477309e286484"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abf8d8030b3201bd2b74477309e286484"></a>
-QString&#160;</td><td class="memItemRight" valign="bottom"><b>outFilen</b></td></tr>
+QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#abf8d8030b3201bd2b74477309e286484">outFilen</a></td></tr>
+<tr class="memdesc:abf8d8030b3201bd2b74477309e286484"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output file name (without extension). <br/></td></tr>
 <tr class="separator:abf8d8030b3201bd2b74477309e286484"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44197644c3c7426aada0102fa5f5bc27"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a44197644c3c7426aada0102fa5f5bc27"></a>
-QString&#160;</td><td class="memItemRight" valign="bottom"><b>inDirn</b></td></tr>
+QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a44197644c3c7426aada0102fa5f5bc27">inDirn</a></td></tr>
+<tr class="memdesc:a44197644c3c7426aada0102fa5f5bc27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Input folder name. <br/></td></tr>
 <tr class="separator:a44197644c3c7426aada0102fa5f5bc27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87178612f906530a35127c5258cdfa9d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a87178612f906530a35127c5258cdfa9d"></a>
-QString&#160;</td><td class="memItemRight" valign="bottom"><b>outDirn</b></td></tr>
+<tr class="memitem:a87178612f906530a35127c5258cdfa9d"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a87178612f906530a35127c5258cdfa9d">outDirn</a></td></tr>
+<tr class="memdesc:a87178612f906530a35127c5258cdfa9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output folder name.  <a href="#a87178612f906530a35127c5258cdfa9d">More...</a><br/></td></tr>
 <tr class="separator:a87178612f906530a35127c5258cdfa9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8bb60af5b5bd6a9771c66b23c63c2656"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8bb60af5b5bd6a9771c66b23c63c2656"></a>
-QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a8bb60af5b5bd6a9771c66b23c63c2656">jsonFilen</a></td></tr>
-<tr class="memdesc:a8bb60af5b5bd6a9771c66b23c63c2656"><td class="mdescLeft">&#160;</td><td class="mdescRight">File name for this folders local settings. <br/></td></tr>
+<tr class="memitem:a8bb60af5b5bd6a9771c66b23c63c2656"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a8bb60af5b5bd6a9771c66b23c63c2656">jsonFilen</a></td></tr>
+<tr class="memdesc:a8bb60af5b5bd6a9771c66b23c63c2656"><td class="mdescLeft">&#160;</td><td class="mdescRight">File name for this folders local settings, which gets written to outDirn.  <a href="#a8bb60af5b5bd6a9771c66b23c63c2656">More...</a><br/></td></tr>
 <tr class="separator:a8bb60af5b5bd6a9771c66b23c63c2656"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Main Window for the application. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a5da554b4cc7d5f84837d554514d930dc"></a>
+<a class="anchor" id="aa2ac028997120f575a1e151c831b14f9"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -261,7 +292,13 @@ QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>ignoreIfCurrent</em> = <code>true</code>&#160;</td>
+          <td class="paramname"><em>ignoreIfCurrent</em> = <code>true</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>loadSettings</em> = <code>true</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -277,7 +314,14 @@ QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 </div><div class="memdoc">
 
 <p>Opens the requested image folder. </p>
-<p>Set ignoreIfCurrent to false to force a reloading, else duplicate request is ignored. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>- full path of folder to load. </td></tr>
+    <tr><td class="paramname">ignoreIfCurrent</td><td>- set to false to force a reload of currently loaded folder (else, reqest is ignored).. </td></tr>
+    <tr><td class="paramname">loadSettings</td><td>- set to false to retain current settings rather than reload from previous export. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -303,7 +347,114 @@ QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 </div><div class="memdoc">
 
 <p>Starts the packing, based on current method and settings. Previous packing rect data will be lost. </p>
-<dl class="section return"><dt>Returns</dt><dd>The number of sprites that failed to pack. ie anything &gt;0 means we failed to pack everything. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The number of sprites that failed to pack. Anything non-zero means we failed to pack all the images. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af8562f3b838a8041ee981567e9efbe11"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MainWindow::packingOptionChanged </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Slot is called when a main option is changed, ie requires full reload of image data and repacking. It calls <a class="el" href="class_main_window.html#ac3b311fedc46cfe5f69683456cd79752" title="Calls processFolder(), pack(), and updateViewWidgets(). i.e. reloads all images and re-packs everythi...">reloadAndRepackAll()</a>. </p>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="class_main_window.html#ae616e7ced57b73af4f3fd0d998d0f2bc" title="Slot is called when a sheet option is changed. It calls repackAll(), so does not reload the images...">sheetOptionChanged(int)</a>, which is faster if the image list doesn't need to be re-processed. Note - don't rely on using the index param, the slot is connected to various signals. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3edf1d451a663f0cef5cd905312529ac"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MainWindow::processFolder </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Loads images from the opened folder, ready for packing. Files are sorted based on packing method settings. </p>
+<p>Note - UI has user option to load subfolders. </p>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="class_main_window.html#aa2ac028997120f575a1e151c831b14f9" title="Opens the requested image folder. ">openFolder</a>, to open the folder. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aabfaed20e8558a86511927b6d205c440"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QImage MainWindow::renderSheet </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Renders the current sheet to an image, based on current format and settings. </p>
+<dl class="section return"><dt>Returns</dt><dd>The QImage, with current color-depth setting. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae616e7ced57b73af4f3fd0d998d0f2bc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MainWindow::sheetOptionChanged </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Slot is called when a sheet option is changed. It calls <a class="el" href="class_main_window.html#a16fd57a34f3e52f8992be8151f1dd31c" title="Calls pack(), and updateViewWidgets(), using the currently loaded image list. Used if the image list ...">repackAll()</a>, so does not reload the images. </p>
+<p>See also: <a class="el" href="class_main_window.html#af8562f3b838a8041ee981567e9efbe11" title="Slot is called when a main option is changed, ie requires full reload of image data and repacking...">packingOptionChanged(int)</a>, which will reload all images before packing. Note - don't rely on using the index param, the slot is connected to various signals. </p>
 
 </div>
 </div>
@@ -332,10 +483,80 @@ QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <p>Repopulates the listWidget and GraphicsView widgets to display the current packing sprites. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">nfails</td><td>passes in the number of failed packing sprites. </td></tr>
+    <tr><td class="paramname">nfails</td><td>passes in the number of failed packing sprites, so widgets can display fail status. </td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a8bb60af5b5bd6a9771c66b23c63c2656"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString MainWindow::jsonFilen</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>File name for this folders local settings, which gets written to outDirn. </p>
+<p>Currently, this is hardcoded to be the "buncher.data" file. </p>
+
+</div>
+</div>
+<a class="anchor" id="a87178612f906530a35127c5258cdfa9d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString MainWindow::outDirn</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Output folder name. </p>
+<p>Currently, this is always set internally to be the "buncher" dir inside the input folder. </p>
+
+</div>
+</div>
+<a class="anchor" id="a413dacffd35dc5b0a367071ea9497edb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QList&lt;<a class="el" href="class_pack_sprite.html">PackSprite</a>&gt; MainWindow::packedsprites</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Contains current list of packing sprites. Packing rects will be valid only after <a class="el" href="class_main_window.html#a46ead250b10d1de7ec4af42b2ae1cde9" title="Starts the packing, based on current method and settings. Previous packing rect data will be lost...">pack()</a> is called. </p>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="class_pack_sprite.html" title="Class that defines a &#39;sprite&#39; on the sprite sheet. ">PackSprite</a> class for more details. </dd></dl>
 
 </div>
 </div>
@@ -346,7 +567,7 @@ QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 30 2014 17:25:08 for SpriteBuncher by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 3 2014 15:14:18 for SpriteBuncher by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

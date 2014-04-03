@@ -19,7 +19,7 @@
   <td id="projectlogo"><img alt="Logo" src="icon-sml70.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">SpriteBuncher
-   &#160;<span id="projectnumber">1.0a</span>
+   &#160;<span id="projectnumber">1.0b</span>
    </div>
    <div id="projectbrief">A free, open-source texture packing program.</div>
   </td>
@@ -54,77 +54,194 @@
 </div><!--header-->
 <div class="contents">
 
-<p>Simple class that groups together a pixmap with its originating fileinfo, and its packed rect on the sheet.  
+<p>Class that defines a 'sprite' on the sprite sheet.  
  <a href="class_pack_sprite.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="packsprite_8h_source.html">packsprite.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a66957d674eb7d84e15ffb934d19660a4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a66957d674eb7d84e15ffb934d19660a4"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>PackSprite</b> (const QPixmap &amp;pm, const QFileInfo &amp;fi)</td></tr>
+<tr class="memitem:a66957d674eb7d84e15ffb934d19660a4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pack_sprite.html#a66957d674eb7d84e15ffb934d19660a4">PackSprite</a> (const QPixmap &amp;pm, const QFileInfo &amp;fi)</td></tr>
+<tr class="memdesc:a66957d674eb7d84e15ffb934d19660a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a66957d674eb7d84e15ffb934d19660a4">More...</a><br/></td></tr>
 <tr class="separator:a66957d674eb7d84e15ffb934d19660a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15a5df47acd4797db49d33bdb3d9ce74"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a15a5df47acd4797db49d33bdb3d9ce74"></a>
-QFileInfo&#160;</td><td class="memItemRight" valign="bottom"><b>fileInfo</b> () const </td></tr>
+QFileInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pack_sprite.html#a15a5df47acd4797db49d33bdb3d9ce74">fileInfo</a> () const </td></tr>
+<tr class="memdesc:a15a5df47acd4797db49d33bdb3d9ce74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access to the fileinfo for this sprite. <br/></td></tr>
 <tr class="separator:a15a5df47acd4797db49d33bdb3d9ce74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26cc809ecf4b1997cb5eee25ab82f11c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a26cc809ecf4b1997cb5eee25ab82f11c"></a>
-QPixmap&#160;</td><td class="memItemRight" valign="bottom"><b>pixmap</b> () const </td></tr>
-<tr class="separator:a26cc809ecf4b1997cb5eee25ab82f11c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8825b9adc2716d355779a09dead3b81"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab8825b9adc2716d355779a09dead3b81"></a>
-QPixmap&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pack_sprite.html#ab8825b9adc2716d355779a09dead3b81">croppedPixmap</a> ()</td></tr>
-<tr class="memdesc:ab8825b9adc2716d355779a09dead3b81"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns auto-cropped version of pixmap, based on opaque bounding area. pixmap is cached for future use. <br/></td></tr>
-<tr class="separator:ab8825b9adc2716d355779a09dead3b81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc0a218a954f83e246d6b11105db2a31"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acc0a218a954f83e246d6b11105db2a31"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pack_sprite.html#acc0a218a954f83e246d6b11105db2a31">hasSizeCropped</a> () const </td></tr>
-<tr class="memdesc:acc0a218a954f83e246d6b11105db2a31"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns true if cropping has changed the pixmaps original size. returns false if cropping not performed on this pixmap. <br/></td></tr>
-<tr class="separator:acc0a218a954f83e246d6b11105db2a31"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00bfc818a51b9ee2534da9e4139450ed"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a00bfc818a51b9ee2534da9e4139450ed"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pack_sprite.html#a00bfc818a51b9ee2534da9e4139450ed">resetCropping</a> ()</td></tr>
-<tr class="memdesc:a00bfc818a51b9ee2534da9e4139450ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">removes knowledge of any cropping that has been applied. <br/></td></tr>
-<tr class="separator:a00bfc818a51b9ee2534da9e4139450ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20537bc4bc65915a98caa312ff025125"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a20537bc4bc65915a98caa312ff025125"></a>
-rbp::Rect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pack_sprite.html#a20537bc4bc65915a98caa312ff025125">packedRect</a> () const </td></tr>
-<tr class="memdesc:a20537bc4bc65915a98caa312ff025125"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the packedrect. will be a zero-sized rect if packing has not run yet, or if it has failed for this item. <br/></td></tr>
+<tr class="memitem:a345774a450f95cf227ff6773121df3f2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a345774a450f95cf227ff6773121df3f2"></a>
+const QPixmap &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pack_sprite.html#a345774a450f95cf227ff6773121df3f2">pixmap</a> () const </td></tr>
+<tr class="memdesc:a345774a450f95cf227ff6773121df3f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access to the current pixmap for this sprite (could be cropped, extended etc compared to original). <br/></td></tr>
+<tr class="separator:a345774a450f95cf227ff6773121df3f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97559d722ff1ea23f7a90293960ee896"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a97559d722ff1ea23f7a90293960ee896"></a>
+const QPixmap &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pack_sprite.html#a97559d722ff1ea23f7a90293960ee896">originalPixmap</a> () const </td></tr>
+<tr class="memdesc:a97559d722ff1ea23f7a90293960ee896"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access to the original pixmap that was used to construct the item (prior to any subsequent cropping etc). <br/></td></tr>
+<tr class="separator:a97559d722ff1ea23f7a90293960ee896"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9246b83ebc89d989335d20f3ba15108"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad9246b83ebc89d989335d20f3ba15108"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pack_sprite.html#ad9246b83ebc89d989335d20f3ba15108">setPixmap</a> (const QPixmap &amp;pm)</td></tr>
+<tr class="memdesc:ad9246b83ebc89d989335d20f3ba15108"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a new pixmap for this sprite (doesn't affect any 'original' pixmap that was set). <br/></td></tr>
+<tr class="separator:ad9246b83ebc89d989335d20f3ba15108"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2830d464f6f100f2e526e483d999a814"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pack_sprite.html#a2830d464f6f100f2e526e483d999a814">resetForPacking</a> ()</td></tr>
+<tr class="memdesc:a2830d464f6f100f2e526e483d999a814"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the packing rect, rotation flag, cropping, and restores original pixmap (calls restoreOriginalPixmap).  <a href="#a2830d464f6f100f2e526e483d999a814">More...</a><br/></td></tr>
+<tr class="separator:a2830d464f6f100f2e526e483d999a814"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa890924e29fd3c06342081dde99a1b0a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa890924e29fd3c06342081dde99a1b0a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pack_sprite.html#aa890924e29fd3c06342081dde99a1b0a">cropPixmap</a> ()</td></tr>
+<tr class="memdesc:aa890924e29fd3c06342081dde99a1b0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Auto-crops the current pixmap based on it's opaque bounding area. Original can be restored via restoreOriginalPixmap. <br/></td></tr>
+<tr class="separator:aa890924e29fd3c06342081dde99a1b0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad4e2b8c22d355acd81a4b16c77abd46"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aad4e2b8c22d355acd81a4b16c77abd46"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pack_sprite.html#aad4e2b8c22d355acd81a4b16c77abd46">scalePixmap</a> (qreal scalef)</td></tr>
+<tr class="memdesc:aad4e2b8c22d355acd81a4b16c77abd46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scales the current pixmap by the specified amount. <br/></td></tr>
+<tr class="separator:aad4e2b8c22d355acd81a4b16c77abd46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5c3554242facf63ff44275bc0934db5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac5c3554242facf63ff44275bc0934db5"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pack_sprite.html#ac5c3554242facf63ff44275bc0934db5">isCropped</a> () const </td></tr>
+<tr class="memdesc:ac5c3554242facf63ff44275bc0934db5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the image has been cropped, and its size reduced. <br/></td></tr>
+<tr class="separator:ac5c3554242facf63ff44275bc0934db5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8b21c490a645ba821c253dabb0ad762"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa8b21c490a645ba821c253dabb0ad762"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pack_sprite.html#aa8b21c490a645ba821c253dabb0ad762">isExpanded</a> () const </td></tr>
+<tr class="memdesc:aa8b21c490a645ba821c253dabb0ad762"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the image has been extended from its original size. <br/></td></tr>
+<tr class="separator:aa8b21c490a645ba821c253dabb0ad762"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a63e2ea1081b39877ea8202c7ad6ae8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9a63e2ea1081b39877ea8202c7ad6ae8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pack_sprite.html#a9a63e2ea1081b39877ea8202c7ad6ae8">restoreOriginalPixmap</a> ()</td></tr>
+<tr class="memdesc:a9a63e2ea1081b39877ea8202c7ad6ae8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reverts to the (cached) original pixmap, removing any cropping or extending. <br/></td></tr>
+<tr class="separator:a9a63e2ea1081b39877ea8202c7ad6ae8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9caaa08442c15cc572e29e4393deb7d3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9caaa08442c15cc572e29e4393deb7d3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pack_sprite.html#a9caaa08442c15cc572e29e4393deb7d3">expandPixmap</a> (int npixels=0)</td></tr>
+<tr class="memdesc:a9caaa08442c15cc572e29e4393deb7d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Expands the current pixmap on each side by the chosen number of pixels. <br/></td></tr>
+<tr class="separator:a9caaa08442c15cc572e29e4393deb7d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20537bc4bc65915a98caa312ff025125"><td class="memItemLeft" align="right" valign="top">rbp::Rect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pack_sprite.html#a20537bc4bc65915a98caa312ff025125">packedRect</a> () const </td></tr>
+<tr class="memdesc:a20537bc4bc65915a98caa312ff025125"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the packedrect data.  <a href="#a20537bc4bc65915a98caa312ff025125">More...</a><br/></td></tr>
 <tr class="separator:a20537bc4bc65915a98caa312ff025125"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65e3b6e8c9199545ca5576b21898eb04"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a65e3b6e8c9199545ca5576b21898eb04"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setPackedRect</b> (rbp::Rect rect)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pack_sprite.html#a65e3b6e8c9199545ca5576b21898eb04">setPackedRect</a> (rbp::Rect rect)</td></tr>
+<tr class="memdesc:a65e3b6e8c9199545ca5576b21898eb04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the packing rect data for this item. <br/></td></tr>
 <tr class="separator:a65e3b6e8c9199545ca5576b21898eb04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae642c00a9fe2d16cb898cb62bc1978c2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae642c00a9fe2d16cb898cb62bc1978c2"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isRotated</b> () const </td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pack_sprite.html#ae642c00a9fe2d16cb898cb62bc1978c2">isRotated</a> () const </td></tr>
+<tr class="memdesc:ae642c00a9fe2d16cb898cb62bc1978c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the item was rotated by a packing algorithm, and hence should be displayed rotated on the sheet. <br/></td></tr>
 <tr class="separator:ae642c00a9fe2d16cb898cb62bc1978c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69c8b7b04bd1f278d7f40c3ee7836910"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a69c8b7b04bd1f278d7f40c3ee7836910"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setIsRotated</b> (bool state=true)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pack_sprite.html#a69c8b7b04bd1f278d7f40c3ee7836910">setIsRotated</a> (bool state=true)</td></tr>
+<tr class="memdesc:a69c8b7b04bd1f278d7f40c3ee7836910"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the rotation status for this item. Packing algorithms use this, so we know the item must be drawn rotated later. <br/></td></tr>
 <tr class="separator:a69c8b7b04bd1f278d7f40c3ee7836910"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:aaafe4950b07225a4f414437587f61b24"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaafe4950b07225a4f414437587f61b24"></a>
-QPixmap&#160;</td><td class="memItemRight" valign="bottom"><b>m_pm</b></td></tr>
+QPixmap&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pack_sprite.html#aaafe4950b07225a4f414437587f61b24">m_pm</a></td></tr>
+<tr class="memdesc:aaafe4950b07225a4f414437587f61b24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores current pixmap. <br/></td></tr>
 <tr class="separator:aaafe4950b07225a4f414437587f61b24"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9689104b71941aa742880c30032e894c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9689104b71941aa742880c30032e894c"></a>
-QPixmap&#160;</td><td class="memItemRight" valign="bottom"><b>m_pm_cropped</b></td></tr>
-<tr class="separator:a9689104b71941aa742880c30032e894c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab68e0dc55740440817525d83c2ac6133"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab68e0dc55740440817525d83c2ac6133"></a>
+QPixmap&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pack_sprite.html#ab68e0dc55740440817525d83c2ac6133">m_pm_original</a></td></tr>
+<tr class="memdesc:ab68e0dc55740440817525d83c2ac6133"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores original pixmap, before any cropping, expanding etc. <br/></td></tr>
+<tr class="separator:ab68e0dc55740440817525d83c2ac6133"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a55962c012e17d112720784b9c4ed5e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0a55962c012e17d112720784b9c4ed5e"></a>
-QFileInfo&#160;</td><td class="memItemRight" valign="bottom"><b>m_fi</b></td></tr>
+QFileInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pack_sprite.html#a0a55962c012e17d112720784b9c4ed5e">m_fi</a></td></tr>
+<tr class="memdesc:a0a55962c012e17d112720784b9c4ed5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores the fileinfo. <br/></td></tr>
 <tr class="separator:a0a55962c012e17d112720784b9c4ed5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab0d36c67da45de4db04c59c563fcb03f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab0d36c67da45de4db04c59c563fcb03f"></a>
-rbp::Rect&#160;</td><td class="memItemRight" valign="bottom"><b>m_packedRect</b></td></tr>
+rbp::Rect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pack_sprite.html#ab0d36c67da45de4db04c59c563fcb03f">m_packedRect</a></td></tr>
+<tr class="memdesc:ab0d36c67da45de4db04c59c563fcb03f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores the packing rect data. <br/></td></tr>
 <tr class="separator:ab0d36c67da45de4db04c59c563fcb03f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56eff2a27dbb5d69fcfcb54fdea66ce9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a56eff2a27dbb5d69fcfcb54fdea66ce9"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pack_sprite.html#a56eff2a27dbb5d69fcfcb54fdea66ce9">m_isCropped</a></td></tr>
+<tr class="memdesc:a56eff2a27dbb5d69fcfcb54fdea66ce9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cropping status. <br/></td></tr>
+<tr class="separator:a56eff2a27dbb5d69fcfcb54fdea66ce9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a3f00dd0645c710256360ced7626d64"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6a3f00dd0645c710256360ced7626d64"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_rotated</b></td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pack_sprite.html#a6a3f00dd0645c710256360ced7626d64">m_rotated</a></td></tr>
+<tr class="memdesc:a6a3f00dd0645c710256360ced7626d64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotation status. <br/></td></tr>
 <tr class="separator:a6a3f00dd0645c710256360ced7626d64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3ff85964c56513af4ea7b0a8aca802c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae3ff85964c56513af4ea7b0a8aca802c"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pack_sprite.html#ae3ff85964c56513af4ea7b0a8aca802c">m_isExpanded</a></td></tr>
+<tr class="memdesc:ae3ff85964c56513af4ea7b0a8aca802c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Expanded status. <br/></td></tr>
+<tr class="separator:ae3ff85964c56513af4ea7b0a8aca802c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a399d79117153426267b1cbc01c57c7d7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a399d79117153426267b1cbc01c57c7d7"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_pack_sprite.html#a399d79117153426267b1cbc01c57c7d7">m_isScaled</a></td></tr>
+<tr class="memdesc:a399d79117153426267b1cbc01c57c7d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scaled status. <br/></td></tr>
+<tr class="separator:a399d79117153426267b1cbc01c57c7d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Simple class that groups together a pixmap with its originating fileinfo, and its packed rect on the sheet. </p>
-<p>The packsprite also has knowledge of its original size, versus an adjusted size based on cropping or extending. </p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+<div class="textblock"><p>Class that defines a 'sprite' on the sprite sheet. </p>
+<p>The class groups together a pixmap with its associated fileinfo, and packed rect data on the sheet. The packsprite also has knowledge of its original pixmap, versus an adjusted copy based on cropping or extending. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a66957d674eb7d84e15ffb934d19660a4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PackSprite::PackSprite </td>
+          <td>(</td>
+          <td class="paramtype">const QPixmap &amp;&#160;</td>
+          <td class="paramname"><em>pm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QFileInfo &amp;&#160;</td>
+          <td class="paramname"><em>fi</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pm</td><td>- the QPixmap for the sprite. </td></tr>
+    <tr><td class="paramname">fi</td><td>- the QFileInfo associated with the sprite. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a20537bc4bc65915a98caa312ff025125"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">rbp::Rect PackSprite::packedRect </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the packedrect data. </p>
+<p>Will return a zero-sized rect if packing has not been run, or if packing failed for this item. </p>
+
+</div>
+</div>
+<a class="anchor" id="a2830d464f6f100f2e526e483d999a814"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PackSprite::resetForPacking </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Resets the packing rect, rotation flag, cropping, and restores original pixmap (calls restoreOriginalPixmap). </p>
+<p>This is generally used before the item is to be re-packed - ie we dont want previous data in place. </p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="packsprite_8h_source.html">packsprite.h</a></li>
 <li>packsprite.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 30 2014 17:25:08 for SpriteBuncher by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 3 2014 15:14:18 for SpriteBuncher by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

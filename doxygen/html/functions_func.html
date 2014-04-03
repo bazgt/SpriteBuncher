@@ -19,7 +19,7 @@
   <td id="projectlogo"><img alt="Logo" src="icon-sml70.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">SpriteBuncher
-   &#160;<span id="projectnumber">1.0a</span>
+   &#160;<span id="projectnumber">1.0b</span>
    </div>
    <div id="projectbrief">A free, open-source texture packing program.</div>
   </td>
@@ -56,7 +56,8 @@
       <li><a href="#index_c"><span>c</span></a></li>
       <li><a href="#index_d"><span>d</span></a></li>
       <li><a href="#index_e"><span>e</span></a></li>
-      <li><a href="#index_h"><span>h</span></a></li>
+      <li><a href="#index_f"><span>f</span></a></li>
+      <li><a href="#index_i"><span>i</span></a></li>
       <li><a href="#index_l"><span>l</span></a></li>
       <li><a href="#index_m"><span>m</span></a></li>
       <li><a href="#index_o"><span>o</span></a></li>
@@ -66,7 +67,8 @@
       <li><a href="#index_s"><span>s</span></a></li>
       <li><a href="#index_u"><span>u</span></a></li>
       <li><a href="#index_w"><span>w</span></a></li>
-      <li class="current"><a href="#index_z"><span>z</span></a></li>
+      <li><a href="#index_z"><span>z</span></a></li>
+      <li class="current"><a href="#index_~"><span>~</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -74,11 +76,14 @@
 &#160;
 
 <h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
-<li>croppedPixmap()
-: <a class="el" href="class_pack_sprite.html#ab8825b9adc2716d355779a09dead3b81">PackSprite</a>
+<li>closeEvent()
+: <a class="el" href="class_main_window.html#a4e20a4a065fbb0e4d3532a45a0a91425">MainWindow</a>
 </li>
-<li>currentImgFormat()
-: <a class="el" href="class_main_window.html#a2a9d27d5b92f5a1db23113ab35a43ced">MainWindow</a>
+<li>cropPixmap()
+: <a class="el" href="class_pack_sprite.html#aa890924e29fd3c06342081dde99a1b0a">PackSprite</a>
+</li>
+<li>currentQImageFormat()
+: <a class="el" href="class_main_window.html#a6d02b4e6492ae7db97a06a81a248ae12">MainWindow</a>
 </li>
 </ul>
 
@@ -87,10 +92,22 @@
 <li>displayName()
 : <a class="el" href="class_data_exporter.html#a7dc7330ca2d8ce178113e0ddfc2bb231">DataExporter</a>
 </li>
+<li>dragEnterEvent()
+: <a class="el" href="class_main_window.html#a671bf73078069470c19965a3d948b6fa">MainWindow</a>
+</li>
+<li>dropEvent()
+: <a class="el" href="class_main_window.html#ae7b97e68c51358f6f36be3c40b89c01c">MainWindow</a>
+</li>
 </ul>
 
 
 <h3><a class="anchor" id="index_e"></a>- e -</h3><ul>
+<li>expandPixmap()
+: <a class="el" href="class_pack_sprite.html#a9caaa08442c15cc572e29e4393deb7d3">PackSprite</a>
+</li>
+<li>Export()
+: <a class="el" href="class_data_exporter.html#ae544ece4043a64ebee67b3f5813b0492">DataExporter</a>
+</li>
 <li>exportFiles()
 : <a class="el" href="class_main_window.html#a1feb288e54ef18f9b18a8724262e755a">MainWindow</a>
 </li>
@@ -107,7 +124,7 @@
 : <a class="el" href="class_data_exporter.html#a1504b17d2e3056a037709dac48783604">DataExporter</a>
 </li>
 <li>ExportPLIST()
-: <a class="el" href="class_data_exporter.html#ae2e7970150cd66ca4ad24fa707ac6037">DataExporter</a>
+: <a class="el" href="class_data_exporter.html#a13a9c3b59a8c6bd3441fe8a61d8a745f">DataExporter</a>
 </li>
 <li>ExportXML()
 : <a class="el" href="class_data_exporter.html#ad5b4a774e61ea10953c447bf5250a766">DataExporter</a>
@@ -115,9 +132,22 @@
 </ul>
 
 
-<h3><a class="anchor" id="index_h"></a>- h -</h3><ul>
-<li>hasSizeCropped()
-: <a class="el" href="class_pack_sprite.html#acc0a218a954f83e246d6b11105db2a31">PackSprite</a>
+<h3><a class="anchor" id="index_f"></a>- f -</h3><ul>
+<li>fileInfo()
+: <a class="el" href="class_pack_sprite.html#a15a5df47acd4797db49d33bdb3d9ce74">PackSprite</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_i"></a>- i -</h3><ul>
+<li>isCropped()
+: <a class="el" href="class_pack_sprite.html#ac5c3554242facf63ff44275bc0934db5">PackSprite</a>
+</li>
+<li>isExpanded()
+: <a class="el" href="class_pack_sprite.html#aa8b21c490a645ba821c253dabb0ad762">PackSprite</a>
+</li>
+<li>isRotated()
+: <a class="el" href="class_pack_sprite.html#ae642c00a9fe2d16cb898cb62bc1978c2">PackSprite</a>
 </li>
 </ul>
 
@@ -134,17 +164,38 @@
 : <a class="el" href="class_main_window.html#a8b244be8b7b7db1b08de2a2acb9409db">MainWindow</a>
 </li>
 <li>MaxRects()
-: <a class="el" href="class_packer.html#a0ce8d32ac4100b0f9f9e02d32663fb46">Packer</a>
+: <a class="el" href="class_packer.html#ab859b2554fb360df2139d48985cd8294">Packer</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_o"></a>- o -</h3><ul>
+<li>on_action_Reload_triggered()
+: <a class="el" href="class_main_window.html#a93190b7f30b335b122ab676017c8a85c">MainWindow</a>
+</li>
 <li>on_actionAbout_triggered()
 : <a class="el" href="class_main_window.html#a4f3ebda1ba39e0ef4d678b44893c9c7f">MainWindow</a>
 </li>
+<li>on_actionExport_triggered()
+: <a class="el" href="class_main_window.html#a7df050ed9d3ca5f73a3ed852b35fc736">MainWindow</a>
+</li>
+<li>on_actionOpen_folder_triggered()
+: <a class="el" href="class_main_window.html#aedc248c61f633532852b97d9bdf7bc64">MainWindow</a>
+</li>
+<li>on_actionUse_Dark_UI_Theme_triggered()
+: <a class="el" href="class_main_window.html#a8f569ad1c96ad158012ed8bd32306af2">MainWindow</a>
+</li>
 <li>on_actionView_manual_triggered()
 : <a class="el" href="class_main_window.html#af6bb2902c479f9dd718c207bcc737d8d">MainWindow</a>
+</li>
+<li>on_actionZoom_In_triggered()
+: <a class="el" href="class_main_window.html#a7896482282620c09defe1491e69d040a">MainWindow</a>
+</li>
+<li>on_actionZoom_Out_triggered()
+: <a class="el" href="class_main_window.html#a1512b66c93874af7397d2edb92f81d4b">MainWindow</a>
+</li>
+<li>on_actionZoom_Reset_triggered()
+: <a class="el" href="class_main_window.html#a565ea5ca3f80e333fdb0f0364d969fcd">MainWindow</a>
 </li>
 <li>on_listWidget_clicked()
 : <a class="el" href="class_main_window.html#a4c7af96bbfb3f37ca492d28c06eb8826">MainWindow</a>
@@ -153,7 +204,10 @@
 : <a class="el" href="class_main_window.html#ab40b2145b3523b08f3aa6589065bb4fe">MainWindow</a>
 </li>
 <li>openFolder()
-: <a class="el" href="class_main_window.html#a5da554b4cc7d5f84837d554514d930dc">MainWindow</a>
+: <a class="el" href="class_main_window.html#aa2ac028997120f575a1e151c831b14f9">MainWindow</a>
+</li>
+<li>originalPixmap()
+: <a class="el" href="class_pack_sprite.html#a97559d722ff1ea23f7a90293960ee896">PackSprite</a>
 </li>
 </ul>
 
@@ -168,8 +222,17 @@
 <li>packingOptionChanged()
 : <a class="el" href="class_main_window.html#af8562f3b838a8041ee981567e9efbe11">MainWindow</a>
 </li>
+<li>PackSprite()
+: <a class="el" href="class_pack_sprite.html#a66957d674eb7d84e15ffb934d19660a4">PackSprite</a>
+</li>
 <li>paint()
 : <a class="el" href="class_pixmap_item.html#abf587f39cfc331dc2a62eee9769742c8">PixmapItem</a>
+</li>
+<li>pixmap()
+: <a class="el" href="class_pack_sprite.html#a345774a450f95cf227ff6773121df3f2">PackSprite</a>
+</li>
+<li>PixmapItem()
+: <a class="el" href="class_pixmap_item.html#a89ec90c4ef19b15d2e2d282ad59e4671">PixmapItem</a>
 </li>
 <li>processFolder()
 : <a class="el" href="class_main_window.html#a3edf1d451a663f0cef5cd905312529ac">MainWindow</a>
@@ -179,12 +242,15 @@
 
 <h3><a class="anchor" id="index_q"></a>- q -</h3><ul>
 <li>quoted()
-: <a class="el" href="class_data_exporter.html#aba307b210736d4057843fd26b0cf7851">DataExporter</a>
+: <a class="el" href="class_data_exporter.html#a0a1a835825d42efa43641611ff7d3acc">DataExporter</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_r"></a>- r -</h3><ul>
+<li>readAppSettings()
+: <a class="el" href="class_main_window.html#a26a96107073e1cfbcb512f5fd561d436">MainWindow</a>
+</li>
 <li>reloadAndRepackAll()
 : <a class="el" href="class_main_window.html#ac3b311fedc46cfe5f69683456cd79752">MainWindow</a>
 </li>
@@ -194,11 +260,14 @@
 <li>repackAll()
 : <a class="el" href="class_main_window.html#a16fd57a34f3e52f8992be8151f1dd31c">MainWindow</a>
 </li>
-<li>resetCropping()
-: <a class="el" href="class_pack_sprite.html#a00bfc818a51b9ee2534da9e4139450ed">PackSprite</a>
+<li>resetForPacking()
+: <a class="el" href="class_pack_sprite.html#a2830d464f6f100f2e526e483d999a814">PackSprite</a>
+</li>
+<li>restoreOriginalPixmap()
+: <a class="el" href="class_pack_sprite.html#a9a63e2ea1081b39877ea8202c7ad6ae8">PackSprite</a>
 </li>
 <li>Rows()
-: <a class="el" href="class_packer.html#afce9d0dfd055d1433836c75a55442550">Packer</a>
+: <a class="el" href="class_packer.html#a21502cf018b1ac729ba920899ed3c643">Packer</a>
 </li>
 </ul>
 
@@ -207,8 +276,20 @@
 <li>saveJsonSettings()
 : <a class="el" href="class_main_window.html#ac3bcb52fc6cf72c745713dc3e49ac58f">MainWindow</a>
 </li>
+<li>scalePixmap()
+: <a class="el" href="class_pack_sprite.html#aad4e2b8c22d355acd81a4b16c77abd46">PackSprite</a>
+</li>
 <li>sceneSelectionChanged()
 : <a class="el" href="class_main_window.html#abbfdc87e0b019dc182c9a3b5925062d1">MainWindow</a>
+</li>
+<li>setIsRotated()
+: <a class="el" href="class_pack_sprite.html#a69c8b7b04bd1f278d7f40c3ee7836910">PackSprite</a>
+</li>
+<li>setPackedRect()
+: <a class="el" href="class_pack_sprite.html#a65e3b6e8c9199545ca5576b21898eb04">PackSprite</a>
+</li>
+<li>setPixmap()
+: <a class="el" href="class_pack_sprite.html#ad9246b83ebc89d989335d20f3ba15108">PackSprite</a>
 </li>
 <li>sheetOptionChanged()
 : <a class="el" href="class_main_window.html#ae616e7ced57b73af4f3fd0d998d0f2bc">MainWindow</a>
@@ -247,10 +328,17 @@
 : <a class="el" href="class_main_window.html#ade9689f0bf2a26cc5931c63347c3e06c">MainWindow</a>
 </li>
 </ul>
+
+
+<h3><a class="anchor" id="index_~"></a>- ~ -</h3><ul>
+<li>~MainWindow()
+: <a class="el" href="class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7">MainWindow</a>
+</li>
+</ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 30 2014 17:25:08 for SpriteBuncher by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 3 2014 15:14:18 for SpriteBuncher by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -19,7 +19,7 @@
   <td id="projectlogo"><img alt="Logo" src="icon-sml70.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">SpriteBuncher
-   &#160;<span id="projectnumber">1.0a</span>
+   &#160;<span id="projectnumber">1.0b</span>
    </div>
    <div id="projectbrief">A free, open-source texture packing program.</div>
   </td>
@@ -53,24 +53,25 @@
 </div><!--header-->
 <div class="contents">
 
-<p>Performs sprite packing - add new algorithms as required. Mostly static functions.  
+<p>Methods that performs sprite packing. Add new algorithms as required.  
  <a href="class_packer.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="packer_8h_source.html">packer.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a0ce8d32ac4100b0f9f9e02d32663fb46"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_packer.html#a0ce8d32ac4100b0f9f9e02d32663fb46">MaxRects</a> (const <a class="el" href="struct_sheet_properties.html">SheetProperties</a> &amp;sheetProp, QList&lt; <a class="el" href="class_pack_sprite.html">PackSprite</a> &gt; &amp;packedsprites, rbp::MaxRectsBinPack::FreeRectChoiceHeuristic heuristic=rbp::MaxRectsBinPack::RectBestAreaFit, bool allowRotation=false, bool allowCrop=false)</td></tr>
-<tr class="memdesc:a0ce8d32ac4100b0f9f9e02d32663fb46"><td class="mdescLeft">&#160;</td><td class="mdescRight">MaxRect packing on the provided image list. List is modified. Items are packed in order.  <a href="#a0ce8d32ac4100b0f9f9e02d32663fb46">More...</a><br/></td></tr>
-<tr class="separator:a0ce8d32ac4100b0f9f9e02d32663fb46"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afce9d0dfd055d1433836c75a55442550"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_packer.html#afce9d0dfd055d1433836c75a55442550">Rows</a> (const <a class="el" href="struct_sheet_properties.html">SheetProperties</a> &amp;sheetProp, QList&lt; <a class="el" href="class_pack_sprite.html">PackSprite</a> &gt; &amp;packedsprites, bool allowRotation=false, bool allowCrop=false)</td></tr>
-<tr class="memdesc:afce9d0dfd055d1433836c75a55442550"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple packing by equal height rows ('shelves'). List is modified. Items are packed in order.  <a href="#afce9d0dfd055d1433836c75a55442550">More...</a><br/></td></tr>
-<tr class="separator:afce9d0dfd055d1433836c75a55442550"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab859b2554fb360df2139d48985cd8294"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_packer.html#ab859b2554fb360df2139d48985cd8294">MaxRects</a> (const <a class="el" href="struct_sheet_properties.html">SheetProperties</a> &amp;sheetProp, QList&lt; <a class="el" href="class_pack_sprite.html">PackSprite</a> &gt; &amp;packedsprites, rbp::MaxRectsBinPack::FreeRectChoiceHeuristic heuristic=rbp::MaxRectsBinPack::RectBestAreaFit, bool allowRotation=false, bool allowCrop=false, int expandSprites=0, int extrude=0, qreal scaleSprites=1.0)</td></tr>
+<tr class="memdesc:ab859b2554fb360df2139d48985cd8294"><td class="mdescLeft">&#160;</td><td class="mdescRight">MaxRect packing on the provided image list. List is modified. Items are packed in order.  <a href="#ab859b2554fb360df2139d48985cd8294">More...</a><br/></td></tr>
+<tr class="separator:ab859b2554fb360df2139d48985cd8294"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21502cf018b1ac729ba920899ed3c643"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_packer.html#a21502cf018b1ac729ba920899ed3c643">Rows</a> (const <a class="el" href="struct_sheet_properties.html">SheetProperties</a> &amp;sheetProp, QList&lt; <a class="el" href="class_pack_sprite.html">PackSprite</a> &gt; &amp;packedsprites, bool allowRotation=false, bool allowCrop=false, int expandSprites=0, int extrude=0, qreal scaleSprites=1.0)</td></tr>
+<tr class="memdesc:a21502cf018b1ac729ba920899ed3c643"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple packing method using equal height rows ('shelves'). List is modified. Items are packed in order.  <a href="#a21502cf018b1ac729ba920899ed3c643">More...</a><br/></td></tr>
+<tr class="separator:a21502cf018b1ac729ba920899ed3c643"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Performs sprite packing - add new algorithms as required. Mostly static functions. </p>
+<div class="textblock"><p>Methods that performs sprite packing. Add new algorithms as required. </p>
+<p>Mostly static functions. Note, the rbp::Rect data structure is used throughout, so that all results are can be treated the same as the main MaxRects data. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a0ce8d32ac4100b0f9f9e02d32663fb46"></a>
+<a class="anchor" id="ab859b2554fb360df2139d48985cd8294"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -105,7 +106,25 @@ Static Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>allowCrop</em> = <code>false</code>&#160;</td>
+          <td class="paramname"><em>allowCrop</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>expandSprites</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>extrude</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">qreal&#160;</td>
+          <td class="paramname"><em>scaleSprites</em> = <code>1.0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -123,7 +142,14 @@ Static Public Member Functions</h2></td></tr>
 <p>MaxRect packing on the provided image list. List is modified. Items are packed in order. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">allowrot</td><td>- rotates sprites to pack better. However, be sure your chosen library/app supports rotation. </td></tr>
+    <tr><td class="paramname">sheetProp</td><td>- the sheet properties. </td></tr>
+    <tr><td class="paramname">packedsprites</td><td>- the list of packing sprites. Data for the items may be overwritten. </td></tr>
+    <tr><td class="paramname">heuristic</td><td>- MaxRects packing order parameter - see MaxRectsBinPack.h or MaxRects docs for info. </td></tr>
+    <tr><td class="paramname">allowRotation</td><td>- set this to allow rotated sprites for better packing. </td></tr>
+    <tr><td class="paramname">allowCrop</td><td>- set this to crop all sprites based on their opaque bounding rects. </td></tr>
+    <tr><td class="paramname">expandSprites</td><td>- expands sprites on all sides by the chosen number of pixels. </td></tr>
+    <tr><td class="paramname">extrude</td><td>- should equal the extrusion size already applied (so it gets added to the padding). </td></tr>
+    <tr><td class="paramname">scaleSprites</td><td>- scales sprites by this amount. Default 1.0. </td></tr>
   </table>
   </dd>
 </dl>
@@ -131,7 +157,7 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="afce9d0dfd055d1433836c75a55442550"></a>
+<a class="anchor" id="a21502cf018b1ac729ba920899ed3c643"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -160,7 +186,25 @@ Static Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>allowCrop</em> = <code>false</code>&#160;</td>
+          <td class="paramname"><em>allowCrop</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>expandSprites</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>extrude</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">qreal&#160;</td>
+          <td class="paramname"><em>scaleSprites</em> = <code>1.0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -175,8 +219,20 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Simple packing by equal height rows ('shelves'). List is modified. Items are packed in order. </p>
-<p>Returns: number of valid items that were packed. </p>
+<p>Simple packing method using equal height rows ('shelves'). List is modified. Items are packed in order. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sheetProp</td><td>- the sheet properties. </td></tr>
+    <tr><td class="paramname">packedsprites</td><td>- the list of packing sprites. Data for the items may be overwritten. </td></tr>
+    <tr><td class="paramname">allowRotation</td><td>- <em>Currently not supported</em> for this packing method. </td></tr>
+    <tr><td class="paramname">allowCrop</td><td>- set this to crop all sprites based on their opaque bounding rects. </td></tr>
+    <tr><td class="paramname">expandSprites</td><td>- expands sprites on all sides by the chosen number of pixels. </td></tr>
+    <tr><td class="paramname">extrude</td><td>- should equal the extrusion size already applied (so it gets added to the padding). </td></tr>
+    <tr><td class="paramname">scaleSprites</td><td>- scales sprites by this amount. Default 1.0. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>number of valid items that were packed. </dd></dl>
 
 </div>
 </div>
@@ -187,7 +243,7 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 30 2014 17:25:08 for SpriteBuncher by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 3 2014 15:14:18 for SpriteBuncher by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

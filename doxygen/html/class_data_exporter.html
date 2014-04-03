@@ -19,7 +19,7 @@
   <td id="projectlogo"><img alt="Logo" src="icon-sml70.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">SpriteBuncher
-   &#160;<span id="projectnumber">1.0a</span>
+   &#160;<span id="projectnumber">1.0b</span>
    </div>
    <div id="projectbrief">A free, open-source texture packing program.</div>
   </td>
@@ -56,7 +56,7 @@
 </div><!--header-->
 <div class="contents">
 
-<p>Performs data file export - add new formats as required. Mostly static functions.  
+<p>Performs data file export. Add new formats as required. Mostly static functions.  
  <a href="class_data_exporter.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="dataexporter_8h_source.html">dataexporter.h</a>&gt;</code></p>
@@ -78,13 +78,13 @@ Public Types</h2></td></tr>
 <b>FORMAT_SPRITEKIT</b>
 <br/>
  }</td></tr>
-<tr class="memdesc:a7ee0c7307924100a14803fbb1c95db17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines the supported data file formats. Be careful when updating this list, the indexing is used in the UI and saved data. <br/></td></tr>
+<tr class="memdesc:a7ee0c7307924100a14803fbb1c95db17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines the supported data file formats. Be careful when updating this list, the indexing is used in the UI and saved data.  <a href="class_data_exporter.html#a7ee0c7307924100a14803fbb1c95db17">More...</a><br/></td></tr>
 <tr class="separator:a7ee0c7307924100a14803fbb1c95db17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ae544ece4043a64ebee67b3f5813b0492"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae544ece4043a64ebee67b3f5813b0492"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>Export</b> (const <a class="el" href="struct_sheet_properties.html">SheetProperties</a> &amp;sheetProp, const <a class="el" href="class_data_exporter.html#a7ee0c7307924100a14803fbb1c95db17">DataFormats</a> format, const QString &amp;path, const QString &amp;filen, const QList&lt; <a class="el" href="class_pack_sprite.html">PackSprite</a> &gt; &amp;packedsprites)</td></tr>
+<tr class="memitem:ae544ece4043a64ebee67b3f5813b0492"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_exporter.html#ae544ece4043a64ebee67b3f5813b0492">Export</a> (const <a class="el" href="struct_sheet_properties.html">SheetProperties</a> &amp;sheetProp, const <a class="el" href="class_data_exporter.html#a7ee0c7307924100a14803fbb1c95db17">DataFormats</a> format, const QString &amp;path, const QString &amp;filen, const QList&lt; <a class="el" href="class_pack_sprite.html">PackSprite</a> &gt; &amp;packedsprites)</td></tr>
+<tr class="memdesc:ae544ece4043a64ebee67b3f5813b0492"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public interface to the exporter functions. Choose your format, and the file will be written.  <a href="#ae544ece4043a64ebee67b3f5813b0492">More...</a><br/></td></tr>
 <tr class="separator:ae544ece4043a64ebee67b3f5813b0492"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7dc7330ca2d8ce178113e0ddfc2bb231"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7dc7330ca2d8ce178113e0ddfc2bb231"></a>
 static QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_exporter.html#a7dc7330ca2d8ce178113e0ddfc2bb231">displayName</a> (const <a class="el" href="class_data_exporter.html#a7ee0c7307924100a14803fbb1c95db17">DataFormats</a> type)</td></tr>
@@ -93,55 +93,499 @@ static QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" 
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a62ff30655ef2e66bf0baa266fb66ecae"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a62ff30655ef2e66bf0baa266fb66ecae"></a>
-static int&#160;</td><td class="memItemRight" valign="bottom"><b>NumDataFormats</b> = 8</td></tr>
+<tr class="memitem:a62ff30655ef2e66bf0baa266fb66ecae"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_exporter.html#a62ff30655ef2e66bf0baa266fb66ecae">NumDataFormats</a> = 8</td></tr>
+<tr class="memdesc:a62ff30655ef2e66bf0baa266fb66ecae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of supported data formats. Must match the total number of formats defined in DataFormats.  <a href="#a62ff30655ef2e66bf0baa266fb66ecae">More...</a><br/></td></tr>
 <tr class="separator:a62ff30655ef2e66bf0baa266fb66ecae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-methods"></a>
 Static Protected Member Functions</h2></td></tr>
-<tr class="memitem:ad5b4a774e61ea10953c447bf5250a766"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad5b4a774e61ea10953c447bf5250a766"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_exporter.html#ad5b4a774e61ea10953c447bf5250a766">ExportXML</a> (const <a class="el" href="struct_sheet_properties.html">SheetProperties</a> &amp;sheetProp, const QString &amp;path, const QString &amp;filen, const QList&lt; <a class="el" href="class_pack_sprite.html">PackSprite</a> &gt; &amp;packedsprites, bool starlingStyle=false)</td></tr>
-<tr class="memdesc:ad5b4a774e61ea10953c447bf5250a766"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exports 'generic' XML file, and any variations, e.g. Sparrow/Starling. <br/></td></tr>
+<tr class="memitem:ad5b4a774e61ea10953c447bf5250a766"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_exporter.html#ad5b4a774e61ea10953c447bf5250a766">ExportXML</a> (const <a class="el" href="struct_sheet_properties.html">SheetProperties</a> &amp;sheetProp, const QString &amp;path, const QString &amp;filen, const QList&lt; <a class="el" href="class_pack_sprite.html">PackSprite</a> &gt; &amp;packedsprites, bool starlingStyle=false)</td></tr>
+<tr class="memdesc:ad5b4a774e61ea10953c447bf5250a766"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exports 'generic' XML file, and any variations, e.g. Sparrow/Starling.  <a href="#ad5b4a774e61ea10953c447bf5250a766">More...</a><br/></td></tr>
 <tr class="separator:ad5b4a774e61ea10953c447bf5250a766"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38875252a0a45fc3464601ba78d31d1e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a38875252a0a45fc3464601ba78d31d1e"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_exporter.html#a38875252a0a45fc3464601ba78d31d1e">ExportJSON</a> (const <a class="el" href="struct_sheet_properties.html">SheetProperties</a> &amp;sheetProp, const QString &amp;path, const QString &amp;filen, const QList&lt; <a class="el" href="class_pack_sprite.html">PackSprite</a> &gt; &amp;packedsprites, bool unityStyle=false)</td></tr>
-<tr class="memdesc:a38875252a0a45fc3464601ba78d31d1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exports JSON file, and any variations, e.g. Unity. <br/></td></tr>
+<tr class="memitem:a38875252a0a45fc3464601ba78d31d1e"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_exporter.html#a38875252a0a45fc3464601ba78d31d1e">ExportJSON</a> (const <a class="el" href="struct_sheet_properties.html">SheetProperties</a> &amp;sheetProp, const QString &amp;path, const QString &amp;filen, const QList&lt; <a class="el" href="class_pack_sprite.html">PackSprite</a> &gt; &amp;packedsprites, bool unityStyle=false)</td></tr>
+<tr class="memdesc:a38875252a0a45fc3464601ba78d31d1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exports JSON file, and any variations, e.g. Unity.  <a href="#a38875252a0a45fc3464601ba78d31d1e">More...</a><br/></td></tr>
 <tr class="separator:a38875252a0a45fc3464601ba78d31d1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf8154df8bd7c572632e1ded199e9559"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acf8154df8bd7c572632e1ded199e9559"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_exporter.html#acf8154df8bd7c572632e1ded199e9559">ExportLibGDX</a> (const <a class="el" href="struct_sheet_properties.html">SheetProperties</a> &amp;sheetProp, const QString &amp;path, const QString &amp;filen, const QList&lt; <a class="el" href="class_pack_sprite.html">PackSprite</a> &gt; &amp;packedsprites)</td></tr>
-<tr class="memdesc:acf8154df8bd7c572632e1ded199e9559"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exports LibGDX file. <br/></td></tr>
+<tr class="memitem:acf8154df8bd7c572632e1ded199e9559"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_exporter.html#acf8154df8bd7c572632e1ded199e9559">ExportLibGDX</a> (const <a class="el" href="struct_sheet_properties.html">SheetProperties</a> &amp;sheetProp, const QString &amp;path, const QString &amp;filen, const QList&lt; <a class="el" href="class_pack_sprite.html">PackSprite</a> &gt; &amp;packedsprites)</td></tr>
+<tr class="memdesc:acf8154df8bd7c572632e1ded199e9559"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exports LibGDX format file.  <a href="#acf8154df8bd7c572632e1ded199e9559">More...</a><br/></td></tr>
 <tr class="separator:acf8154df8bd7c572632e1ded199e9559"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1504b17d2e3056a037709dac48783604"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1504b17d2e3056a037709dac48783604"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_exporter.html#a1504b17d2e3056a037709dac48783604">ExportPlainText</a> (const <a class="el" href="struct_sheet_properties.html">SheetProperties</a> &amp;sheetProp, const QString &amp;path, const QString &amp;filen, const QList&lt; <a class="el" href="class_pack_sprite.html">PackSprite</a> &gt; &amp;packedsprites)</td></tr>
-<tr class="memdesc:a1504b17d2e3056a037709dac48783604"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exports a generic plain text file. <br/></td></tr>
+<tr class="memitem:a1504b17d2e3056a037709dac48783604"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_exporter.html#a1504b17d2e3056a037709dac48783604">ExportPlainText</a> (const <a class="el" href="struct_sheet_properties.html">SheetProperties</a> &amp;sheetProp, const QString &amp;path, const QString &amp;filen, const QList&lt; <a class="el" href="class_pack_sprite.html">PackSprite</a> &gt; &amp;packedsprites)</td></tr>
+<tr class="memdesc:a1504b17d2e3056a037709dac48783604"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exports a generic plain text file.  <a href="#a1504b17d2e3056a037709dac48783604">More...</a><br/></td></tr>
 <tr class="separator:a1504b17d2e3056a037709dac48783604"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6924d24065d6dce6e5bd9f1627c078e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af6924d24065d6dce6e5bd9f1627c078e"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_exporter.html#af6924d24065d6dce6e5bd9f1627c078e">ExportGideros</a> (const <a class="el" href="struct_sheet_properties.html">SheetProperties</a> &amp;sheetProp, const QString &amp;path, const QString &amp;filen, const QList&lt; <a class="el" href="class_pack_sprite.html">PackSprite</a> &gt; &amp;packedsprites)</td></tr>
-<tr class="memdesc:af6924d24065d6dce6e5bd9f1627c078e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exports a Gideros file. <br/></td></tr>
+<tr class="memitem:af6924d24065d6dce6e5bd9f1627c078e"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_exporter.html#af6924d24065d6dce6e5bd9f1627c078e">ExportGideros</a> (const <a class="el" href="struct_sheet_properties.html">SheetProperties</a> &amp;sheetProp, const QString &amp;path, const QString &amp;filen, const QList&lt; <a class="el" href="class_pack_sprite.html">PackSprite</a> &gt; &amp;packedsprites)</td></tr>
+<tr class="memdesc:af6924d24065d6dce6e5bd9f1627c078e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exports a Gideros format file.  <a href="#af6924d24065d6dce6e5bd9f1627c078e">More...</a><br/></td></tr>
 <tr class="separator:af6924d24065d6dce6e5bd9f1627c078e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2e7970150cd66ca4ad24fa707ac6037"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae2e7970150cd66ca4ad24fa707ac6037"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_exporter.html#ae2e7970150cd66ca4ad24fa707ac6037">ExportPLIST</a> (const <a class="el" href="struct_sheet_properties.html">SheetProperties</a> &amp;sheetProp, const QString &amp;path, const QString &amp;filen, const QList&lt; <a class="el" href="class_pack_sprite.html">PackSprite</a> &gt; &amp;packedsprites, bool cocosStyle=true)</td></tr>
-<tr class="memdesc:ae2e7970150cd66ca4ad24fa707ac6037"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exports a PLIST properties file, and any variations. Exports cocos2d format by default. <br/></td></tr>
-<tr class="separator:ae2e7970150cd66ca4ad24fa707ac6037"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13a9c3b59a8c6bd3441fe8a61d8a745f"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_exporter.html#a13a9c3b59a8c6bd3441fe8a61d8a745f">ExportPLIST</a> (const <a class="el" href="struct_sheet_properties.html">SheetProperties</a> &amp;sheetProp, const QString &amp;path, const QString &amp;filen, const QList&lt; <a class="el" href="class_pack_sprite.html">PackSprite</a> &gt; &amp;packedsprites, bool cocosStyle=true)</td></tr>
+<tr class="memdesc:a13a9c3b59a8c6bd3441fe8a61d8a745f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exports a PLIST properties file, and any variations. Exports cocos2d format by default.  <a href="#a13a9c3b59a8c6bd3441fe8a61d8a745f">More...</a><br/></td></tr>
+<tr class="separator:a13a9c3b59a8c6bd3441fe8a61d8a745f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c71a2d2828431476de23843d38edb82"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_exporter.html#a1c71a2d2828431476de23843d38edb82">WriteFile</a> (const QString &amp;path, const QString &amp;filen, const QString &amp;extn, const QString &amp;text)</td></tr>
-<tr class="memdesc:a1c71a2d2828431476de23843d38edb82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes text to the required file.  <a href="#a1c71a2d2828431476de23843d38edb82">More...</a><br/></td></tr>
+<tr class="memdesc:a1c71a2d2828431476de23843d38edb82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes text to the output file. The the other format-specific functions use this.  <a href="#a1c71a2d2828431476de23843d38edb82">More...</a><br/></td></tr>
 <tr class="separator:a1c71a2d2828431476de23843d38edb82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba307b210736d4057843fd26b0cf7851"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aba307b210736d4057843fd26b0cf7851"></a>
-static QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_exporter.html#aba307b210736d4057843fd26b0cf7851">quoted</a> (const QString &amp;str, const QString quote=&quot;\&quot;&quot;)</td></tr>
-<tr class="memdesc:aba307b210736d4057843fd26b0cf7851"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenience function, returns a string with added quotes. <br/></td></tr>
-<tr class="separator:aba307b210736d4057843fd26b0cf7851"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2aba7fb5ca30089d8c0a3b71ebb951ac"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2aba7fb5ca30089d8c0a3b71ebb951ac"></a>
-static QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_exporter.html#a2aba7fb5ca30089d8c0a3b71ebb951ac">quoted</a> (const int val, const QString quote=&quot;\&quot;&quot;)</td></tr>
-<tr class="memdesc:a2aba7fb5ca30089d8c0a3b71ebb951ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload. Convenience function, returns a string with added quotes around an integer. <br/></td></tr>
-<tr class="separator:a2aba7fb5ca30089d8c0a3b71ebb951ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a1a835825d42efa43641611ff7d3acc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0a1a835825d42efa43641611ff7d3acc"></a>
+static QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_exporter.html#a0a1a835825d42efa43641611ff7d3acc">quoted</a> (const QString &amp;str, const QString &amp;quote=&quot;\&quot;&quot;)</td></tr>
+<tr class="memdesc:a0a1a835825d42efa43641611ff7d3acc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenience function, returns a string with added quotes. <br/></td></tr>
+<tr class="separator:a0a1a835825d42efa43641611ff7d3acc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd786a91bad06ab06793ad25b6e29fbf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abd786a91bad06ab06793ad25b6e29fbf"></a>
+static QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_exporter.html#abd786a91bad06ab06793ad25b6e29fbf">quoted</a> (const int val, const QString &amp;quote=&quot;\&quot;&quot;)</td></tr>
+<tr class="memdesc:abd786a91bad06ab06793ad25b6e29fbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload. Convenience function, returns a string with added quotes around an integer. <br/></td></tr>
+<tr class="separator:abd786a91bad06ab06793ad25b6e29fbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3990745513898ed240a943d10f8450d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af3990745513898ed240a943d10f8450d"></a>
 static const QList&lt; <a class="el" href="class_pack_sprite.html">PackSprite</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data_exporter.html#af3990745513898ed240a943d10f8450d">sortByFileName</a> (const QList&lt; <a class="el" href="class_pack_sprite.html">PackSprite</a> &gt; input)</td></tr>
-<tr class="memdesc:af3990745513898ed240a943d10f8450d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sorts a packsprite list by filename, returns a new list. <br/></td></tr>
+<tr class="memdesc:af3990745513898ed240a943d10f8450d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sorts a packsprite list by filename [currently not used?]. <br/></td></tr>
 <tr class="separator:af3990745513898ed240a943d10f8450d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Performs data file export - add new formats as required. Mostly static functions. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+<div class="textblock"><p>Performs data file export. Add new formats as required. Mostly static functions. </p>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<a class="anchor" id="a7ee0c7307924100a14803fbb1c95db17"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="class_data_exporter.html#a7ee0c7307924100a14803fbb1c95db17">DataExporter::DataFormats</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Defines the supported data file formats. Be careful when updating this list, the indexing is used in the UI and saved data. </p>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="class_data_exporter.html#a62ff30655ef2e66bf0baa266fb66ecae" title="Number of supported data formats. Must match the total number of formats defined in DataFormats...">NumDataFormats</a> - the number of formats defined. </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ae544ece4043a64ebee67b3f5813b0492"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool DataExporter::Export </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_sheet_properties.html">SheetProperties</a> &amp;&#160;</td>
+          <td class="paramname"><em>sheetProp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_data_exporter.html#a7ee0c7307924100a14803fbb1c95db17">DataFormats</a>&#160;</td>
+          <td class="paramname"><em>format</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>filen</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QList&lt; <a class="el" href="class_pack_sprite.html">PackSprite</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>packedsprites</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Public interface to the exporter functions. Choose your format, and the file will be written. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sheetProp</td><td>- sheet properties struct. </td></tr>
+    <tr><td class="paramname">format</td><td>- the format required (see DataFormats enum). </td></tr>
+    <tr><td class="paramname">path</td><td>- folder path to write to. </td></tr>
+    <tr><td class="paramname">filen</td><td>- filename (without extension). </td></tr>
+    <tr><td class="paramname">packedsprites</td><td>- the list of packed sprites. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true - if the operation was successful. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af6924d24065d6dce6e5bd9f1627c078e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool DataExporter::ExportGideros </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_sheet_properties.html">SheetProperties</a> &amp;&#160;</td>
+          <td class="paramname"><em>sheetProp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>filen</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QList&lt; <a class="el" href="class_pack_sprite.html">PackSprite</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>packedsprites</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Exports a Gideros format file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sheetProp</td><td>- sheet properties struct. </td></tr>
+    <tr><td class="paramname">path</td><td>- folder path to write to. </td></tr>
+    <tr><td class="paramname">filen</td><td>- filename (without extension). </td></tr>
+    <tr><td class="paramname">packedsprites</td><td>- the list of packed sprites. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true - if the operation was successful. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a38875252a0a45fc3464601ba78d31d1e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool DataExporter::ExportJSON </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_sheet_properties.html">SheetProperties</a> &amp;&#160;</td>
+          <td class="paramname"><em>sheetProp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>filen</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QList&lt; <a class="el" href="class_pack_sprite.html">PackSprite</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>packedsprites</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>unityStyle</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Exports JSON file, and any variations, e.g. Unity. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sheetProp</td><td>- sheet properties struct. </td></tr>
+    <tr><td class="paramname">path</td><td>- folder path to write to. </td></tr>
+    <tr><td class="paramname">filen</td><td>- filename (without extension). </td></tr>
+    <tr><td class="paramname">packedsprites</td><td>- the list of packed sprites. </td></tr>
+    <tr><td class="paramname">unityStyle</td><td>- set to true for Unity specific version of Json (default false). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true - if the operation was successful. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="acf8154df8bd7c572632e1ded199e9559"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool DataExporter::ExportLibGDX </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_sheet_properties.html">SheetProperties</a> &amp;&#160;</td>
+          <td class="paramname"><em>sheetProp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>filen</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QList&lt; <a class="el" href="class_pack_sprite.html">PackSprite</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>packedsprites</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Exports LibGDX format file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sheetProp</td><td>- sheet properties struct. </td></tr>
+    <tr><td class="paramname">path</td><td>- folder path to write to. </td></tr>
+    <tr><td class="paramname">filen</td><td>- filename (without extension). </td></tr>
+    <tr><td class="paramname">packedsprites</td><td>- the list of packed sprites. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true - if the operation was successful.Exports LibGDX file. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1504b17d2e3056a037709dac48783604"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool DataExporter::ExportPlainText </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_sheet_properties.html">SheetProperties</a> &amp;&#160;</td>
+          <td class="paramname"><em>sheetProp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>filen</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QList&lt; <a class="el" href="class_pack_sprite.html">PackSprite</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>packedsprites</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Exports a generic plain text file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sheetProp</td><td>- sheet properties struct. </td></tr>
+    <tr><td class="paramname">path</td><td>- folder path to write to. </td></tr>
+    <tr><td class="paramname">filen</td><td>- filename (without extension). </td></tr>
+    <tr><td class="paramname">packedsprites</td><td>- the list of packed sprites. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true - if the operation was successful. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a13a9c3b59a8c6bd3441fe8a61d8a745f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool DataExporter::ExportPLIST </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_sheet_properties.html">SheetProperties</a> &amp;&#160;</td>
+          <td class="paramname"><em>sheetProp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>filen</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QList&lt; <a class="el" href="class_pack_sprite.html">PackSprite</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>packedsprites</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>cocosStyle</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Exports a PLIST properties file, and any variations. Exports cocos2d format by default. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sheetProp</td><td>- sheet properties struct. </td></tr>
+    <tr><td class="paramname">path</td><td>- folder path to write to. </td></tr>
+    <tr><td class="paramname">filen</td><td>- filename (without extension). </td></tr>
+    <tr><td class="paramname">packedsprites</td><td>- the list of packed sprites. </td></tr>
+    <tr><td class="paramname">cocosStyle</td><td>- set to true for Cocos2d style PLIST (default true). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true - if the operation was successful. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad5b4a774e61ea10953c447bf5250a766"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool DataExporter::ExportXML </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_sheet_properties.html">SheetProperties</a> &amp;&#160;</td>
+          <td class="paramname"><em>sheetProp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>filen</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QList&lt; <a class="el" href="class_pack_sprite.html">PackSprite</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>packedsprites</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>starlingStyle</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Exports 'generic' XML file, and any variations, e.g. Sparrow/Starling. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sheetProp</td><td>- sheet properties struct. </td></tr>
+    <tr><td class="paramname">path</td><td>- folder path to write to. </td></tr>
+    <tr><td class="paramname">filen</td><td>- filename (without extension). </td></tr>
+    <tr><td class="paramname">packedsprites</td><td>- the list of packed sprites. </td></tr>
+    <tr><td class="paramname">starlingStyle</td><td>- set to true for Starling specific version of XML (default false). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true - if the operation was successful. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a1c71a2d2828431476de23843d38edb82"></a>
 <div class="memitem">
 <div class="memproto">
@@ -186,16 +630,41 @@ static const QList&lt; <a class="el" href="class_pack_sprite.html">PackSprite</a
 </table>
 </div><div class="memdoc">
 
-<p>Writes text to the required file. </p>
+<p>Writes text to the output file. The the other format-specific functions use this. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">path</td><td>- folder path to write to. </td></tr>
-    <tr><td class="paramname">filen</td><td>- filename without extension. </td></tr>
+    <tr><td class="paramname">filen</td><td>- filename (without extension). </td></tr>
     <tr><td class="paramname">extn</td><td>- file extension. </td></tr>
     <tr><td class="paramname">text</td><td>- the text to be written. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>true - if the operation was successful. </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a62ff30655ef2e66bf0baa266fb66ecae"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int DataExporter::NumDataFormats = 8</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Number of supported data formats. Must match the total number of formats defined in DataFormats. </p>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="class_data_exporter.html#a7ee0c7307924100a14803fbb1c95db17" title="Defines the supported data file formats. Be careful when updating this list, the indexing is used in ...">DataFormats</a> - enum where the formats are defined. </dd></dl>
 
 </div>
 </div>
@@ -206,7 +675,7 @@ static const QList&lt; <a class="el" href="class_pack_sprite.html">PackSprite</a
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 30 2014 17:25:08 for SpriteBuncher by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 3 2014 15:14:18 for SpriteBuncher by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

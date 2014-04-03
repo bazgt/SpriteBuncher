@@ -19,7 +19,7 @@
   <td id="projectlogo"><img alt="Logo" src="icon-sml70.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">SpriteBuncher
-   &#160;<span id="projectnumber">1.0a</span>
+   &#160;<span id="projectnumber">1.0b</span>
    </div>
    <div id="projectbrief">A free, open-source texture packing program.</div>
   </td>
@@ -68,36 +68,39 @@
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#ifndef PACKER_H</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define PACKER_H</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;Qlist&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;QList&gt;</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;QPixmap&gt;</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;packsprite.h&quot;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;./maxrects/MaxRectsBinPack.h&quot;</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;mainwindow.h&quot;</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">// [Dev note - the rbp::Rect data structure is used throughout so all results are compatible with MaxRects].</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="class_packer.html">   30</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_packer.html">Packer</a></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="class_packer.html">   32</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_packer.html">Packer</a></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="class_packer.html#a0ce8d32ac4100b0f9f9e02d32663fb46">MaxRects</a>( <span class="keyword">const</span> <a class="code" href="struct_sheet_properties.html">SheetProperties</a> &amp;sheetProp, QList&lt;PackSprite&gt; &amp;packedsprites,</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                         rbp::MaxRectsBinPack::FreeRectChoiceHeuristic heuristic = rbp::MaxRectsBinPack::RectBestAreaFit,</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                         <span class="keywordtype">bool</span> allowRotation = <span class="keyword">false</span>, <span class="keywordtype">bool</span> allowCrop = <span class="keyword">false</span> );</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="class_packer.html#afce9d0dfd055d1433836c75a55442550">Rows</a>( <span class="keyword">const</span> <a class="code" href="struct_sheet_properties.html">SheetProperties</a> &amp;sheetProp, QList&lt;PackSprite&gt; &amp;packedsprites,  <span class="keywordtype">bool</span> allowRotation = <span class="keyword">false</span>, <span class="keywordtype">bool</span> allowCrop =<span class="keyword">false</span> );</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;};</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#endif // PACKER_H</span></div>
-<div class="ttc" id="class_packer_html"><div class="ttname"><a href="class_packer.html">Packer</a></div><div class="ttdoc">Performs sprite packing - add new algorithms as required. Mostly static functions. </div><div class="ttdef"><b>Definition:</b> packer.h:30</div></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="class_packer.html#ab859b2554fb360df2139d48985cd8294">MaxRects</a>( <span class="keyword">const</span> <a class="code" href="struct_sheet_properties.html">SheetProperties</a> &amp;sheetProp, QList&lt;PackSprite&gt; &amp;packedsprites,</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                         rbp::MaxRectsBinPack::FreeRectChoiceHeuristic heuristic = rbp::MaxRectsBinPack::RectBestAreaFit,</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                         <span class="keywordtype">bool</span> allowRotation = <span class="keyword">false</span>, <span class="keywordtype">bool</span> allowCrop = <span class="keyword">false</span>, <span class="keywordtype">int</span> expandSprites = 0,</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                         <span class="keywordtype">int</span> extrude = 0, qreal scaleSprites = 1.0 );</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="class_packer.html#a21502cf018b1ac729ba920899ed3c643">Rows</a>( <span class="keyword">const</span> <a class="code" href="struct_sheet_properties.html">SheetProperties</a> &amp;sheetProp, QList&lt;PackSprite&gt; &amp;packedsprites,  <span class="keywordtype">bool</span> allowRotation = <span class="keyword">false</span>,</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                     <span class="keywordtype">bool</span> allowCrop = <span class="keyword">false</span>, <span class="keywordtype">int</span> expandSprites = 0,</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                      <span class="keywordtype">int</span> extrude = 0, qreal scaleSprites = 1.0 );</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;};</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#endif // PACKER_H</span></div>
+<div class="ttc" id="class_packer_html"><div class="ttname"><a href="class_packer.html">Packer</a></div><div class="ttdoc">Methods that performs sprite packing. Add new algorithms as required. </div><div class="ttdef"><b>Definition:</b> packer.h:32</div></div>
 <div class="ttc" id="struct_sheet_properties_html"><div class="ttname"><a href="struct_sheet_properties.html">SheetProperties</a></div><div class="ttdoc">Struct that stores basic sheet data. </div><div class="ttdef"><b>Definition:</b> mainwindow.h:31</div></div>
-<div class="ttc" id="class_packer_html_a0ce8d32ac4100b0f9f9e02d32663fb46"><div class="ttname"><a href="class_packer.html#a0ce8d32ac4100b0f9f9e02d32663fb46">Packer::MaxRects</a></div><div class="ttdeci">static int MaxRects(const SheetProperties &amp;sheetProp, QList&lt; PackSprite &gt; &amp;packedsprites, rbp::MaxRectsBinPack::FreeRectChoiceHeuristic heuristic=rbp::MaxRectsBinPack::RectBestAreaFit, bool allowRotation=false, bool allowCrop=false)</div><div class="ttdoc">MaxRect packing on the provided image list. List is modified. Items are packed in order...</div><div class="ttdef"><b>Definition:</b> packer.cpp:22</div></div>
-<div class="ttc" id="class_packer_html_afce9d0dfd055d1433836c75a55442550"><div class="ttname"><a href="class_packer.html#afce9d0dfd055d1433836c75a55442550">Packer::Rows</a></div><div class="ttdeci">static int Rows(const SheetProperties &amp;sheetProp, QList&lt; PackSprite &gt; &amp;packedsprites, bool allowRotation=false, bool allowCrop=false)</div><div class="ttdoc">Simple packing by equal height rows (&#39;shelves&#39;). List is modified. Items are packed in order...</div><div class="ttdef"><b>Definition:</b> packer.cpp:76</div></div>
+<div class="ttc" id="class_packer_html_a21502cf018b1ac729ba920899ed3c643"><div class="ttname"><a href="class_packer.html#a21502cf018b1ac729ba920899ed3c643">Packer::Rows</a></div><div class="ttdeci">static int Rows(const SheetProperties &amp;sheetProp, QList&lt; PackSprite &gt; &amp;packedsprites, bool allowRotation=false, bool allowCrop=false, int expandSprites=0, int extrude=0, qreal scaleSprites=1.0)</div><div class="ttdoc">Simple packing method using equal height rows (&#39;shelves&#39;). List is modified. Items are packed in orde...</div><div class="ttdef"><b>Definition:</b> packer.cpp:85</div></div>
+<div class="ttc" id="class_packer_html_ab859b2554fb360df2139d48985cd8294"><div class="ttname"><a href="class_packer.html#ab859b2554fb360df2139d48985cd8294">Packer::MaxRects</a></div><div class="ttdeci">static int MaxRects(const SheetProperties &amp;sheetProp, QList&lt; PackSprite &gt; &amp;packedsprites, rbp::MaxRectsBinPack::FreeRectChoiceHeuristic heuristic=rbp::MaxRectsBinPack::RectBestAreaFit, bool allowRotation=false, bool allowCrop=false, int expandSprites=0, int extrude=0, qreal scaleSprites=1.0)</div><div class="ttdoc">MaxRect packing on the provided image list. List is modified. Items are packed in order...</div><div class="ttdef"><b>Definition:</b> packer.cpp:22</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 30 2014 17:25:07 for SpriteBuncher by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 3 2014 15:14:18 for SpriteBuncher by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
