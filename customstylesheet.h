@@ -1,6 +1,7 @@
 #ifndef CUSTOMSTYLESHEET_H
 #define CUSTOMSTYLESHEET_H
 
+//! Fairly basic 'dark' UI stylesheet, applied to the main widgets we use in the app. Test any changes across all OS -- they don't all behave the same.
 const QString mainStyleSheet = "QWidget, QWidget *{ background: QLinearGradient(x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 rgb(64, 64, 64), stop: 1 rgb(120, 120, 120) );"
         "color: rgb(255, 255, 255);"
         "selection-background-color: rgb( 28, 120, 222 );"
@@ -65,19 +66,24 @@ const QString mainStyleSheet = "QWidget, QWidget *{ background: QLinearGradient(
 
         "QPushButton {"
         "border: 2px solid rgb(60,60,60);"
+        "border-style: outset;"
+        "padding: 3px;"
         "border-radius: 1px;"
         "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1 "
         "stop: 0 #505050, stop: 1 #585858 );"
-        "min-width: 30px;"
+        "min-width: 10px;"
         "}"
         "QPushButton:pressed {"
         "border: 2px solid rgb(60,60,60);"
+        "border-style: outset;"
         "border-radius: 1px;"
+         "padding: 3px;"
         " background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
         "stop: 0 #484848, stop: 1 #282828 );"
         "}"
         "QPushButton:flat {"
         "border: none; "
+         "padding: 3px;"
         "background-color: none;"
         "}"
 
