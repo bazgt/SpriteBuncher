@@ -599,7 +599,7 @@ void MainWindow::processFolder()
             it.next();
             // avoid buncher output files! [path name hardcoded for now]
             if ( !it.fileInfo().path().endsWith( QString("/buncher") ) ) {
-                qDebug() << "Processing... " << it.fileName();
+                //qDebug() << "Processing... " << it.fileName();
                 fulllist.append( it.fileInfo() );
             }
         }
@@ -608,7 +608,7 @@ void MainWindow::processFolder()
         dir.setFilter(QDir::Files); // ignores subfolders.
         fulllist = dir.entryInfoList();
         for (int i = 0; i < fulllist.size(); ++i) {
-            qDebug() << "Processing...  " << fulllist[i].fileName();
+            //qDebug() << "Processing...  " << fulllist[i].fileName();
         }
     }
 
@@ -659,9 +659,10 @@ void MainWindow::processFolder()
         }
     }
     qDebug() << "Packed sprite list has " << packedsprites.size() << " entries." << " (full file list has " << fulllist.size() << " entries).";
-    for (int is = 0; is < packedsprites.size(); ++is){
+    /*for (int is = 0; is < packedsprites.size(); ++is){
         qDebug() << is << packedsprites[is].fileInfo().fileName();
     }
+    */
     QApplication::restoreOverrideCursor();
 }
 

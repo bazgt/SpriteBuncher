@@ -147,7 +147,7 @@ int Packer::Rows( const SheetProperties &sheetProp, QList<PackSprite> &packedspr
                     qDebug() << "Tried new row - but could not pack this rectangle.\n";
                 }
                 else{ // ok, add it on new row
-                    qDebug() << "New row for img " << px.width() << " x " << px.height();
+                    // qDebug() << "New row for img " << px.width() << " x " << px.height();
                     sheetx = 0;
                     sheety += rowhgt;
                     packedRect.x = sheetx;
@@ -160,7 +160,7 @@ int Packer::Rows( const SheetProperties &sheetProp, QList<PackSprite> &packedspr
             }
             packedsprites[i].setPackedRect( packedRect ); // will be zero size rect if didnt pack.
             if (packedRect.height > 0 && packedRect.width > 0) {
-                qDebug() << "Packed to " <<  packedRect.x << " " << packedRect.y << " w:" << packedRect.width << " h:" << packedRect.height;
+                // qDebug() << "Packed to " <<  packedRect.x << " " << packedRect.y << " w:" << packedRect.width << " h:" << packedRect.height;
                 validitems++;
             }
             else{
