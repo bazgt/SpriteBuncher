@@ -674,13 +674,14 @@
     <addaction name="actionOpen_folder"/>
     <addaction name="actionExport"/>
     <addaction name="separator"/>
-    <addaction name="actionAbout"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
      <string>Help</string>
     </property>
     <addaction name="actionView_manual"/>
+    <addaction name="separator"/>
+    <addaction name="actionAbout"/>
    </widget>
    <widget class="QMenu" name="menuView">
     <property name="title">
@@ -712,12 +713,12 @@
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionAbout">
    <property name="text">
-    <string>About</string>
+    <string>&amp;About SpriteBuncher</string>
    </property>
   </action>
   <action name="actionView_manual">
    <property name="text">
-    <string>View user manual</string>
+    <string>Open User Manual (PDF)</string>
    </property>
   </action>
   <action name="action_Reload">
